@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Ubuntu-Regular, Ubuntu, PingFangTC-Regular, PingFangTC, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
+  /*min-height: 100vh;*/
+  background-color: #000000;
+}
+
+h1, h2, p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none !important;
+  cursor: pointer;
+  outline: none;
+}
+
+input {
+  outline: none;
+  border: none;
+  user-select: text;
+}
+
+input::-webkit-search-cancel-button {
+  display: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #acacac;
+  font-weight: 400;
+}
+
+input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.clearfix:after {
+  content: " ";
+  display: block;;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+.adm-popover-menu-item-text {
+  border-top: none !important;
+}
+
+.adm-action-sheet-extra, .adm-action-sheet-button-item-wrapper {
+  border-bottom: none !important;
+}
+
+:root {
+  --adm-color-primary: #00880C !important;
+}
+
+#nprogress .bar {
+  background: $theme_color;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px $theme_color, 0 0 5px $theme_color;
+}
+
+#nprogress .spinner {
+  display: none;
+}
+
+//#nprogress .spinner-icon {
+//  border-top-color: $theme_color;
+//  border-left-color: $theme_color;
+//}
+
+// browse下拉菜单组件样式
+.adm-dropdown-popup {
+  top: 1.7rem !important;
+}
+
+.adm-dropdown-popup-mask {
+  background: rgba(0, 0, 0, 0.2) !important;
+}

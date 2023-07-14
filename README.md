@@ -1,38 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 【SEO系列】Drama Box
+SSR
 
-## Getting Started
+## 环境
+```
+// 测试环境jenkins
 
-First, run the development server:
+// 测试域名
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+// 预发布域名
+
+// 线上域名
+https://www.dramabox.com/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 本地调试部署
+```
+1. yarn install
+// 本地调试
+2. yarn dev
+// 打包 .next 和 生成sitemap地图
+3. yarn build
+// next服务 读取文件.next 和 public文件
+4. yarn start
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 目录
+```
+项目
+├─ .next // build生成文件
+│
+├─pages // 以动态路由页面为主，尽可能少处理客户端逻辑
+│
+├─public // 放置静态资源文件，字体、图片、语言啥的
+│
+├─components // 组件代码
+├─context // 当前作用是全局layout
+├─server // 服务api
+├─store // 状态管理
+├─hooks // 自定义hook
+├─utils // 共用函数、参数
+│
+├─style // 页面级样式，不放拉到
+│
+├─typings // 声明文件、ts类型文件
+│
+├─next.config.js // next环境配置
+│
+├─api.config.js // 给next.config.js提供环境域名参数
+│
+├─next-i18next.config.js // 给next.config.js提供语言参数配置
+│
+└─package.json
+```

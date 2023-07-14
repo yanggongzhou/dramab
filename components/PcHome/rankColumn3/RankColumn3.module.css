@@ -1,0 +1,94 @@
+.rankColumn3Wrap {
+  padding: 0.31rem 0.85rem 0.24rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 0.3rem;
+  background-color: #F5F6FA;
+  height: 5.68rem;
+  margin-bottom: 0.4rem;
+}
+
+.imageItem1Wrap, .imageItem1Wrap1 {
+  width: 1.9rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.imageItem1Wrap1 {
+  width: 2.2rem;
+}
+
+.topIcon {
+  margin-top: 0.47rem;
+  width: 1.6rem;
+  height: 0.34rem;
+  margin-bottom: 0.08rem;
+}
+.topIcon1 {
+  width: 1.6rem;
+  height: 0.41rem;
+  margin-bottom: 0.08rem;
+}
+
+.bookImage, .bookImage1 {
+  width: 100%;
+  height: 2.50rem;
+  border-radius: 0.04rem;
+  overflow: hidden;
+  margin-bottom: 0.16rem;
+}
+
+.bookImage1 {
+  height: 2.90rem;
+}
+
+.bookName, .bookName1 {
+  display: block;
+  text-align: center;
+  width: 1.9rem;
+  color: #333333;
+  font-size: 0.18rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  font-family: Ubuntu-Bold, Ubuntu;
+}
+
+.bookName1 {
+  width: 2.2rem;
+}
+
+.author {
+  width: 100%;
+  display: block;
+  color: #545862;
+  font-size: 0.14rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0.08rem 0 0.16rem;
+  text-align: center;
+  font-family: Ubuntu-Regular, Ubuntu;
+  font-style: italic;
+}
+
+.intro {
+  width: 100%;
+  font-size: 0.14rem;
+  font-weight: 400;
+  color: #545862;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  word-wrap: break-word;
+  font-family: Ubuntu-Regular, Ubuntu;
+}

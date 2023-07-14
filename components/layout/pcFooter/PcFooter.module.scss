@@ -1,0 +1,80 @@
+.footerWrap {
+  position: relative;
+  background-color: $pc_footer_bg;
+  height: 1.2rem;
+  min-width: 13rem;
+  font-family: Ubuntu-Regular, Ubuntu;
+}
+
+.footerContent {
+  margin: 0 auto;
+  padding: 0.36rem 0 0;
+}
+
+.footerLink {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .copyBtn {
+    padding: 0 0.8rem;
+    cursor: pointer;
+    font-size: 0.12rem;
+    font-weight: 400;
+    color: $theme_color;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-decoration: underline;
+
+    .copyBtnIcon {
+      width: 0.2rem;
+      height: 0.22rem;
+      margin-right: 0.06rem;
+    }
+  }
+}
+
+.downloadTip {
+  margin-top: 0.04rem;
+  font-size: 0.12rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  line-height: 0.14rem;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.footerText {
+  margin-top: 0.1rem;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 0.24rem;
+  justify-content: center;
+  align-items: center;
+
+  .fText {
+    opacity: 0.5;
+    font-size: 0.12rem;
+    font-weight: 400;
+    color: #FFFFFF;
+  }
+
+  .otherBtn {
+    padding: 0.1rem;
+    font-size: 0.12rem;
+    font-weight: 400;
+    color: #FFFFFF;
+    transition: all 0.3s;
+    opacity: 0.5;
+
+    &:hover {
+      color: $theme_color;
+      opacity: 0.9;
+    }
+  }
+}
+

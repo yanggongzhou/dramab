@@ -1,0 +1,18 @@
+.swiperBox {
+  margin-top: 0.24rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.content {
+  height: 3.44rem;
+  padding: 0 0.32rem;
+}
+
+.contentImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.16rem;
+  overflow: hidden;
+  position: relative;
+}

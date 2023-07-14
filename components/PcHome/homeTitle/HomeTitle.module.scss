@@ -1,0 +1,44 @@
+.titleWrap {
+  height: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.titleText {
+  font-family: Ubuntu-Bold, Ubuntu;
+  font-size: 0.26rem;
+  color: #333333;
+  font-weight: 600;
+}
+
+.moreBox {
+  font-family: Ubuntu-Regular, Ubuntu;
+  justify-content: flex-end;
+  min-width: 1rem;
+  font-size: 0.16rem;
+  color: $theme_color;
+  font-weight: 400 !important;
+  display: flex;
+  align-items: center;
+}
+
+.moreIcon {
+  width: 0.16rem;
+  height: 0.16rem;
+  margin-left: 0.1rem;
+}
+
+.titleTip {
+  width: 0.06rem;
+  height: 0.22rem;
+  background-color: $theme_color;
+  margin-right: 0.16rem;
+}

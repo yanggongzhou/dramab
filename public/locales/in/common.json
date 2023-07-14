@@ -1,0 +1,98 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "aboutUs": "Tentang kami",
+    "bookRanking": "Peringkat Buku",
+    "business": "Bisnis Kolaborasi",
+    "search": "Mencari",
+    "browse": "Jelajah"
+  },
+  "menu": {
+    "popular": "Populer",
+    "trending": "Sedang tren",
+    "new-releases": "Keluaran terbaru",
+    "romance": "Percintaan",
+    "completed": "Lengkap",
+    "editors-picks": "Pilihan Editor",
+    "SeeMore": "Lihat Selengkapnya",
+    "Views": "Tampilan"
+  },
+  "banner": {
+    "downloadTip": "Tip: Salin tautan dan buka di browser seluler",
+    "PrivacyPolicy": "Kebijakan pribadi",
+    "TermsOfUse": "Aturan penggunaan",
+    "DownloadApp": "Unduh Aplikasi",
+    "AllRightsReserved": "hak cipta dilindungi Undang-undang",
+    "OpenApp": "Buka aplikasi Webfix untuk membaca lebih banyak konten yang luar biasa",
+    "Open": "Membuka",
+    "Search": "0 hasil pencarian untuk buku yang anda cari / 0 hasil pencarian"
+  },
+  "bookInfo": {
+    "PreviousPage": "Halaman sebelumnya",
+    "NextPage": "Halaman selanjutnya",
+    "OnGoing": "Sedang berlangsung",
+    "Completed": "Lengkap",
+    "Read": "Baca",
+    "Return": "Kembali",
+    "Points": "Poin",
+    "Chapters": "bab",
+    "Views": "Tampilan",
+    "Words": "kata",
+    "Favorites": "favorit",
+    "Updated1": "Perbarui ke Bab ",
+    "Updated2": "",
+    "ReadNow": "Baca Sekarang",
+    "Introduction": "pengantar",
+    "Directory": "Direktori",
+    "More": "lagi",
+    "Like": "Anda mungkin juga menyukai"
+  },
+  "reading": {
+    "Directory": "Direktori",
+    "NightMode": "Mode malam",
+    "DayMode": "Mode Siang",
+    "Setting": "Pengaturan",
+    "Chapter": "Bab",
+    "FontSize": "Ukuran huruf",
+    "Background": "Latar belakang",
+    "Minimize": "Memperkecil",
+    "Default": "Bawaan",
+    "Maximize": "Maksimalkan",
+    "PreviousChapter": "Bab Sebelumnya",
+    "NextChapter": "Bab selanjutnya",
+    "ClickCopy": "Nyalakan kamera ponsel untuk memindai, atau salin tautan dan buka di browser seluler Anda",
+    "LockedChapters": "Klik untuk menyalin tautan",
+    "DownloadNow": "Bab terkunci",
+    "Download": "Unduh aplikasi NovelRead untuk membuka konten yang lebih menarik",
+    "TurnOn": "Nyalakan kamera ponsel untuk memindai, atau salin tautan dan buka di browser seluler Anda",
+    "lastChapterTip": "Sudah bab terakhir",
+    "firstChapterTip": "Sudah bab pertama"
+  },
+  "footer": {
+    "Contact": "Dear Pengguna,  Terima kasih atas minat Anda pada NovelRead. Kami ingin keterlibatan Anda.  Jika Anda mencari peluang bisnis, silakan kirim email kepada kami ke booksourceofficial@gmail.com  Jika Anda tertarik dengan peluang kerja bersama kami Tim NovelRead, silakan hubungi kami di: booksourceofficial@gmail.com  Jika Anda memiliki pertanyaan atau masalah lain, kirimkan email kepada kami ke booksourceofficial@gmail.com  Terima kasih sekali lagi.Salam,NovelRead",
+    "download": "Klik dan salin tautan untuk mengunduh aplikasi",
+    "copied": "Disalin, buka tautan di browser seluler untuk mengunduh aplikasi"
+  },
+  "others": {
+    "Sorry": "Maaf, kami tidak tersedia di negara atau wilayah Anda.",
+    "Copyright": "Karena alasan hak cipta, buku ini tidak dapat dibaca di situs web. Silakan unduh aplikasi kami untuk membaca.",
+    "by": "Oleh",
+    "noBook": "Maaf, tidak ada buku yang tidak tersedia ~",
+    "error": "Maaf, hasil pencarian Anda tidak ditemukan.\nCoba cari di homepage.",
+    "goHome": "Buka halaman beranda",
+    "all": "Semua"
+  },
+  "tag": {
+    "relevant": "Kata kunci populer yang relevan",
+    "relation1": "NovelRead telah menemukan konten terkait tentang ",
+    "relation2": "untuk Anda.\nIni termasuk buku yang terkait dengan ",
+    "relation3": ",\ntermasuk informasi konten terkait \n",
+    "relation4": ""
+  },
+  "search": {
+    "tip": "Masukkan konten pencarian",
+    "resultTip1": "Cari buku-buku ",
+    "resultTip2": " yang berhubungan dengan ",
+    "resultTip3": ""
+  }
+}

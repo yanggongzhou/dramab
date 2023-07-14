@@ -1,0 +1,39 @@
+.crumbsWrapBox {
+  background-color: #F4F6F8;
+}
+.crumbsTagWrapBox {
+  background-color: transparent;
+}
+
+.crumbsWrap {
+  width: 13rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 0.17rem;
+
+  .crumbsItem {
+    font-size: 0.14rem;
+    color: #333333;
+    display: flex;
+    align-items: center;
+    margin-right: 0.1rem;
+    opacity: 0.9;
+    &:hover {
+      opacity: 1;
+    }
+
+    .crumbsIcon {
+      margin-left: 0.1rem;
+      width: 0.06rem;
+      height: 0.1rem;
+    }
+  }
+
+  .crumbsItemTxt {
+    font-size: 0.14rem;
+    color: #333333;
+    opacity: 0.9;
+  }
+}

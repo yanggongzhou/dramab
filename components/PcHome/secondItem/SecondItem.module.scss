@@ -1,0 +1,59 @@
+.secondItemWrap {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-column-gap: 0.3rem;
+  padding-bottom: 0.4rem;
+}
+
+.imageItem1Wrap {
+  width: 1.92rem;
+  height: 100%;
+}
+
+.bookImage {
+  width: 100%;
+  height: 2.58rem;
+  border-radius: 0.04rem;
+  overflow: hidden;
+  margin-bottom: 0.16rem;
+}
+
+.bookName {
+  color: #333333;
+  font-size: 0.2rem;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-wrap: break-word;
+  line-height: 0.26rem;
+  font-family: Ubuntu-Bold, Ubuntu;
+}
+
+.author {
+  margin: 0.06rem 0;
+  display: block;
+  color: #545862;
+  font-size: 0.14rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: 0.2rem;
+  font-family: Ubuntu-Regular, Ubuntu;
+  font-style: italic;
+}
+
+.viewCountDisplay {
+  font-size: 0.14rem;
+  font-weight: 400;
+  color: #7F8493;
+  font-family: Ubuntu-Regular, Ubuntu;
+
+  span {
+    font-family: Ubuntu-Bold, Ubuntu;
+    color: $theme_color;
+    font-weight: 600;
+  }
+}

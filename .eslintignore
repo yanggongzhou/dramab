@@ -1,0 +1,6 @@
+/node_modules
+/public
+/dist
+/.next
+/next-env.d.ts
+!/next-env.d.ts

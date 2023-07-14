@@ -1,0 +1,25 @@
+.titleWrap {
+  height: 1.06rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 0.36rem;
+  color: #2F3031;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  font-family: Roboto-Bold, Roboto;
+}
+
+.moreBox {
+  padding: 0.2rem 0 0.2rem 0.2rem;
+  font-size: 0.26rem;
+  font-weight: bold;
+  color: $theme_color;
+  font-family: Roboto-Bold, Roboto;
+}

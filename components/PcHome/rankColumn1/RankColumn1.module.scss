@@ -1,0 +1,69 @@
+.rankColumn1Wrap {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-row-gap: 0.12rem;
+  padding-bottom: 0.4rem;
+}
+
+.imageItem1Wrap {
+  padding: 0.12rem;
+  width: 100%;
+  height: 1.04rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.bookImage {
+  width: 0.6rem;
+  height: 0.8rem;
+  border-radius: 0.02rem;
+  overflow: hidden;
+}
+
+.bookRow1, .bookIndex {
+  width: 0.44rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.24rem;
+  font-weight: 600;
+  color: $theme_color;
+  font-family: Ubuntu-Bold, Ubuntu;
+}
+
+.bookIndex {
+  color: #333333;
+}
+
+.bookRow2 {
+  width: 2.5rem;
+}
+
+.bookName {
+  font-family: Ubuntu-Bold, Ubuntu;
+  display: block;
+  color: #333333;
+  font-size: 0.16rem;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-bottom: 0.08rem;
+  line-height: 0.22rem;
+}
+
+.viewCountDisplay {
+  font-size: 0.14rem;
+  font-weight: 400;
+  color: #7F8493;
+  font-family: Ubuntu-Regular, Ubuntu;
+
+  span {
+    color: $theme_color;
+    font-weight: 600;
+    font-family: Ubuntu-Bold, Ubuntu;
+  }
+}

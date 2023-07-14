@@ -1,0 +1,68 @@
+.page_container {
+
+}
+
+.pageContent {
+  text-align: center;
+  font-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+
+  .normalLi, .activePage, .nomore, .prevNext, .omission {
+    min-width: 30px;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0.04rem;
+    border: 1px solid #EEEEEE;
+    height: 0.3rem;
+    box-sizing: border-box;
+    font-size: 0.16rem;
+    padding: 0 10px;
+    cursor: pointer;
+    border-radius: 0.02rem;
+    color: #333333;
+    background-color: #FFFFFF;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #FFFFFF;
+      background-color: $theme_color;
+      border: 1px solid $theme_color;
+    }
+  }
+
+  .activePage {
+    color: #FFFFFF;
+    background-color: $theme_color;
+    border: 1px solid $theme_color;
+  }
+
+  .prevNext {
+    width: auto;
+    background-color: transparent !important;
+
+    &:hover {
+      border: 1px solid $theme_color;
+      color: $theme_color;
+    }
+  }
+
+  .omission {
+    border: none !important;
+    margin: 0;
+    background-color: transparent !important;
+    color: #333333 !important;
+    cursor: default;
+  }
+
+  .nomore {
+    cursor: not-allowed;
+    color: #CBCBCB !important;
+    background-color: transparent !important;
+    border: 1px solid #EEEEEE !important;;
+  }
+}
