@@ -1,25 +1,30 @@
 .titleWrap {
-  height: 1.06rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding-bottom: 0.32rem;
+
+  .title {
+    font-size: 0.34rem;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    line-height: 0.48rem;
+
+    .titleSub {
+      margin-top: 0.02rem;
+      font-size: 0.24rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      line-height: 0.33rem;
+    }
+  }
+
+  .moreBox {
+    padding-left: 0.2rem;
+    .moreIcon {
+      width: 0.32rem;
+      height: 0.32rem;
+    }
+  }
 }
 
-.title {
-  font-size: 0.36rem;
-  color: #2F3031;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  font-family: Roboto-Bold, Roboto;
-}
 
-.moreBox {
-  padding: 0.2rem 0 0.2rem 0.2rem;
-  font-size: 0.26rem;
-  font-weight: bold;
-  color: $theme_color;
-  font-family: Roboto-Bold, Roboto;
-}

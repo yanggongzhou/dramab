@@ -1,0 +1,52 @@
+.footerBox {
+  height: 4.12rem;
+  background-color: #1C1C1E;
+  padding: 0 0.32rem 0.48rem;
+
+  .agreementItem {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    height: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.20rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+
+    .agreementIcon {
+      width: 0.24rem;
+      height: 0.24rem;
+    }
+  }
+
+
+  .footerContent {
+    font-size: 0.2rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+
+    .logoBox {
+      margin: 0.51rem auto 0;
+      height: 0.4rem;
+      width: 1.81rem;
+    }
+
+    .fmail {
+      padding-top: 0.19rem;
+      text-align: center;
+      font-size: 0.16rem;
+      font-weight: 400;
+      line-height: 0.28rem;
+      transition: all 0.3s;
+      display: block;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .fText {
+      text-align: center;
+      margin-top: 0.08rem;
+      line-height: 0.28rem;
+    }
+
+  }
+}

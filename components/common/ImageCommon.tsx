@@ -23,7 +23,7 @@ const ImageCommon: FC<IProps> = (
   { className , source, onClick, alt = '', w, h}
 ) => {
 
-  return <div style={{ position: 'relative' }} className={className}>
+  return <div style={{ position: 'relative' }} className={className} onClick={() => onClick && onClick()}>
     <Image
       // onError={(e)=> imgError(e)}
       unoptimized

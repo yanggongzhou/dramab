@@ -1,80 +1,61 @@
 .footerWrap {
   position: relative;
-  background-color: $pc_footer_bg;
-  height: 1.2rem;
+  background-color: #1C1C1E;
+  height: 1.8rem;
   min-width: 13rem;
-  font-family: Ubuntu-Regular, Ubuntu;
-}
-
-.footerContent {
-  margin: 0 auto;
-  padding: 0.36rem 0 0;
-}
-
-.footerLink {
-  width: 100%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: column;
 
-  .copyBtn {
-    padding: 0 0.8rem;
-    cursor: pointer;
-    font-size: 0.12rem;
-    font-weight: 400;
-    color: $theme_color;
-    transition: all 0.3s;
+  .footerContent {
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: row;
-    text-decoration: underline;
+    width: 13rem;
 
-    .copyBtnIcon {
-      width: 0.2rem;
-      height: 0.22rem;
-      margin-right: 0.06rem;
+    .footerText {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      grid-column-gap: 0.3rem;
+      justify-content: center;
+      align-items: center;
+
+      .fText, .fmail {
+        opacity: 0.4;
+        font-size: 0.16rem;
+        font-weight: 400;
+        color: #FFFFFF;
+      }
+
+      .fmail {
+        transition: all 0.3s;
+        padding: 0.1rem;
+
+        &:hover {
+          color: $theme_color;
+          opacity: 0.9;
+        }
+      }
     }
-  }
-}
 
-.downloadTip {
-  margin-top: 0.04rem;
-  font-size: 0.12rem;
-  font-weight: 400;
-  color: #FFFFFF;
-  line-height: 0.14rem;
-  opacity: 0.5;
-  text-align: center;
-}
+    .footerLink {
 
-.footerText {
-  margin-top: 0.1rem;
-  display: grid;
-  grid-template-columns: auto auto auto auto;
-  grid-column-gap: 0.24rem;
-  justify-content: center;
-  align-items: center;
+      .otherBtn {
+        padding: 0.2rem;
+        font-size: 0.16rem;
+        font-weight: 400;
+        color: #FFFFFF;
+        transition: all 0.3s;
+        opacity: 0.4;
+        text-decoration: underline !important;
 
-  .fText {
-    opacity: 0.5;
-    font-size: 0.12rem;
-    font-weight: 400;
-    color: #FFFFFF;
-  }
-
-  .otherBtn {
-    padding: 0.1rem;
-    font-size: 0.12rem;
-    font-weight: 400;
-    color: #FFFFFF;
-    transition: all 0.3s;
-    opacity: 0.5;
-
-    &:hover {
-      color: $theme_color;
-      opacity: 0.9;
+        &:hover {
+          color: $theme_color;
+          opacity: 0.9;
+        }
+      }
     }
+
   }
 }
-

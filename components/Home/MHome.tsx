@@ -6,9 +6,7 @@ import FirstItem from "@/components/Home/firstItem/FirstItem";
 import BookList from "@/components/Home/bookList/BookList";
 import { EnumPosition, IBannerItem, IPageColumnsItem, } from "@/typings/home.interface";
 import styles from '@/components/Home/MHome.module.scss'
-import RankColumn from "@/components/Home/rankColumn/RankColumn";
 import { useTranslation } from "next-i18next";
-import HomeHeader from "@/components/Home/homeHeader/HomeHeader";
 
 interface IProps {
   bannerList: IBannerItem[];
@@ -27,36 +25,17 @@ const MHome: FC<IProps> = ({ homeData, bannerList }) => {
 
   return (
     <div className={styles.container}>
-      <HomeHeader/>
 
-      { bannerList.length > 0 ? <SwiperNormal bannerList={bannerList}/> : []}
+      { bannerList.length > 0 ? <SwiperNormal bannerList={homeData[1].items.slice(0,3)}/> : []}
 
       {homeData.map((item) => {
-        if (item.name === EnumPosition.banner) return null;
-
-        if (item.name === EnumPosition.popular) {
+        if (item.name === EnumPosition.popular || item.name === EnumPosition.ranking) {
           return <div key={item.id} className={styles.mainContent}>
-            <div className={styles.itemWrap}>
-              <HomeTitle title={item.name}/>
-              <FirstItem dataSource={item.items || []}/>
-            </div>
-          </div>
-        }
-        if (item.name === EnumPosition.ranking) {
-          return <div key={item.id} className={styles.mainContent}>
-            <div className={styles.itemWrap}>
-              <HomeTitle title={item.name}/>
-              <RankColumn dataSource={item?.items || []}/>
-            </div>
-          </div>
-        }
-
-        return <div key={item.id} className={styles.mainContent}>
-          <div className={styles.itemWrap}>
             <HomeTitle title={item.name}/>
-            <BookList dataSource={item.items || []}/>
+            <FirstItem dataSource={item.items || []}/>
           </div>
-        </div>
+        }
+        return null
       })}
 
       { homeData.length === 0 && bannerList.length === 0 ? <div className={styles.mainContentEmpty}>

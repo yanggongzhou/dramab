@@ -1,23 +1,20 @@
 import styles from '@/components/PcHome/PcHome.module.css'
 import React, { FC, useMemo } from "react";
-import SecondItem from "@/components/PcHome/secondItem/SecondItem";
-import RankColumn1 from "@/components/PcHome/rankColumn1/RankColumn1";
-import RankColumn3 from "@/components/PcHome/rankColumn3/RankColumn3";
+import SecondList from "@/components/PcHome/secondList/SecondList";
 import { EnumPosition, IBannerItem, IPageColumnsItem } from "typings/home.interface";
-import PcSwiperNormal from "@/components/PcHome/swiperNormal/SwiperNormal";
-import PcFirstItem from "@/components/PcHome/firstItem/FirstItem";
+import SwiperArea from "@/components/PcHome/swiperArea/SwiperArea";
 import PcHomeTitle from "@/components/PcHome/homeTitle/HomeTitle";
 import ImageCommon from "@/components/common/ImageCommon";
 import { useTranslation } from "next-i18next";
 
 interface IProps {
-  bannerList: IBannerItem[];
   homeData: IPageColumnsItem[];
 }
 
-const PcHome: FC<IProps> = ({ homeData, bannerList }) => {
+const PcHome: FC<IProps> = ({ homeData }) => {
 
   const { t } = useTranslation();
+  const trendingData = homeData.find(item => item.name === EnumPosition.trending);
 
   const bookList = useMemo<IPageColumnsItem[]>(() => {
     const rankingData = homeData.find(item => item.name === EnumPosition.ranking);
@@ -40,50 +37,23 @@ const PcHome: FC<IProps> = ({ homeData, bannerList }) => {
 
   return (
     <div className={styles.container}>
-      {/*顶部搜索背景块*/}
-      {bannerList.length > 0 ? <PcSwiperNormal bannerList={bannerList}/> : null}
+      {/*顶部*/}
+      {trendingData.items.length > 0 ? <SwiperArea bannerList={trendingData.items.slice(0, 3)}/> : null}
       {
         bookList.length > 0 && bookList.map((item, index) => {
-          if (item.name === EnumPosition.popular) {
-            if (item?.items && item.items.length > 0) {
-              return <div key={item.id} className={styles.mainContent}>
-                <div className={styles.itemWrap}>
-                  <PcHomeTitle title={item.name}/>
-                  <PcFirstItem dataSource={item.items || []}/>
-                </div>
-              </div>
-            }
+          if (item.name === EnumPosition.customInset || item.name === EnumPosition.popular) {
             return null;
           }
-
-          if (item.name === EnumPosition.customInset) {
-            const trending = item.columns.find(val => val && val.name === EnumPosition.trending);
-            const ranking = item.columns.find(val => val && val.name === EnumPosition.ranking);
-
-            return <div key={item.id} className={styles.mainRankContent}>
-              {trending && trending.items.length > 0 ? <div>
-                <PcHomeTitle title={trending.name}/>
-                <RankColumn1 dataSource={trending.items.slice(0, 5)}/>
-              </div> : null}
-              {ranking && ranking?.items?.length > 0 ? <div className={styles.mainContent4}>
-                <PcHomeTitle title={ranking.name}/>
-                <RankColumn3 dataSource={ranking.items.slice(0, 3)}/>
-              </div> : null}
-            </div>
-          }
-
           if (item?.items && item.items.length > 0) {
-            return <div key={item.id} style={index % 2 === 0 ? { backgroundColor: '#F5F6FA' } : {}}>
-              <div className={styles.itemWrap}>
-                <PcHomeTitle title={item.name}/>
-                <SecondItem dataSource={item.items || []}/>
-              </div>
+            return <div key={item.id}>
+              <PcHomeTitle title={item.name}/>
+              <SecondList dataSource={(item.items || []).slice(0, 5)}/>
             </div>
           }
           return null;
         })
       }
-      {bookList.length === 0 && bannerList.length === 0 ? <div className={styles.mainContentEmpty}>
+      {bookList.length === 0 ? <div className={styles.mainContentEmpty}>
         <ImageCommon source={'/images/search/empty.png'} className={styles.emptyImg}/>
         <div className={styles.emptyIntro}>
           <p>{t('others.noBook')}</p>

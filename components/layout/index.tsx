@@ -7,6 +7,8 @@ import useLogParams from "@/hooks/useLogParams";
 import { useAppDispatch, useAppSelector } from "@/store";
 import { setDevice } from "@/store/modules/app.module";
 import { EDevice } from "@/store/store.interfaces";
+import MHeader from "@/components/layout/mHeader/MHeader";
+import MFooter from "@/components/layout/mFooter/MFooter";
 
 interface IProps {
   children: React.ReactNode;
@@ -38,7 +40,7 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
       if (clientWidth <= 1366){
         document.documentElement.style.fontSize = 100 * (1366 / 1800) + 'px';
       } else {
-        document.documentElement.style.fontSize = 100 * (clientWidth / 1800) + 'px';
+        document.documentElement.style.fontSize = 100 * (clientWidth / 1920) + 'px';
       }
     } else {
       document.documentElement.style.fontSize = 100 * (clientWidth / 750) + 'px';
@@ -57,11 +59,23 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
     }
   }
 
+  if (device === EDevice.pc) {
+    return <>
+      <PcHeader />
+      <main style={{ width: '14.4rem', margin: '0 auto' }}>
+        {children}
+      </main>
+      <PcFooter />
+    </>
+  }
+
   return (
     <>
-      { device === EDevice.pc ? <PcHeader /> : null }
-      {children}
-      { device === EDevice.pc ? <PcFooter /> : null }
+      <MHeader/>
+      <main>
+        {children}
+      </main>
+      <MFooter/>
     </>
   );
 }

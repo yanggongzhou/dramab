@@ -1,0 +1,122 @@
+.swiperBox {
+  margin-top: 0.24rem;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 0.48rem;
+
+  :global {
+    .adm-page-indicator {
+      --active-dot-color: #FF375F !important;
+      --dot-color: rgba(255,255,255,0.12) !important;
+      --dot-border-radius: 50% !important;
+      --active-dot-border-radius: 50% !important;
+    }
+
+    .adm-page-indicator-dot {
+      width: 0.16rem;
+      height: 0.06rem;
+      border-radius: 0.03rem;
+    }
+  }
+}
+
+.content {
+  height: 3.16rem;
+  padding: 0 0.08rem;
+
+  .swiperItem {
+    width: 100%;
+    height: 2.94rem;
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 0.08rem;
+
+    .contentImgBox {
+      position: relative;
+      border-radius: 0.08rem;
+      overflow: hidden;
+      width: 2.18rem;
+      height: 2.94rem;
+      flex-shrink: 0;
+
+      .contentImg {
+        width: 2.18rem;
+        height: 2.94rem;
+        border-radius: 0.08rem;
+        position: relative;
+      }
+
+      .mark {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 9;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, #000000 100%);
+        width: 100%;
+        height: 0.62rem;
+      }
+
+    }
+  }
+}
+
+
+.rightCard {
+  padding: 0.16rem 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .rightCardTop {
+
+    .bookName {
+      font-size: 0.28rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      line-height: 0.4rem;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      word-wrap: break-word;
+      margin-bottom: 0.16rem;
+    }
+
+    .viewCount {
+      font-size: 0.22rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      line-height: 0.3rem;
+      margin-bottom: 0.16rem;
+    }
+
+    .intro {
+      font-size: 0.24rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.4);
+      line-height: 0.33rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      word-wrap: break-word;
+    }
+  }
+
+  .rightCardBottom {
+    font-size: 0.22rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.4);
+    grid-gap: 0.08rem;
+    display: flex;
+
+    .rightTag {
+      border-radius: 0.03rem;
+      padding: 0.03rem 0.12rem;
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+}

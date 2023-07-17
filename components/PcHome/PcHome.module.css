@@ -2,32 +2,6 @@
   min-height: calc(100vh - 2rem);
 }
 
-.mainContent {
-
-}
-
-.itemWrap {
-  border-radius: 0;
-  background-color: transparent;
-  width: 13rem;
-  margin: 0 auto;
-}
-
-.mainRankContent {
-  width: 13rem;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-}
-
-.mainContent3 {
-  width: 3.9rem;
-}
-
-.mainContent4 {
-  width: 8.5rem;
-}
-
 .mainContentEmpty {
   width: 100%;
   background-color: #FFFFFF;

@@ -64,18 +64,14 @@ export interface IBookItem {
 
 export enum ELanguage {
   English = 'en',
-  Indonesia = 'in', // 印尼语
-  // Korean = 'ko', // 韩语
-  // Tagalog = 'tl', // 菲律宾语
-  // Thai = 'th', // 泰语
-  // Spanish = 'es', // 西班牙语
+  CN = 'cn', // 简体中文
+  TC = 'tc', // 繁體中文
+  Korean = 'ko', // 韩语
 }
 
 export const LanguageActions: { text: string; key: ELanguage }[] = [
+  { text: '简体中文', key: ELanguage.CN },
   { text: 'English', key: ELanguage.English },
-  // { text: 'แบบไทย', key: ELanguage.Thai },
-  // { text: '한국인', key: ELanguage.Korean },
-  // { text: 'español', key: ELanguage.Spanish },
-  { text: 'Indonesia', key: ELanguage.Indonesia },
-  // { text: 'Filipino', key: ELanguage.Tagalog },
+  { text: '繁體中文', key: ELanguage.TC },
+  { text: '한국인', key: ELanguage.Korean },
 ]

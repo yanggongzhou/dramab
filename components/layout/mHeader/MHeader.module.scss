@@ -1,0 +1,103 @@
+.actionSheetTitleBox {
+  font-family: Roboto-Regular, Roboto;
+  height: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .actionSheetTitle {
+    font-size: 0.32rem;
+    font-weight: bold;
+    color: #2A2A2A;
+    line-height: 0.38rem;
+    text-align: center;
+  }
+
+  .asClose {
+    position: absolute !important;
+    right: 0.48rem;
+    top: 0.32rem;
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+
+.headerOccupy {
+  position: relative;
+  height: 0.88rem;
+  width: 100%;
+}
+
+.headerContent {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  height: 0.88rem;
+  width: 100%;
+  background-color: #000000;
+  backdrop-filter: blur(10px);
+  padding: 0 0.32rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .navMenuIcon {
+    width: 0.48rem;
+    height: 0.48rem;
+  }
+
+  .logoBox {
+    margin-left: 0.6rem;
+    width: 1.81rem;
+    height: 0.4rem;
+  }
+
+  .rightBox {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    .languageIcon {
+      margin: 0 0.04rem 0 0.4rem;
+      width: 0.48rem;
+      height: 0.48rem;
+    }
+
+    span {
+      margin-left: 0.04rem;
+      font-size: 0.28rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      opacity: 0.9;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+
+.homeTab {
+  height: 0.8rem;
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .homeTabItem, .homeTabItemActive {
+    font-size: 0.32rem;
+    color: rgba(0, 0, 0, 0.7);
+    padding: 0 0.32rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: Roboto-Regular, Roboto;
+  }
+
+  .homeTabItemActive {
+    font-family: Roboto-Medium, Roboto;
+    color: $theme_color;
+    font-weight: 500;
+  }
+}

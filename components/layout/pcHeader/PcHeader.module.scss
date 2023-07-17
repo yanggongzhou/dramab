@@ -1,8 +1,17 @@
+.navOccupy {
+  width: 100%;
+  height: 0.8rem;
+}
 .navWrap {
   width: 100%;
   height: 0.8rem;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
   .navContent {
     height: 100%;
     width: 13rem;
@@ -13,88 +22,79 @@
     .navLeft {
       flex: 1;
       display: flex;
+      justify-content: space-between;
 
       .logoTxtBox {
-        margin: 0.25rem 0.9rem 0 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
 
         .logoTxt {
           width: 0.4rem;
           height: 0.4rem;
+          margin-right: 0.1rem;
         }
 
         span {
           font-size: 0.28rem;
-          font-family: SFPro-Semibold, SFPro;
           font-weight: 600;
           color: #FFFFFF;
         }
       }
     }
-
   }
 }
-
-
-
-
-
 
 .navBox {
   height: 100%;
   display: flex;
   justify-content: center;
   flex-direction: row;
+
+  .navItem, .navItemActive {
+    height: 100%;
+    padding: 0.2rem 0.25rem;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 0.18rem;
+    color: rgba(255, 255, 255, 0.6);
+
+    .navItemLabel {
+      padding: 0.04rem 0.1rem;
+      word-break: keep-all;
+      min-width: 1rem;
+      text-align: center;
+    }
+
+    &:hover {
+      color: $theme_color;
+      font-weight: 500;
+    }
+
+    &:hover .navItemLabel {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 0.03rem;
+    }
+  }
+
+  .navItemActive {
+    color: $theme_color;
+    font-weight: 500;
+  }
 }
 
-.navItem, .navItemActive {
-  font-family: Ubuntu-Regular, Ubuntu;
-  min-width: 1rem;
-  height: 100%;
-  padding: 0.31rem 0.5rem 0 0;
-  text-align: center;
-  font-weight: 400;
-  font-size: 0.16rem;
-  color: #333333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  word-break: keep-all;
-}
-
-.navItem:hover, .navItemActive {
-  color: $theme_color;
-}
-
-.navItemTxt {
-  font-size: 0.16rem;
-  color: #333333;
-  font-family: Ubuntu-Regular, Ubuntu;
-}
-
-.line {
-  width: 0.24rem;
-  height: 0.04rem;
-  background-color: $theme_color;
-  border-radius: 0.02rem;
-}
-
-.navItemIcon, .navItemActiveIcon {
+.navItemIcon {
   width: 0.12rem;
   height: 0.12rem;
-  margin-left: 0.05rem;
-  transform: rotate(0deg);
+  margin-left: 0.08rem;
   transition: all 0.3s;
 }
 
-.navItemActiveIcon {
-  transform: rotate(180deg);
-}
-
-.language{
-  margin-right: 0.4rem;
+.language {
+  margin-left: 0.25rem;
   height: 0.8rem;
-  padding: 0.31rem 0 0.31rem 0;
+  padding: 0.23rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,103 +105,61 @@
   :global {
     .adm-popover {
       top: 0.5rem;
+
+      width: 1.2rem;
     }
+
     .adm-popover-inner {
+      padding: 0.12rem 0;
       border-radius: 4px;
       width: 1.66rem;
     }
-    .adm-popover-arrow {
-      display: none;
-    }
+
     .adm-popover-menu-item {
       padding-left: 0;
     }
+
     .adm-popover-menu-item-text {
       width: 100%;
-      height: 0.5rem;
+      height: 0.36rem;
       display: flex;
       align-items: center;
-      font-size: 0.16rem;
+      justify-content: center;
+      font-size: 0.14rem;
       font-weight: 400;
-      color: #333333;
+      color: rgba(255,255,255,0.9);
       transition: all .3s;
-      padding: 0 0.154rem;
-      font-family: Ubuntu-Regular, Ubuntu;
+      padding: 0;
 
       &:hover {
         color: $theme_color;
       }
     }
   }
-}
 
-.navItemMore {
-  position: absolute;
-  top: 0.62rem;
-  left: 0.4rem;
-  width: 1.66rem;
-  min-height: 0.5rem;
-  background-color: #FFFFFF;
-  box-shadow: 0 0.06rem 0.06rem -0.02rem rgba(0,0,0,0.3);
-  border-radius: 0.04rem;
-  border: 0.01rem solid #EEEEEE;
-  overflow: hidden;
-  /*display: none;*/
-  transition: all .3s;
-  transform: scale(0);
-  opacity: 0;
-  z-index: 9999;
-}
+  .languageBox, .languageBoxActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    padding: 0.04rem 0.1rem;
+    border-radius: 0.03rem;
+    min-width: 1.2rem;
 
-.languageBox {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
+    .navItemTxt {
+      font-size: 0.18rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.6);
+      user-select: none;
+    }
+  }
 
-.navRight {
-  width: 2.20rem;
-  height: .32rem;
-  border-radius: 0.04rem;
-  border: 1px solid #C5C5C5;
-  margin-top: 0.24rem;
-  background-color: #FFFFFF;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
+  .languageBoxActive {
+    background-color: rgba(255,255,255,0.08);
 
-.navRightIcon {
-  width: 0.16rem;
-  height: 0.16rem;
-  margin-left: 0.12rem;
-}
-
-.navRightInput {
-  flex: 1;
-  background-color: transparent;
-  margin-left: 0.08rem;
-  height: 100%;
-  word-wrap: break-word;
-  font-size: 0.14rem;
-  font-weight: 400;
-  color: #000000;
-  font-family: Ubuntu-Regular, Ubuntu;
-}
-
-.navRightInput::-webkit-input-placeholder {
-  color: #CBCBCB;
-  font-weight: 400;
-}
-
-.navItemTxt {
-  font-size: 0.16rem;
-  color: #333333;
-}
-
-.line {
-  width: 0.24rem;
-  height: 0.04rem;
-  background-color: $theme_color;
-  border-radius: 0.02rem;
+    .navItemTxt {
+      color: $theme_color;
+      font-weight: 500;
+    }
+  }
 }

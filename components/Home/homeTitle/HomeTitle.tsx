@@ -3,34 +3,23 @@ import styles from './HomeTitle.module.scss'
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { EPositionShowName } from "@/typings/home.interface";
+import ImageCommon from "@/components/common/ImageCommon";
 
 interface IProps {
   title: string;
-  isMore?: Boolean;
 }
 
-const HomeTitle: FC<IProps> = ({ title, isMore = true }) => {
+const HomeTitle: FC<IProps> = ({ title }) => {
   const { t } = useTranslation()
-
-  const TitleItem = () => (
-    <div className={styles.titleWrap}>
-      <div className={styles.title}>
-        <span>{t('menu.' + EPositionShowName[title])}</span>
-      </div>
-      {isMore &&
-      <div className={styles.moreBox}>
-        {t('menu.SeeMore')}
-      </div>
-      }
+  return <div className={styles.titleWrap}>
+    <div className={styles.title}>
+      <p>{t('menu.' + EPositionShowName[title])}</p>
+      <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
+        <ImageCommon source={'/images/layout/link.png'} className={styles.moreIcon}/>
+      </Link>
     </div>
-  )
-  if (isMore) {
-    return <Link href={`/more/${EPositionShowName[title]}`}>
-      <TitleItem/>
-    </Link>;
-  } else {
-    return <TitleItem/>
-  }
+    <p className={styles.titleSub}>What are you looking at？</p>
+  </div>;
 }
 
 export default HomeTitle

@@ -6,7 +6,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: Ubuntu-Regular, Ubuntu, PingFangTC-Regular, PingFangTC, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: PingFangSC, PingFang SC, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
   Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;
   /*min-height: 100vh;*/
   background-color: #000000;
@@ -64,7 +64,7 @@ input[type=search]::-webkit-search-decoration {
 }
 
 :root {
-  --adm-color-primary: #00880C !important;
+  --adm-color-primary: #FF375F !important;
 }
 
 #nprogress .bar {

@@ -1,0 +1,42 @@
+.navHead {
+  height: 0.88rem;
+  padding: 0.2rem 0.32rem;
+  margin-bottom: 0.4rem;
+
+  .navClose {
+    width: 0.48rem;
+    height: 0.48rem;
+  }
+}
+
+.navMenu {
+
+  .navItem, .navItemActive {
+    display: block;
+    width: 100%;
+    padding: 0 0.26rem;
+    height: 1.2rem;
+
+    .navItemTxt {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 0.28rem;
+      height: 1.2rem;
+      line-height: 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  .navItemActive {
+    background: rgba(255, 255, 255, 0.08);
+
+    .navItemTxt {
+      color: $theme_color;
+      border-bottom: none;
+    }
+  }
+}
+
+
+

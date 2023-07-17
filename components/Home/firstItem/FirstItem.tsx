@@ -8,15 +8,14 @@ interface IProps {
   dataSource: IBookItem[];
 }
 
-const FirstItem: FC<IProps> = ({ dataSource}) => {
-
+const FirstItem: FC<IProps> = ({ dataSource }) => {
   return <div className={styles.firstItemWrap}>
     {dataSource && dataSource.length > 0 ? (dataSource as IBookItem[]).map((book) => {
       const { bookId, typeTwoName = 'all', replacedBookName, cover, bookName } = book;
       const routerToBookInfo = `/book_info/${bookId}/${typeTwoName}/${replacedBookName}`
-      return <div key={bookId} className={styles.imageItem1Wrap}>
+      return <div key={bookId} className={styles.itemBox}>
         <Link href={routerToBookInfo}>
-            <ImageCommon w={180} h={238} className={styles.bookImage} source={cover} alt={bookName}/>
+          <ImageCommon w={180} h={238} className={styles.bookImage} source={cover} alt={bookName}/>
         </Link>
         <Link href={routerToBookInfo} className={styles.bookName}>
           {bookName}

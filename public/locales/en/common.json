@@ -15,8 +15,9 @@
     "romance": "Romance",
     "completed": "Completed",
     "editors-picks": "Editors' Picks",
-    "SeeMore": "See More",
-    "Views": "Views"
+    "SeeMore": "more",
+    "Views": "Views",
+    "languageSetting": "Language Setting"
   },
   "banner": {
     "downloadTip": "Tip: Copy the link and open it in the mobile browser",

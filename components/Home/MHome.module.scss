@@ -1,31 +1,11 @@
 .container {
-  background-color: rgba(244, 246, 248, 1);
+  background-color: #000000;
   min-height: 100vh;
-  padding-bottom: 1.7rem;
-  font-family: Roboto-Regular, Roboto;
 }
 
 .mainContent {
-  padding: 0 0.32rem;
-}
+  padding: 0 0.32rem 0.48rem;
 
-.itemWrap {
-  width: 100%;
-  border-radius: 0.16rem;
-  background-color: #FFFFFF;
-  margin-top: 0.48rem;
-  padding: 0 0.32rem;
-  overflow: hidden;
-}
-
-.noMore {
-  margin-top: 0.2rem;
-  width: 100%;
-  text-align: center;
-  color: lightgray;
-  font-size: 0.32rem;
-  font-weight: 400;
-  padding-bottom: 1.6rem;
 }
 
 .mainContentEmpty {

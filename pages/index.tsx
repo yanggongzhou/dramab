@@ -21,7 +21,7 @@ const Home: NextPage<IProps> = ({ isPc, homeData = [] }) => {
   }, [homeData]);
 
   return <>
-    {isPc ? <PcHome homeData={homeData} bannerList={bannerList}/> : <MHome homeData={homeData} bannerList={bannerList}/>}
+    {isPc ? <PcHome homeData={homeData}/> : <MHome homeData={homeData} bannerList={bannerList}/>}
   </>
 }
 
