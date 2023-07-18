@@ -8,6 +8,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { Action } from "antd-mobile/es/components/action-sheet";
+import MLanguage from "@/components/layout/mHeader/mLanguage/MLanguage";
 
 interface IProps {
   actionChange?: () => void;
@@ -38,41 +39,28 @@ const MHeader: FC<IProps> = ({ actionChange }) => {
     }
   }
 
-  // 切换语言
-  const changeLanguage = (action: Action) => {
-    setActionVisible(false)
-    if (router.pathname.includes('/browse/[typeTwoId]/[typeTwoName]')) {
-      router.replace('/browse/0/all', undefined, { locale: action.key as string })
-    } else {
-      router.replace(router.asPath, router.asPath, { locale: action.key as string });
-    }
-  }
-
   return (<>
-    <ActionSheet
-      extra={<div className={styles.actionSheetTitleBox}>
-        <div className={styles.actionSheetTitle}>{t('menu.languageSetting')}</div>
-        <ImageCommon className={styles.asClose} source={'/images/home/as-close.png'} onClick={() => setActionVisible(false)}/>
-      </div>}
-      visible={actionVisible}
-      actions={LanguageActions}
-      onClose={() => setActionVisible(false)}
-      onAction={action => changeLanguage(action)}
-    />
+    {/*<ActionSheet*/}
+    {/*  extra={<div className={styles.actionSheetTitleBox}>*/}
+    {/*    <div className={styles.actionSheetTitle}>{t('menu.languageSetting')}</div>*/}
+    {/*    <ImageCommon className={styles.asClose} source={'/images/home/as-close.png'} onClick={() => setActionVisible(false)}/>*/}
+    {/*  </div>}*/}
+    {/*  visible={actionVisible}*/}
+    {/*  actions={LanguageActions}*/}
+    {/*  onClose={() => setActionVisible(false)}*/}
+    {/*  onAction={action => changeLanguage(action)}*/}
+    {/*/>*/}
 
     <MNav visible={visible} cancel={() => navIconClick()}/>
 
     {/*顶部搜索背景块*/}
     <div className={styles.headerContent}>
-      <ImageCommon
-        className={styles.navMenuIcon}
-        source={visible ? '/images/home/m-menu-cancel.png' : '/images/home/m-menu.png'}
-        onClick={() => navIconClick()} />
+      <ImageCommon className={styles.navMenuIcon} source={'/images/home/m-menu.png'} onClick={() => navIconClick()} />
+
       <ImageCommon className={styles.logoBox} source={'/images/logo2.png'}/>
-      <div className={styles.rightBox}>
-        <ImageCommon className={styles.languageIcon} source={'/images/home/language.png'} onClick={() => setActionVisible(true)}/>
-        <span onClick={() => setActionVisible(true)}>{router.locale}</span>
-      </div>
+
+      <MLanguage/>
+
     </div>
     <div className={styles.headerOccupy} />
 

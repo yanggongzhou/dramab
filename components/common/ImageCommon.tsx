@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
+import Image2 from 'next/legacy/image'
 import defaultBookBg from 'public/images/defaultBook.png'
 
 interface IProps {
@@ -24,17 +25,29 @@ const ImageCommon: FC<IProps> = (
 ) => {
 
   return <div style={{ position: 'relative' }} className={className} onClick={() => onClick && onClick()}>
-    <Image
-      // onError={(e)=> imgError(e)}
+    <Image2
+      onError={(e)=> imgError(e)}
       unoptimized
       layout={'fill'}
       // objectFit="cover"
       quality={100}
       // placeholder={'blur'}
       // blurDataURL={source}
-        src={source}
+      src={source}
+      priority={true} // 优先渲染
       // loading={'eager'}
       alt={alt} />
+    {/*<Image*/}
+    {/*  // onError={(e)=> imgError(e)}*/}
+    {/*  unoptimized*/}
+    {/*  layout={'fill'}*/}
+    {/*  // objectFit="cover"*/}
+    {/*  quality={100}*/}
+    {/*  // placeholder={'blur'}*/}
+    {/*  // blurDataURL={source}*/}
+    {/*  src={source}*/}
+    {/*  // loading={'eager'}*/}
+    {/*  alt={alt} />*/}
   </div>
 }
 

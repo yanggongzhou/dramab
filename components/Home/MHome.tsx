@@ -1,12 +1,11 @@
 import React, { FC, useEffect } from "react";
 import SwiperNormal from "@/components/Home/swiperNormal/SwiperNormal";
 import HomeTitle from "@/components/Home/homeTitle/HomeTitle";
-import ImageCommon from "@/components/common/ImageCommon";
 import FirstItem from "@/components/Home/firstItem/FirstItem";
-import BookList from "@/components/Home/bookList/BookList";
 import { EnumPosition, IBannerItem, IPageColumnsItem, } from "@/typings/home.interface";
 import styles from '@/components/Home/MHome.module.scss'
 import { useTranslation } from "next-i18next";
+import { MEmpty } from "@/components/common/empty";
 
 interface IProps {
   bannerList: IBannerItem[];
@@ -24,8 +23,7 @@ const MHome: FC<IProps> = ({ homeData, bannerList }) => {
   }, [])
 
   return (
-    <div className={styles.container}>
-
+    <>
       { bannerList.length > 0 ? <SwiperNormal bannerList={homeData[1].items.slice(0,3)}/> : []}
 
       {homeData.map((item) => {
@@ -38,13 +36,8 @@ const MHome: FC<IProps> = ({ homeData, bannerList }) => {
         return null
       })}
 
-      { homeData.length === 0 && bannerList.length === 0 ? <div className={styles.mainContentEmpty}>
-        <ImageCommon source={'/images/404/emptyBook.png'} className={styles.emptyImg}/>
-        <div className={styles.emptyIntro}>
-          <p>{t('others.noBook')}</p>
-        </div>
-      </div> : null}
-    </div>
+      { homeData.length === 0 && bannerList.length === 0 ? <MEmpty/> : null}
+    </>
   )
 }
 

@@ -62,7 +62,7 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
   if (device === EDevice.pc) {
     return <>
       <PcHeader />
-      <main style={{ width: '14.4rem', margin: '0 auto' }}>
+      <main style={{ width: '14.4rem', margin: '0 auto', minHeight: 'calc(100vh - 2.6rem)' }}>
         {children}
       </main>
       <PcFooter />
@@ -72,7 +72,7 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
   return (
     <>
       <MHeader/>
-      <main>
+      <main style={{ backgroundColor: '#000000', minHeight: 'calc(100vh - 0.88rem)' }}>
         {children}
       </main>
       <MFooter/>

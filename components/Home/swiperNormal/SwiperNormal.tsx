@@ -48,7 +48,7 @@ const SwiperNormal: FC<IProps> = ({ bannerList }) => {
     trackOffset={2}
     slideSize={96}
     className={styles.swiperBox}
-    autoplay={false}
+    autoplay
     loop>{items}</Swiper>
 }
 

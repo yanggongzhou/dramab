@@ -2,17 +2,17 @@
   position: relative;
   background-color: #1C1C1E;
   height: 1.8rem;
-  min-width: 13rem;
+  width: 100%;
   display: flex;
   align-items: center;
 
   .footerContent {
+    width: 14.4rem;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    width: 13rem;
 
     .footerText {
       display: grid;

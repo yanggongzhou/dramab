@@ -1,0 +1,53 @@
+.language {
+  position: relative;
+
+  :global {
+    .adm-popover-inner {
+      padding: 0.08rem 0;
+      border-radius: 4px;
+      width: 1.84rem;
+    }
+
+    .adm-popover-menu-list {
+      min-width: auto;
+    }
+
+    .adm-popover-menu-item {
+      padding-left: 0;
+    }
+
+    .adm-popover-menu-item-text {
+      width: 100%;
+      height: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.24rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      transition: all .3s;
+      padding: 0;
+    }
+  }
+}
+
+.rightBox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+
+  .languageIcon {
+    margin: 0 0.04rem 0 0.4rem;
+    width: 0.32rem;
+    height: 0.32rem;
+  }
+
+  span {
+    margin-left: 0.04rem;
+    font-size: 0.28rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    opacity: 0.9;
+    text-transform: uppercase;
+  }
+}

@@ -1,11 +1,9 @@
-import styles from '@/components/PcHome/PcHome.module.css'
 import React, { FC, useMemo } from "react";
 import SecondList from "@/components/PcHome/secondList/SecondList";
-import { EnumPosition, IBannerItem, IPageColumnsItem } from "typings/home.interface";
+import { EnumPosition, IPageColumnsItem } from "typings/home.interface";
 import SwiperArea from "@/components/PcHome/swiperArea/SwiperArea";
 import PcHomeTitle from "@/components/PcHome/homeTitle/HomeTitle";
-import ImageCommon from "@/components/common/ImageCommon";
-import { useTranslation } from "next-i18next";
+import { PcEmpty } from "@/components/common/empty";
 
 interface IProps {
   homeData: IPageColumnsItem[];
@@ -13,9 +11,7 @@ interface IProps {
 
 const PcHome: FC<IProps> = ({ homeData }) => {
 
-  const { t } = useTranslation();
   const trendingData = homeData.find(item => item.name === EnumPosition.trending);
-
   const bookList = useMemo<IPageColumnsItem[]>(() => {
     const rankingData = homeData.find(item => item.name === EnumPosition.ranking);
     const trendingData = homeData.find(item => item.name === EnumPosition.trending);
@@ -36,8 +32,7 @@ const PcHome: FC<IProps> = ({ homeData }) => {
   }, [homeData]);
 
   return (
-    <div className={styles.container}>
-      {/*顶部*/}
+    <>
       {trendingData.items.length > 0 ? <SwiperArea bannerList={trendingData.items.slice(0, 3)}/> : null}
       {
         bookList.length > 0 && bookList.map((item, index) => {
@@ -53,13 +48,8 @@ const PcHome: FC<IProps> = ({ homeData }) => {
           return null;
         })
       }
-      {bookList.length === 0 ? <div className={styles.mainContentEmpty}>
-        <ImageCommon source={'/images/search/empty.png'} className={styles.emptyImg}/>
-        <div className={styles.emptyIntro}>
-          <p>{t('others.noBook')}</p>
-        </div>
-      </div> : null}
-    </div>
+      {bookList.length === 0 ? <PcEmpty/> : null}
+    </>
   )
 }
 

@@ -1,5 +1,4 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { netIP } from "@/server/clientLog";
 import { IHiveStore } from "@/store/store.interfaces";
 import { compile, randomString } from "@/utils/other";
 import ClientConfig from "@/client.config";
@@ -11,12 +10,11 @@ import { ELanguage } from "typings/home.interface";
 export const clipboardAsync = createAsyncThunk(
   'hive/getClipboard',
   async () => {
-    const ip = await netIP()
     const ua = navigator.userAgent;
     const h5fingerPrint = await InitFingerprint();
     const channelCode = isIos(ua) ? ClientConfig.ios.channelCode : ClientConfig.android.channelCode;
     return {
-      ip: ip || '0.0.0.0',
+      ip: '0.0.0.0',
       h5uid: getUserLandId(),
       channelCode,
       h5fingerPrint,
