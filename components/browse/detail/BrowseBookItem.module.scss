@@ -1,0 +1,112 @@
+.browseBookItem {
+  display: grid;
+  grid-template-columns: 1.8rem auto;
+  grid-column-gap: 0.2rem;
+  height: 2.78rem;
+  padding: 0.2rem 0;
+  font-family: Roboto-Regular, Roboto;
+
+  .bookCover {
+    width: 1.8rem;
+    height: 2.38rem;
+    border-radius: 0.04rem;
+    overflow: hidden;
+    border: 1px solid #EEEAE333;
+  }
+
+  .bookRight {
+    max-width: 4.86rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .bookTop {
+      a {
+        display: block;
+      }
+
+      .bookName {
+        font-size: 0.3rem;
+        font-weight: 500;
+        color: #2F3031;
+        line-height: 0.4rem;
+        padding-top: 0.08rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: Roboto-Medium, Roboto;
+      }
+
+      .bookAuthor {
+        margin: 0.1rem 0;
+        font-size: 0.24rem;
+        color: rgba(47, 48, 49, 0.5);
+        line-height: 0.32rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-family: Roboto-Regular, Roboto;
+      }
+
+      .bookIntro {
+        font-size: 0.24rem;
+        color: rgba(47, 48, 49, 0.5);
+        line-height: 0.32rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        word-wrap: break-word;
+        font-family: Roboto-Regular, Roboto;
+      }
+    }
+
+    .bookBottom {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      height: 0.32rem;
+
+      .bookRatings {
+        font-size: 0.28rem;
+        font-weight: 500;
+        color: #2A2A2A;
+        line-height: 0.32rem;
+        display: flex;
+        align-items: center;
+        font-family: Roboto-Medium, Roboto;
+
+        .bookRatingsTxt {
+          margin-right: 0.08rem;
+        }
+      }
+
+      .bookLine {
+        width: 0.02rem;
+        height: 0.24rem;
+        background-color: #6D768F;
+        opacity: 0.3;
+        margin: 0 0.24rem;
+      }
+
+      .bookViewCount {
+        font-size: 0.28rem;
+        font-weight: 500;
+        color: #2A2A2A;
+        line-height: 0.32rem;
+        font-family: Roboto-Medium, Roboto;
+
+        .bookView {
+          margin-left: 0.04rem;
+          opacity: 0.6;
+          font-size: 0.24rem;
+          font-weight: 400;
+          color: #6D768F;
+          font-family: Roboto-Regular, Roboto;
+        }
+      }
+    }
+  }
+}

@@ -11,30 +11,32 @@ interface IProps {
   query?: string;
 }
 
-const MorePagination: FC<IProps> = ({  prevPath,  totalPage, page, query = '' }) => {
+const MorePagination: FC<IProps> = ({ prevPath, totalPage, page, query = '' }) => {
   const { t } = useTranslation();
   const prevPage = Number(page) - 1;
   const nextPage = Number(page) + 1;
 
-  return <div className={styles.paginationWrap} style={query ? { padding: '0.24rem 0'} : {}}>
-    { prevPage && prevPage > 0 ? <Link href={prevPath + prevPage + query} replace scroll>
-        <a className={styles.linkItem}>{t('bookInfo.PreviousPage')}</a>
+  return <div className={styles.paginationWrap} style={query ? { padding: '0.24rem 0' } : {}}>
+    {prevPage && prevPage > 0 ? <Link href={prevPath + prevPage + query} replace scroll className={styles.linkItem}>
+        {t('bookInfo.PreviousPage')}
       </Link> :
       <div
-        onClick={() => {Toast.show(t('reading.firstChapterTip'))}}
+        onClick={() => {
+          Toast.show(t('reading.firstChapterTip'))
+        }}
         className={styles.pageItem}
-      >{t('bookInfo.PreviousPage')}</div> }
+      >{t('bookInfo.PreviousPage')}</div>}
     <div className={styles.linkItem}>{page}/{totalPage}</div>
-    { page < totalPage ? <Link href={prevPath + nextPage + query} replace scroll>
-      <a className={styles.linkItem}>
+    {page < totalPage ? <Link href={prevPath + nextPage + query} replace scroll className={styles.linkItem}>
         {t('bookInfo.NextPage')}
-      </a>
-    </Link> :
+      </Link> :
       <div
-        onClick={() => {Toast.show(t('reading.lastChapterTip'))}}
+        onClick={() => {
+          Toast.show(t('reading.lastChapterTip'))
+        }}
         className={styles.pageItem}>
         {t('bookInfo.NextPage')}
-      </div> }
+      </div>}
   </div>
 }
 

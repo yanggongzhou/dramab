@@ -1,0 +1,59 @@
+.browseWrap {
+  background-color: #FFFFFF;
+  min-height: 100vh;
+  font-family: Roboto-Regular, Roboto;
+
+  .browseBox {
+    border-top: 0.02rem solid #F5F6FA;
+    width: 100%;
+
+    .tabBox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+
+      .tabContent {
+        :global {
+          .adm-tabs-tab-wrapper {
+            padding: 0;
+          }
+
+          .adm-tabs-tab {
+            padding: 0.22rem 0.3rem;
+          }
+
+          .adm-tabs-header {
+            border-bottom: none;
+          }
+
+          .adm-tabs-tab {
+            a {
+              color: rgba(0, 0, 0, 0.7);
+              font-family: Roboto-Regular, Roboto;
+            }
+          }
+
+          .adm-tabs-tab-active {
+            a {
+              color: $theme_color;
+              font-family: Roboto-Medium, Roboto;
+            }
+          }
+        }
+      }
+    }
+
+    .browseContent {
+      padding: 0.16rem 0 0;
+      height: calc(100vh - 3.7rem);
+
+      .browseContent2 {
+        padding: 0 0.32rem 0.4rem;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+      }
+    }
+  }
+}
