@@ -16,8 +16,8 @@ export const pathnameData = {
   book: '/book_info/[bookId]/[typeTwoName]/[bookName]',
   chapter: '/book/[bookId]/[chapterId]',
   catalog: '/catalog/[bookId]',
-  about: '/about_us',
-  download: '/download_apps',
+  about: '/about',
+  download: '/download',
   business: '/business',
   error404: '/404',
   error500: '/500',
@@ -75,7 +75,7 @@ const HeadNormal: FC<any> = ({ pageProps = {} }) => {
     } else {
       return <>
         <link rel="alternate" hrefLang={ELanguage.English} href={getUrl(ELanguage.English)}/>
-        <link rel="alternate" hrefLang={ELanguage.Indonesia} href={getUrl(ELanguage.Indonesia)}/>
+        <link rel="alternate" hrefLang={ELanguage.Korean} href={getUrl(ELanguage.Korean)}/>
       </>
     }
   }

@@ -17,7 +17,7 @@ const PcHeader: FC<IProps> = () => {
   const MenuData = [
     { id: 'index', label: t('nav.home'), link: '/' },
     { id: 'Featured', label: "Featured", link: '/browse/0/all' },
-    { id: 'App', label: "App", link: '/about_us' },
+    { id: 'App', label: "App", link: '/download' },
   ]
 
   return <>

@@ -1,19 +1,20 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
-import { ownOs } from "@/utils/ownOs";
-import PcAbout from "@/components/PcAbout";
-import MAbout from "@/components/MAbout";
+import { isIos, ownOs } from "@/utils/ownOs";
+import PcDownload from "@/components/pcDownload";
+import MDownload from "@/components/download";
 import { ELanguage } from "typings/home.interface";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { SSRConfig } from "next-i18next";
 
-interface IProps {
+interface IProps extends SSRConfig {
   isPc: boolean;
+  isApple: boolean;
 }
 
-const AboutUs: NextPage<IProps> = ({ isPc }) => {
-
+const DownloadApp: NextPage<IProps> = ({ isPc, isApple }) => {
   return <>
-    {isPc ? <PcAbout /> : <MAbout />}
+    {isPc ? <PcDownload isApple={isApple}/> : <MDownload isApple={isApple}/>}
   </>
 }
 
@@ -24,9 +25,10 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   return {
     props: {
       isPc: ownOs(ua).isPc,
+      isApple: isIos(ua),
       ...(await serverSideTranslations(locale ?? ELanguage.English, ['common', 'aboutUs']))
     }
   }
 }
 
-export default AboutUs;
+export default DownloadApp;

@@ -29,7 +29,6 @@ const MMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
       <div className={styles.crumbsItem}>{t(`menu.${position}`)}</div>
     </div>
     <HomeTitle title={t(`menu.${position}`)} isMore={false}/>
-
     {bookData.length > 0 ?
       <>
         <FirstItem dataSource={bookData}/>
@@ -38,12 +37,6 @@ const MMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
           page={pageNo}
           totalPage={pages}
         /> : null}
-
-        <MorePagination
-          prevPath={`/more/${position}/`}
-          page={pageNo}
-          totalPage={pages}
-        />
       </> : <MEmpty/> }
   </div>
 }

@@ -15,8 +15,8 @@ const MNav: FC<IProps> = ({ visible, cancel }) => {
   const { t } = useTranslation();
   const MenuData = [
     { id: 'home', label: t('nav.home'), link: '/' },
-    { id: 'feature', label: 'Feature', link: '/about_us' },
-    { id: 'app', label: 'App', link: '/business' },
+    { id: 'feature', label: 'Feature', link: '/feature' },
+    { id: 'app', label: 'App', link: '/download' },
   ]
   const router = useRouter()
 
