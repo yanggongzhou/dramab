@@ -35,7 +35,6 @@ const Browse: NextPage<IProps> = (
         bookList={bookList}
         pages={pages}
         typeTwoId={typeTwoId}
-        bookClick={bookClick}
       /> :
       <MBrowse
         pageNo={pageNo}

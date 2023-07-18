@@ -6,6 +6,7 @@
     height: 0.4rem;
     background-color: rgba(255,255,255,0.08);
     border-radius: 0.04rem;
+    margin-bottom: 0.6rem;
 
     .tabsBox {
       display: flex;
@@ -28,6 +29,11 @@
         justify-content: center;
         background-color: rgba(255,255,255,0);
         transition: all 0.3s;
+
+        &:hover {
+          color: $theme_color;
+          background-color: rgba(255,255,255,0.08);
+        }
       }
 
       .tabItemActive {
@@ -36,12 +42,9 @@
         background-color: rgba(255,255,255,0.08);
       }
     }
-
   }
 
-
-
-  .browseRight {
+  .browseContent {
     min-height: 7rem;
     position: relative;
     z-index: 9;
@@ -49,133 +52,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-
-    .rightTitle {
-      font-size: 0.32rem;
-      font-weight: bold;
-      color: #333333;
-      line-height: 0.37rem;
-      padding: 0 0 0.22rem;
-      font-family: Ubuntu-Bold, Ubuntu;
-    }
-
-    .rightBox {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-column-gap: 0.5rem;
-      width: 100%;
-
-      .rightItem {
-        padding: 0.2rem 0;
-        display: grid;
-        grid-template-columns: 1.5rem auto;
-        grid-column-gap: 0.2rem;
-
-        .bookCover {
-          width: 1.5rem;
-          height: 2rem;
-          border-radius: 0.04rem;
-          overflow: hidden;
-        }
-
-        .bookOther {
-          height: 2rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          width: 3.42rem;
-
-          .bookName {
-            font-size: 0.20rem;
-            font-weight: bold;
-            color: #333333;
-            line-height: 0.24rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            word-wrap: break-word;
-            margin-bottom: 0.12rem;
-            font-family: Ubuntu-Bold, Ubuntu;
-          }
-
-          .bookAuthor {
-            font-size: 0.14px;
-            font-style: italic;
-            color: #545862;
-            line-height: 0.2rem;
-            font-family: Ubuntu-Regular, Ubuntu;
-            font-style: italic;
-          }
-
-          .bookRate {
-            margin: 0.08rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-
-            .bookRateTxt {
-              color: #3A4A5A;
-            }
-          }
-
-          .bookViewCount {
-            font-size: 0.14rem;
-            color: #7F8493;
-            line-height: 0.19rem;
-            font-family: Ubuntu-Regular, Ubuntu;
-
-            span {
-              font-weight: bold;
-              color: $theme_color;
-              font-family: Ubuntu-Bold, Ubuntu;
-            }
-          }
-
-          .bookIntro {
-            font-size: 0.16rem;
-            color: #545862;
-            line-height: 0.22rem;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            word-wrap: break-word;
-            font-family: Ubuntu-Regular, Ubuntu;
-          }
-        }
-      }
-    }
-
-    .browsePagination {
-      padding: 0.3rem 0;
-    }
-  }
-
-}
-
-
-.mainContentEmpty {
-  width: 100%;
-  background-color: #FFFFFF;
-  padding-top: 2rem;
-  height: calc(100vh - 2rem);
-
-  .emptyImg {
-    width: 3rem;
-    height: 3rem;
-    margin: 0 auto 0.3rem;
-  }
-
-  .emptyIntro {
-    font-size: 0.16rem;
-    font-weight: 400;
-    color: rgba(51, 51, 51, 0.6);
-    text-align: center;
-    margin: 0 auto 0.56rem;
-    line-height: 0.22rem;
-    opacity: 0.7;
   }
 }
+
+

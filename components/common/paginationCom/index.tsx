@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import styles from '@/components/common/paginationCom/index.module.scss'
 import Link from "next/link";
-import { Toast } from "antd-mobile";
+import ImageCommon from "@/components/common/ImageCommon";
 
 /** 参考文献https://www.jianshu.com/p/ec9aca4764cf*/
 
@@ -17,7 +17,6 @@ interface IProps {
 const PaginationCom: FC<IProps> = (
   { path, totalPage, pageNo, showLength = 6, groupCount = 5, isScroll = false }
 ) => {
-
   const [currentPage, setCurrentPage] = useState(1); //当前页码
   const [startPage, setStartPage] = useState(1);  // 分组开始页码
 
@@ -56,9 +55,11 @@ const PaginationCom: FC<IProps> = (
   return (
     <div className={styles.pageContent}>
       {currentPage === 1 ?
-        <div className={styles.nomore} onClick={() => {Toast.show('當前已在第一頁')}}>上一頁</div> :
-        <Link scroll={isScroll} href={path + (currentPage - 1)} className={styles.prevNext}>
-          上一頁
+        <div className={styles.prevNoMore}>
+          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+        </div> :
+        <Link scroll={isScroll} href={path + (currentPage - 1)} className={styles.prevBtn}>
+          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
         </Link>
       }
       {/*总页码小于等于showLength时，全部显示出来*/}
@@ -73,9 +74,11 @@ const PaginationCom: FC<IProps> = (
         }) :
         <CreatePage/>
       }
-      {currentPage === totalPage ? <div className={styles.nomore} onClick={() => {Toast.show('當前已在最後一頁')}}>下一頁</div> :
-        <Link scroll={isScroll} href={path + `${currentPage + 1}`} className={styles.prevNext}>
-          下一頁
+      {currentPage === totalPage ? <div className={styles.nextNoMore}>
+          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+        </div> :
+        <Link scroll={isScroll} href={path + `${currentPage + 1}`} className={styles.nextBtn}>
+          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
         </Link>
       }
     </div>
