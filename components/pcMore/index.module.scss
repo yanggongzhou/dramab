@@ -1,0 +1,57 @@
+.backBox {
+  height: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  margin-bottom: 0.4rem;
+
+  .backBoxLink {
+    display: inline-block;
+    position: relative;
+    padding: 0.27rem 0.2rem 0.22rem;
+
+    .backIcon, .backIconActive {
+      width: 0.16rem;
+      height: 0.16rem;
+      transform: rotate(180deg);
+      position: absolute !important;
+      left: 0.03rem;
+      top: 0.34rem;
+      z-index: 9;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .backIconActive {
+      opacity: 0;
+    }
+
+    span {
+      font-size: 0.18rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 0.29rem;
+      transition: color 0.3s;
+    }
+
+    &:hover {
+      .backIcon {
+        opacity: 0;
+      }
+
+      .backIconActive {
+        opacity: 1;
+      }
+
+      span {
+        color: $theme_color;
+      }
+    }
+  }
+}
+
+.moreBookList {
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

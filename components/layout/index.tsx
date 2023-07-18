@@ -8,7 +8,6 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { setDevice } from "@/store/modules/app.module";
 import { EDevice } from "@/store/store.interfaces";
 import MHeader from "@/components/layout/mHeader/MHeader";
-import MFooter from "@/components/layout/mFooter/MFooter";
 
 interface IProps {
   children: React.ReactNode;
@@ -75,7 +74,6 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
       <main style={{ backgroundColor: '#000000', minHeight: 'calc(100vh - 0.88rem)' }}>
         {children}
       </main>
-      <MFooter/>
     </>
   );
 }

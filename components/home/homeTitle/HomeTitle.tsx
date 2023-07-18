@@ -7,16 +7,17 @@ import ImageCommon from "@/components/common/ImageCommon";
 
 interface IProps {
   title: string;
+  isMore?: boolean;
 }
 
-const HomeTitle: FC<IProps> = ({ title }) => {
+const HomeTitle: FC<IProps> = ({ title, isMore= true }) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.title}>
       <p>{t('menu.' + EPositionShowName[title])}</p>
-      <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
+      {isMore ? <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
         <ImageCommon source={'/images/layout/link.png'} className={styles.moreIcon}/>
-      </Link>
+      </Link> : null}
     </div>
     <p className={styles.titleSub}>What are you looking at？</p>
   </div>;

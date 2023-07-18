@@ -7,9 +7,10 @@ import { useTranslation } from "next-i18next";
 
 interface IProps {
   title: EnumPosition;
+  isMore?: boolean; // 是否显示跳转链接
 }
 
-const PcHomeTitle: FC<IProps> = ({ title}) => {
+const PcHomeTitle: FC<IProps> = ({ title, isMore = true}) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.titleBox}>
@@ -19,15 +20,15 @@ const PcHomeTitle: FC<IProps> = ({ title}) => {
       </div>
     </div>
 
-    <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
-        {t('menu.SeeMore')}
-        <ImageCommon
-          source={'/images/home/pc-more.png'}
-          className={styles.moreIcon}/>
+    {isMore ? <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
+      {t('menu.SeeMore')}
+      <ImageCommon
+        source={'/images/home/pc-more.png'}
+        className={styles.moreIcon}/>
       <ImageCommon
         source={'/images/home/pc-more-active.png'}
         className={styles.moreActiveIcon}/>
-    </Link>
+    </Link> : null}
   </div>
 }
 

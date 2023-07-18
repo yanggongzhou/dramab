@@ -1,11 +1,11 @@
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 import SwiperNormal from "@/components/Home/swiperNormal/SwiperNormal";
 import HomeTitle from "@/components/Home/homeTitle/HomeTitle";
 import FirstItem from "@/components/Home/firstItem/FirstItem";
 import { EnumPosition, IBannerItem, IPageColumnsItem, } from "@/typings/home.interface";
 import styles from '@/components/Home/MHome.module.scss'
-import { useTranslation } from "next-i18next";
 import { MEmpty } from "@/components/common/empty";
+import MFooter from "@/components/layout/mFooter/MFooter";
 
 interface IProps {
   bannerList: IBannerItem[];
@@ -13,14 +13,6 @@ interface IProps {
 }
 
 const MHome: FC<IProps> = ({ homeData, bannerList }) => {
-  const { t } = useTranslation();
-
-  useEffect(() => {
-    document.body.style.overflow = ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [])
 
   return (
     <>
@@ -37,6 +29,8 @@ const MHome: FC<IProps> = ({ homeData, bannerList }) => {
       })}
 
       { homeData.length === 0 && bannerList.length === 0 ? <MEmpty/> : null}
+
+      <MFooter/>
     </>
   )
 }
