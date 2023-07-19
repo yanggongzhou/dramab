@@ -37,7 +37,7 @@ const Language = () => {
       placement='bottom'
       defaultVisible={false}
       style={{
-        '--background': '#292929',
+        'background': '#292929',
       }}
     >
       <div className={visible ? styles.languageBoxActive : styles.languageBox}>

@@ -1,9 +1,9 @@
 import React, { FC } from "react";
-import SwiperNormal from "@/components/Home/swiperNormal/SwiperNormal";
-import HomeTitle from "@/components/Home/homeTitle/HomeTitle";
-import FirstItem from "@/components/Home/firstItem/FirstItem";
+import SwiperNormal from "@/components/home/swiperNormal/SwiperNormal";
+import HomeTitle from "@/components/home/homeTitle/HomeTitle";
+import FirstItem from "@/components/home/firstItem/FirstItem";
 import { EnumPosition, IBannerItem, IPageColumnsItem, } from "@/typings/home.interface";
-import styles from '@/components/Home/MHome.module.scss'
+import styles from '@/components/home/MHome.module.scss'
 import { MEmpty } from "@/components/common/empty";
 import MFooter from "@/components/layout/mFooter/MFooter";
 

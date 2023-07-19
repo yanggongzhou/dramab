@@ -6,6 +6,7 @@ import { TDK } from "@/components/layout/tdk";
 import { ELanguage } from "@/typings/home.interface";
 import Script from "next/script";
 import { useTranslation } from "next-i18next";
+
 const { googleCode } = ClientConfig;
 
 export const pathnameData = {
@@ -31,24 +32,29 @@ const HeadNormal: FC<any> = ({ pageProps = {} }) => {
   const router = useRouter();
   const { t } = useTranslation()
   const getTdk = (): { title: string; keywords: string; description: string; } => {
-    const _locale = router.locale && Object.values(ELanguage).includes(router.locale as ELanguage) ? router.locale : ELanguage.English;
-    if (router.pathname === '/') {
-      return TDK[_locale].index
-    } else if (router.pathname.includes('/more/[position]')) {
-      const positionName = t(`menu.${pageProps.position}`) || ''
-      return TDK[_locale].more({ ...router.query, positionName })
-    } else if (router.pathname.includes('/browse/[typeTwoId]/[typeTwoName]')) {
-      const  _typeTwoName = pageProps.typeTwoName === 'all' ? t(`others.all`) : pageProps.typeTwoName;
-      return TDK[_locale].browse({ ...router.query, typeTwoName: _typeTwoName })
-    } else {
-      for(const item in pathnameData) {
-        if (router.pathname.includes(pathnameData[item])) {
-          const tdkItem = TDK[_locale][item]
-          return typeof tdkItem === 'function' ? tdkItem({ ...router.query, ...pageProps }) : tdkItem
-        }
-      }
-    }
-    return TDK[_locale].index;
+    return TDK[ELanguage.English].index;
+    // const _locale = (router.locale && Object.values(ELanguage).includes(router.locale as ELanguage) ? router.locale : ELanguage.English) as ELanguage;
+    // // @ts-ignore
+    // if (!TDK[_locale]) {
+    //   return TDK[ELanguage.English].index;
+    // }
+    // if (router.pathname === '/') {
+    //   return TDK[_locale].index
+    // } else if (router.pathname.includes('/more/[position]')) {
+    //   const positionName = t(`menu.${pageProps.position}`) || ''
+    //   return TDK[_locale].more({ ...router.query, positionName })
+    // } else if (router.pathname.includes('/browse/[typeTwoId]/[typeTwoName]')) {
+    //   const  _typeTwoName = pageProps.typeTwoName === 'all' ? t(`others.all`) : pageProps.typeTwoName;
+    //   return TDK[_locale].browse({ ...router.query, typeTwoName: _typeTwoName })
+    // } else {
+    //   for(const item in pathnameData) {
+    //     if (router.pathname.includes(pathnameData[item])) {
+    //       const tdkItem = TDK[_locale][item]
+    //       return typeof tdkItem === 'function' ? tdkItem({ ...router.query, ...pageProps }) : tdkItem
+    //     }
+    //   }
+    // }
+    // return TDK[_locale].index;
   }
   const [pageTdk, setPageTdk] = useState(() => getTdk());
 
@@ -68,7 +74,7 @@ const HeadNormal: FC<any> = ({ pageProps = {} }) => {
       return null;
     } else if (router.pathname.includes(pathnameData.book) || router.pathname.includes(pathnameData.chapter) || router.pathname.includes(pathnameData.catalog)) {
       return <>
-        {pageProps.languages && pageProps.languages.length > 0 && pageProps.languages.map(lanUrl => {
+        {pageProps.languages && pageProps.languages.length > 0 && pageProps.languages.map((lanUrl: ELanguage) => {
           return <link key={lanUrl} rel="alternate" hrefLang={lanUrl} href={getUrl(lanUrl)}/>
         })}
       </>

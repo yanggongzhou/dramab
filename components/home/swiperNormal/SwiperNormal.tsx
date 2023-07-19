@@ -42,7 +42,6 @@ const SwiperNormal: FC<IProps> = ({ bannerList }) => {
     indicatorProps={{
       style: {
         '--dot-spacing': '0.08rem',
-        'margin-bottom': '-0.2rem',
       }
     }}
     trackOffset={2}

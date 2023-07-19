@@ -34,7 +34,7 @@ const PaginationCom: FC<IProps> = (
       {currentPage === 1 ? <div className={styles.activePage}>1</div> :
         <Link scroll={isScroll} href={path + 1} className={styles.normalLi}>1</Link>}
       {/*前面省略号(当当前页码比分组的页码大时显示省略号)*/}
-      {currentPage >= groupCount && <div className={styles.omission}>•••</div>}
+      {currentPage >= groupCount && <div className={styles.omission}>…</div>}
       {/*非第一页和最后一页显示*/}
       {Array.from({ length: pageLength }, (v, i) => {
         if (i < startPage) return null;
@@ -45,7 +45,7 @@ const PaginationCom: FC<IProps> = (
         return null;
       })}
       {/*后面省略号*/}
-      {totalPage - startPage >= groupCount + 1 && <div className={styles.omission}>•••</div>}
+      {totalPage - startPage >= groupCount + 1 && <div className={styles.omission}>…</div>}
       {/*最后一页*/}
       {currentPage === totalPage ? <div className={styles.activePage}>{totalPage}</div> :
         <Link scroll={isScroll} href={path + totalPage} className={styles.normalLi}>{totalPage}</Link>}

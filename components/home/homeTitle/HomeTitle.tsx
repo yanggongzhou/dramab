@@ -14,8 +14,8 @@ const HomeTitle: FC<IProps> = ({ title, isMore= true }) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.title}>
-      <p>{t('menu.' + EPositionShowName[title])}</p>
-      {isMore ? <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
+      <p>{title}</p>
+      {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
         <ImageCommon source={'/images/layout/link.png'} className={styles.moreIcon}/>
       </Link> : null}
     </div>

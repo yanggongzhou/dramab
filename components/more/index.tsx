@@ -26,9 +26,9 @@ const MMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
         Home
       </Link>
       <ImageCommon source={'/images/home/pc-more.png'} className={styles.crumbsIcon}/>
-      <div className={styles.crumbsItem}>{t(`menu.${position}`)}</div>
+      <div className={styles.crumbsItem}>{t(`menu.popular`)}</div>
     </div>
-    <HomeTitle title={t(`menu.${position}`)} isMore={false}/>
+    <HomeTitle title={t(`menu.popular`)} isMore={false}/>
     {bookData.length > 0 ?
       <>
         <FirstItem dataSource={bookData}/>

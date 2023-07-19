@@ -1,8 +1,8 @@
 import React, { FC, useMemo } from "react";
-import SecondList from "@/components/PcHome/secondList/SecondList";
+import SecondList from "@/components/pcHome/secondList/SecondList";
 import { EnumPosition, IPageColumnsItem } from "typings/home.interface";
-import SwiperArea from "@/components/PcHome/swiperArea/SwiperArea";
-import PcHomeTitle from "@/components/PcHome/homeTitle/HomeTitle";
+import SwiperArea from "@/components/pcHome/swiperArea/SwiperArea";
+import PcHomeTitle from "@/components/pcHome/homeTitle/HomeTitle";
 import { PcEmpty } from "@/components/common/empty";
 
 interface IProps {
@@ -33,7 +33,7 @@ const PcHome: FC<IProps> = ({ homeData }) => {
 
   return (
     <>
-      {trendingData.items.length > 0 ? <SwiperArea bannerList={trendingData.items.slice(0, 3)}/> : null}
+      {trendingData && trendingData?.items?.length > 0 ? <SwiperArea bannerList={trendingData.items.slice(0, 3)}/> : null}
       {
         bookList.length > 0 && bookList.map((item, index) => {
           if (item.name === EnumPosition.customInset || item.name === EnumPosition.popular) {

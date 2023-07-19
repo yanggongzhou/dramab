@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from '@/components/Home/firstItem/FirstItem.module.css'
+import styles from '@/components/home/firstItem/FirstItem.module.css'
 import ImageCommon from "@/components/common/ImageCommon";
 import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";

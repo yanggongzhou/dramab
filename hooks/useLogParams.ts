@@ -75,7 +75,7 @@ const useLogParams = (pageProps: any): void => {
       // 有查询随机参数，会影响判断
       return;
     } else if (router.pathname.includes(pathData.more)) {
-      pageView('BookList_view', { Column_name: EnumPosition[pageProps.position] });
+      // pageView('BookList_view', { Column_name: EnumPosition[pageProps.position] });
     } else if (router.pathname.includes(pathData.browse)) {
       // 浏览页曝光
       pageView('Browse_view', { class: pageProps.typeTwoName });
@@ -111,7 +111,7 @@ const useLogParams = (pageProps: any): void => {
 
   const getIds = (): { bid: string; cid: string | 0 } => {
     let clipboardBookId, clipboardChapterId;
-    const localeBookId = LanguageDefaultBookId[router.locale ?? ELanguage.English]
+    const localeBookId = LanguageDefaultBookId?.[(router.locale ?? ELanguage.English) as ELanguage] || LanguageDefaultBookId[ELanguage.English]
     if (router.pathname === pathData.chapter){
       clipboardBookId = pageProps?.bookInfo?.bookId;
       clipboardChapterId = pageProps?.chapterInfo?.unlock ? pageProps?.chapterInfo?.id : pageProps?.chapterInfo?.lastChapterId

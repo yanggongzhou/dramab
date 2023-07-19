@@ -5,8 +5,8 @@ import { netBrowse } from "@/server/home";
 import { ELanguage, IBookItem } from "typings/home.interface";
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import MBrowse from "@/components/Browse";
-import PcBrowse from "@/components/PcBrowse";
+import MBrowse from "@/components/browse";
+import PcBrowse from "@/components/pcBrowse";
 import { IBrowseTypes } from "typings/browse.interface";
 import useHiveLog from "@/hooks/useHiveLog";
 

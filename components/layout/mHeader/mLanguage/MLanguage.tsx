@@ -28,7 +28,7 @@ const MLanguage = () => {
       placement='bottom'
       defaultVisible={false}
       style={{
-        '--background': '#292929',
+        'background': '#292929',
       }}
     >
       <div className={styles.rightBox}>

@@ -14,13 +14,13 @@ const PcHomeTitle: FC<IProps> = ({ title, isMore = true}) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.titleBox}>
-      <h2 className={styles.titleText}>{t(`menu.${EPositionShowName[title]}`)}</h2>
+      <h2 className={styles.titleText}>{t(`menu.popular`)}</h2>
       <div className={styles.titleSub}>
         What are you looking at？
       </div>
     </div>
 
-    {isMore ? <Link className={styles.moreBox} href={`/more/${EPositionShowName[title]}`}>
+    {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
       {t('menu.SeeMore')}
       <ImageCommon
         source={'/images/home/pc-more.png'}

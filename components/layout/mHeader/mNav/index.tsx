@@ -41,8 +41,12 @@ const MNav: FC<IProps> = ({ visible, cancel }) => {
 
     <div className={styles.navMenu}>
       {MenuData.map(val => {
-        return <Link key={val.id} href={val.link}
-                     className={router.pathname === val.link ? styles.navItemActive : styles.navItem}>
+        return <Link
+          key={val.id}
+          href={val.link}
+          className={router.pathname === val.link ? styles.navItemActive : styles.navItem}
+          onClick={() => cancel()}
+        >
           <div className={styles.navItemTxt}>{val.label}</div>
         </Link>
       })}

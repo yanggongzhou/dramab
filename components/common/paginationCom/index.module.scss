@@ -18,11 +18,11 @@
     cursor: pointer;
     border-radius: 0.04rem;
     color: rgba(255,255,255,0.9);
-    background-color: rgba(255,255,255,0.16);
+    background-color: rgba(255,255,255,0.08);
     transition: all 0.3s;
 
     &:hover {
-      background-color: $theme_color;
+      background-color: rgba(255,255,255,0.16);
     }
   }
 
@@ -33,15 +33,6 @@
   .prevNextIcon {
     width: 0.14rem;
     height: 0.14rem;
-  }
-
-  .prevBtn, .nextBtn {
-    //width: auto;
-    //background-color: transparent !important;
-
-    &:hover {
-      color: $theme_color;
-    }
   }
 
   .prevBtn, .prevNoMore {
@@ -55,7 +46,7 @@
   .omission {
     border: none !important;
     margin: 0;
-    background-color: rgba(255,255,255,0.16) !important;
+    background-color: rgba(255,255,255,0.08) !important;
     cursor: default;
   }
 

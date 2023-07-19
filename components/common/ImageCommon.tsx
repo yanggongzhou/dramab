@@ -12,7 +12,7 @@ interface IProps {
   h?: number;
 }
 
-export const imgError = (e) => {
+export const imgError = (e: any) => {
   e.target.style.visibility = 'hidden';
   e.target.src = defaultBookBg;
   e.target.onload = function (){

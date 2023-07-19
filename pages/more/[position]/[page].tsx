@@ -32,7 +32,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query, local
     return { notFound: true }
   }
   const response = await netMoreBook({
-    name: EnumPosition[position as EnumPosition],
+    name: 'New Releases',
     pageNum: Number(page),
   }, locale as ELanguage)
 
