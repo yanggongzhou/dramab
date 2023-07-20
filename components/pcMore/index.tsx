@@ -20,24 +20,27 @@ const PcMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
   const { t } = useTranslation();
 
   return <>
-    <div className={styles.backBox}>
-      <Link href={'/'} className={styles.backBoxLink}>
-        <ImageCommon source={'/images/home/pc-more.png'} className={styles.backIcon}/>
-        <ImageCommon source={'/images/home/pc-more-active.png'} className={styles.backIconActive}/>
-        <span>Back</span>
-      </Link>
+    <div className={styles.backHead}>
+      <div className={styles.backBox}>
+        <Link href={'/'} className={styles.backBoxLink}>
+          <ImageCommon source={'/images/home/pc-more.png'} className={styles.backIcon}/>
+          <ImageCommon source={'/images/home/pc-more-active.png'} className={styles.backIconActive}/>
+          <span>Back</span>
+        </Link>
+      </div>
     </div>
-    <PcHomeTitle title={position} isMore={false}/>
-    {bookData.length > 0 ? <div className={styles.moreBookList}>
-      <SecondList dataSource={bookData} />
-      {pages && pages > 1 ? <PaginationCom
-        path={`/more/${position}/`}
-        pageNo={pageNo}
-        totalPage={pages}
-        isScroll={true}
-      /> : null}
-    </div> : <PcEmpty/>}
-
+    <div className={styles.moreContent}>
+      <PcHomeTitle title={position} isMore={false}/>
+      {bookData.length > 0 ? <div className={styles.moreBookList}>
+        <SecondList dataSource={bookData} />
+        {pages && pages > 1 ? <PaginationCom
+          path={`/more/${position}/`}
+          pageNo={pageNo}
+          totalPage={pages}
+          isScroll={true}
+        /> : null}
+      </div> : <PcEmpty/>}
+    </div>
   </>
 }
 

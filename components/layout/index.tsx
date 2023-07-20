@@ -36,11 +36,11 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
     dispatch(setDevice(isPc ? EDevice.pc : EDevice.mobile));
     if (isPc) {
       /**pc端补偿google cls标准, 禁用以下*/ // todo
-      if (clientWidth <= 1366){
-        document.documentElement.style.fontSize = 100 * (1366 / 1800) + 'px';
-      } else {
-        document.documentElement.style.fontSize = 100 * (clientWidth / 1920) + 'px';
-      }
+      // if (clientWidth <= 1366){
+      //   document.documentElement.style.fontSize = 100 * (1366 / 1800) + 'px';
+      // } else {
+      //   document.documentElement.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+      // }
     } else {
       document.documentElement.style.fontSize = 100 * (clientWidth / 750) + 'px';
     }

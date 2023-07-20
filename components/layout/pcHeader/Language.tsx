@@ -36,9 +36,6 @@ const Language = () => {
       trigger='click'
       placement='bottom'
       defaultVisible={false}
-      style={{
-        'background': '#292929',
-      }}
     >
       <div className={visible ? styles.languageBoxActive : styles.languageBox}>
         <span className={styles.navItemTxt}>{language}</span>

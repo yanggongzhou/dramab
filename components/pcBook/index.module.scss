@@ -1,0 +1,160 @@
+.backHead {
+  position: fixed;
+  width: 100%;
+  height: 0.8rem;
+  top: 0.8rem;
+  left: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+
+  .backBox {
+    height: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    width: 14.4rem;
+    margin: 0 auto;
+
+    .backBoxLink {
+      display: inline-block;
+      position: relative;
+      padding: 0.27rem 0.2rem 0.22rem;
+      cursor: pointer;
+
+      .backIcon, .backIconActive {
+        width: 0.16rem;
+        height: 0.16rem;
+        transform: rotate(180deg);
+        position: absolute !important;
+        left: 0.03rem;
+        top: 0.34rem;
+        z-index: 9;
+        opacity: 1;
+        transition: opacity 0.3s;
+      }
+
+      .backIconActive {
+        opacity: 0;
+      }
+
+      span {
+        font-size: 0.18rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 0.29rem;
+        transition: color 0.3s;
+      }
+
+      &:hover {
+        .backIcon {
+          opacity: 0;
+        }
+
+        .backIconActive {
+          opacity: 1;
+        }
+
+        span {
+          color: $theme_color;
+        }
+      }
+    }
+  }
+}
+
+
+.detailBox {
+  padding: 1.6rem 0 0.2rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  column-gap: 0.4rem;
+
+  .detailBookCover {
+    width: 4.5rem;
+    height: 6rem;
+    border-radius: 0.04rem;
+    overflow: hidden;
+  }
+
+  .detailBoxRight {
+    padding: 0.4rem;
+    border-radius: 0.04rem;
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background: rgba(255,255,255,0.08);
+    min-height: 4.56rem;
+
+    .detailBoxRightTop {
+      .bookName {
+        display: block;
+        width: 9rem;
+        font-size: 0.24rem;
+        font-weight: 500;
+        color: rgba(255,255,255,0.9);
+        line-height: 0.32rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin-bottom: 0.2rem;
+      }
+
+      .viewCount {
+        display: block;
+        width: 9rem;
+        font-size: 0.13rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.9);
+        line-height: 0.18rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .intro {
+        display: block;
+        width: 9rem;
+        margin-bottom: 0.2rem;
+        font-size: 0.14rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.4);
+        line-height: 0.20rem;
+      }
+
+      .tagsContent {
+        font-size: 0.12rem;
+        font-weight: 400;
+        grid-gap: 0.08rem;
+        display: flex;
+
+        .tagItem {
+          border-radius: 0.03rem;
+          padding: 0.04rem 0.1rem;
+          color: rgba(255, 255, 255, 0.4);
+          background-color: rgba(255, 255, 255, 0.08);
+        }
+      }
+    }
+
+    .playBtn {
+      font-size: 0.14rem;
+      font-weight: 500;
+      color: #FFFFFF;
+      background: linear-gradient(270deg, #FF871F 0%, #FF0045 48%, #F40065 100%);
+      border-radius: 0.02rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      width: 1.02rem;
+      height: 0.32rem;
+
+      .playIcon {
+        margin-right: 0.04rem;
+        width: 0.16rem;
+        height: 0.16rem;
+      }
+    }
+
+  }
+
+}

@@ -20,7 +20,7 @@ interface IProps {
   bookClick: () => void;
 }
 
-const MBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types, bookClick }) => {
+const MBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types }) => {
   const { t } = useTranslation()
   const browseRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -53,10 +53,9 @@ const MBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types, bookCl
       <DropMenu visible={visible} types={types} typeTwoId={typeTwoId}/>
     </div>
 
-
     {bookList.length > 0 ? <div className={styles.browseContent}>
       <div className={styles.browseContent2} ref={browseRef}>
-        <FirstItem dataSource={bookList} bookClick={bookClick}/>
+        <FirstItem dataSource={bookList} />
         {pages && pages > 1 ? <MorePagination
           prevPath={`/browse/${typeTwoId}/${linkTypeTwoName}/`}
           page={pageNo}

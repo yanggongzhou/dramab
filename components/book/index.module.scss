@@ -1,0 +1,142 @@
+.detailBox {
+  padding: 0.48rem 0.32rem;
+  position: relative;
+
+  .bookCover {
+    width: 2.8rem;
+    height: 3.78rem;
+    border-radius: 0.08rem;
+    overflow: hidden;
+    margin: 0 auto 0.32rem;
+  }
+
+  .bookName {
+    text-align: center;
+    font-size: 0.4rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.9);
+    line-height: 0.56rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+    margin-bottom: 0.2rem;
+  }
+
+  .tagBox {
+    margin-bottom: 0.48rem;
+    grid-gap: 0.24rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .tagItem {
+      font-size: 0.22rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.4);
+      line-height: 0.3rem;
+      border-radius: 0.03rem;
+      padding: 0.03rem 0.12rem;
+      background-color: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+    }
+  }
+
+  .footerBox {
+    width: 100%;
+    height: 0.88rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.48rem;
+
+    .footerBtn {
+      height: 0.88rem;
+      background: linear-gradient(90deg, #F40065 0%, #FF871F 100%);
+      border-radius: 0.08rem;
+      padding: 0 0.48rem;
+      font-size: 0.34rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      color: rgba(255,255,255,0.9);
+
+      .playIcon {
+        width: 0.48rem;
+        height: 0.48rem;
+        margin-right: 0.08rem;
+      }
+    }
+  }
+}
+
+
+.introBox {
+  border-radius: 0.08rem;
+  padding: 0.32rem;
+  position: relative;
+  background-color: #141414;
+
+  .introTitle {
+    font-size: 0.32rem;
+    font-weight: 500;
+    line-height: 0.45rem;
+    margin-bottom: 0.16rem;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .introText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+  }
+
+  .introTextMore, .introText {
+    font-size: 0.28rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.4);
+    line-height: 0.4rem;
+  }
+
+  .introMore {
+    position: absolute;
+    bottom: 0.24rem;
+    right: 0.24rem;
+    font-size: 0.28rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.6);
+    line-height: 0.4rem;
+    background: linear-gradient(270deg, #141414 0%, rgba(20,20,20,0) 100%);
+    width: 1.2rem;
+    text-align: right;
+  }
+
+
+
+}
+
+.rateBox {
+  width: 1.52rem;
+  height: 0.3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+.rateItem {
+  width: 0.24rem;
+  height: 0.24rem;
+}
+
+
+
+
+
+

@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import Image from 'next/image'
 import Image2 from 'next/legacy/image'
-import defaultBookBg from 'public/images/defaultBook.png'
 
 interface IProps {
   className?: string | undefined;
@@ -13,8 +12,9 @@ interface IProps {
 }
 
 export const imgError = (e: any) => {
+  console.log()
   e.target.style.visibility = 'hidden';
-  e.target.src = defaultBookBg;
+  e.target.src = '/images/defaultBook.png';
   e.target.onload = function (){
     e.target.style.visibility = 'visible';
   }
