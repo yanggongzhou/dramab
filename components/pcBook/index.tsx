@@ -41,8 +41,6 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             width={16}
             height={16}
             src={'/images/home/pc-more.png'}
-            placeholder="blur"
-            blurDataURL={'/images/home/pc-more.png'}
             alt={''}
           />
           <Image
@@ -50,8 +48,6 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             width={16}
             height={16}
             src={'/images/home/pc-more-active.png'}
-            placeholder="blur"
-            blurDataURL={'/images/home/pc-more-active.png'}
             alt={''}
           />
           <span>Back</span>
@@ -97,8 +93,6 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             width={16}
             height={16}
             src={'/images/book/play-icon.png'}
-            placeholder="blur"
-            blurDataURL={'/images/book/play-icon.png'}
             alt={''}
           />
           <span>Play Now</span>

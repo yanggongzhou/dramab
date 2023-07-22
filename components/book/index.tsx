@@ -66,8 +66,6 @@ const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
             width={48}
             height={48}
             src={'/images/book/play-icon2.png'}
-            placeholder="blur"
-            blurDataURL={'/images/book/play-icon2.png'}
             alt={''}
           />
           <span>Play Now</span>

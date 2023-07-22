@@ -27,8 +27,6 @@ const BookCrumbs: FC<IProps> = (
         width={48}
         height={48}
         src={'/images/layout/link.png'}
-        placeholder="blur"
-        blurDataURL={'/images/layout/link.png'}
         alt={'>'}
       />
     </Link>
@@ -39,8 +37,6 @@ const BookCrumbs: FC<IProps> = (
         width={48}
         height={48}
         src={'/images/layout/link.png'}
-        placeholder="blur"
-        blurDataURL={'/images/layout/link.png'}
         alt={'>'}
       />
     </Link>

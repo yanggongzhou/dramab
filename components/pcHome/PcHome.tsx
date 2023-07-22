@@ -19,7 +19,7 @@ const PcHome: FC<IProps> = ({ bigList, smallData }) => {
         smallData.length > 0 && smallData.map((item, index) => {
           if (item?.items && item.items.length > 0) {
             return <div key={item.id}>
-              <PcHomeTitle title={item.name} subName={item.subName}/>
+              <PcHomeTitle title={item.name} subName={item.subName} href={`/more/${encodeURIComponent(item.name)}_${item.id}`}/>
               <SecondList dataSource={(item.items || []).slice(0, 5)} index={index <= 1}/>
             </div>
           }

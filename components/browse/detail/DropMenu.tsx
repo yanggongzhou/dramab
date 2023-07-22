@@ -50,8 +50,6 @@ const DropMenu: FC<IProps> = ({ types, typeTwoId, visible }) => {
           width={40}
           height={40}
           src={'/images/browse/more.png'}
-          placeholder="blur"
-          blurDataURL={'/images/browse/more.png'}
           alt={'more'}
         />
       }>
@@ -67,8 +65,6 @@ const DropMenu: FC<IProps> = ({ types, typeTwoId, visible }) => {
             width={40}
             height={40}
             src={'/images/browse/more.png'}
-            placeholder="blur"
-            blurDataURL={'/images/browse/more.png'}
             alt={'close'}
           />
         </div>

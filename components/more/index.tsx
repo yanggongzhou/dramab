@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styles from '@/components/more/index.module.scss'
 import { useTranslation } from "next-i18next";
 import HomeTitle from "@/components/home/homeTitle/HomeTitle";
-import { EnumPosition, IBookItem } from "@/typings/home.interface";
+import { EnumPosition, IBookItem, IHomeResItem } from "@/typings/home.interface";
 import Link from "next/link";
 import { MEmpty } from "@/components/common/empty";
 import MorePagination from "@/components/more/pagination/MorePagination";
@@ -10,13 +10,12 @@ import FirstItem from "@/components/home/firstItem/FirstItem";
 import Image from "next/image";
 
 interface IProps {
-  bookData: IBookItem[];
+  moreData: IHomeResItem;
   pageNo: number;
   pages: number;
-  position: EnumPosition;
 }
 
-const MMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
+const MMore: FC<IProps> = ({ moreData, pages, pageNo }) => {
   const { t } = useTranslation();
 
   return <div className={styles.moreWrap}>
@@ -30,18 +29,16 @@ const MMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
         width={16}
         height={16}
         src={'/images/home/pc-more.png'}
-        placeholder="blur"
-        blurDataURL={'/images/home/pc-more.png'}
         alt={'>'}
       />
-      <div className={styles.crumbsItem}>{t(`menu.popular`)}</div>
+      <div className={styles.crumbsItem}>{moreData.name}</div>
     </div>
-    <HomeTitle title={t(`menu.popular`)} isMore={false}/>
-    {bookData.length > 0 ?
+    <HomeTitle title={moreData?.name || ''} subName={moreData.subName} />
+    {moreData.items && moreData.items.length > 0 ?
       <>
-        <FirstItem dataSource={bookData}/>
+        <FirstItem dataSource={moreData.items}/>
         {pages && pages > 1 ? <MorePagination
-          prevPath={`/more/${position}/`}
+          prevPath={`/more/${moreData.name}_${moreData.id}/`}
           page={pageNo}
           totalPage={pages}
         /> : null}

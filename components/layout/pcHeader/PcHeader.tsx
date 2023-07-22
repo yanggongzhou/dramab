@@ -30,8 +30,6 @@ const PcHeader: FC<IProps> = () => {
               width={40}
               height={40}
               src={'/images/logo.png'}
-              placeholder="blur"
-              blurDataURL={'/images/logo.png'}
               alt={ClientConfig.name}
             />
             <span>DramaBox</span>

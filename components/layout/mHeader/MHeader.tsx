@@ -30,8 +30,6 @@ const MHeader: FC<IProps> = () => {
         width={48}
         height={48}
         src={'/images/home/m-menu.png'}
-        placeholder="blur"
-        blurDataURL={'/images/home/m-menu.png'}
         alt={'menu'}
       />
       <Image

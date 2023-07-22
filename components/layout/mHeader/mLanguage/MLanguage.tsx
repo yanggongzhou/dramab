@@ -37,8 +37,6 @@ const MLanguage = () => {
           width={32}
           height={32}
           src={'/images/home/language.png'}
-          placeholder="blur"
-          blurDataURL={'/images/home/language.png'}
           alt={'language'}
         />
         <span>{router.locale}</span>

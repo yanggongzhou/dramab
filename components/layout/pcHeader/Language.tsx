@@ -44,8 +44,6 @@ const Language = () => {
           width={12}
           height={12}
           src={visible ? '/images/layout/arrow-up.png' : '/images/layout/arrow-down.png'}
-          placeholder="blur"
-          blurDataURL={visible ? '/images/layout/arrow-up.png' : '/images/layout/arrow-down.png'}
           alt={''}
         />
       </div>

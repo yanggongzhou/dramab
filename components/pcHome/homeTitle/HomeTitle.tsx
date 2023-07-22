@@ -6,11 +6,12 @@ import Image from "next/image";
 
 interface IProps {
   title: string;
+  href?: string;
   isMore?: boolean; // 是否显示跳转链接
   subName?: string;
 }
 
-const PcHomeTitle: FC<IProps> = ({ title, isMore = true, subName = '' }) => {
+const PcHomeTitle: FC<IProps> = ({ title, subName = '', href }) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.titleBox}>
@@ -18,15 +19,13 @@ const PcHomeTitle: FC<IProps> = ({ title, isMore = true, subName = '' }) => {
       <div className={styles.titleSub}>{subName}</div>
     </div>
 
-    {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
+    {href ? <Link className={styles.moreBox} href={href}>
       {t('menu.SeeMore')}
       <Image
         className={styles.moreIcon}
         width={16}
         height={16}
         src={'/images/home/pc-more.png'}
-        placeholder="blur"
-        blurDataURL={'/images/home/pc-more.png'}
         alt={''}
       />
       <Image
@@ -34,8 +33,6 @@ const PcHomeTitle: FC<IProps> = ({ title, isMore = true, subName = '' }) => {
         width={16}
         height={16}
         src={'/images/home/pc-more-active.png'}
-        placeholder="blur"
-        blurDataURL={'/images/home/pc-more-active.png'}
         alt={''}
       />
     </Link> : null}

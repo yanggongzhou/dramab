@@ -6,21 +6,19 @@ import Image from "next/image";
 interface IProps {
   title: string;
   subName?: string;
-  isMore?: boolean;
+  href?: string;
 }
 
-const HomeTitle: FC<IProps> = ({ title, subName = '', isMore= true }) => {
+const HomeTitle: FC<IProps> = ({ title, subName = '', href }) => {
   return <div className={styles.titleWrap}>
     <div className={styles.title}>
       <p>{title}</p>
-      {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
+      {href ? <Link className={styles.moreBox} href={href}>
         <Image
           className={styles.moreIcon}
           width={32}
           height={32}
           src={'/images/layout/link.png'}
-          placeholder="blur"
-          blurDataURL={'/images/layout/link.png'}
           alt={'more'}
         />
       </Link> : null}

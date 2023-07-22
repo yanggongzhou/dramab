@@ -48,8 +48,6 @@ const MDownload: FC<IProps> = ({ isApple }) => {
             width={48}
             height={48}
             src={isApple ? '/images/download/ios.png' : '/images/download/android.png'}
-            placeholder="blur"
-            blurDataURL={isApple ? '/images/download/ios.png' : '/images/download/android.png'}
             alt={ClientConfig.name}
           />
           <span>Download DramaBox</span>

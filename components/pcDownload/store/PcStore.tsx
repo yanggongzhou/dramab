@@ -41,8 +41,6 @@ const PcStore: FC<IProps> = ({ isApple }) => {
             width={40}
             height={40}
             src={'/images/download/ios.png'}
-            placeholder="blur"
-            blurDataURL={'/images/download/ios.png'}
             alt={'ios'}
           />
           <div className={styles.tabsTitleRight}>
@@ -57,8 +55,6 @@ const PcStore: FC<IProps> = ({ isApple }) => {
             width={40}
             height={40}
             src={'/images/download/pc-android.png'}
-            placeholder="blur"
-            blurDataURL={'/images/download/pc-android.png'}
             alt={'android'}
           />
           <div className={styles.tabsTitleRight}>

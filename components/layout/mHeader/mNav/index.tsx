@@ -42,8 +42,6 @@ const MNav: FC<IProps> = ({ visible, cancel }) => {
         width={48}
         height={48}
         src={'/images/layout/m-menu-close.png'}
-        placeholder="blur"
-        blurDataURL={'/images/layout/m-menu-close.png'}
         alt={'close'}
       />
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { netMoreBook } from "@/server/home";
-import { ELanguage, EnumPosition, EPositionShowName, IBookItem, IHomeResItem } from "typings/home.interface";
+import { ELanguage, EnumPosition, IBookItem, IHomeResItem } from "@/typings/home.interface";
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PcMore from "@/components/pcMore";
@@ -9,16 +9,15 @@ import MMore from "@/components/more";
 
 interface IProps {
   isPc: boolean;
-  bookData: IBookItem[];
+  moreData: IHomeResItem;
   pageNo: number;
   pages: number;
-  position: EnumPosition;
 }
 
-const More: NextPage<IProps> = ({ isPc, bookData, pageNo, pages, position }) => {
+const More: NextPage<IProps> = ({ isPc, moreData, pageNo, pages }) => {
   return <>
-    {isPc ? <PcMore position={position} pageNo={pageNo} pages={pages} bookData={bookData}/> :
-      <MMore position={position} pageNo={pageNo} pages={pages} bookData={bookData}/>
+    {isPc ? <PcMore pageNo={pageNo} pages={pages} moreData={moreData} /> :
+      <MMore pageNo={pageNo} pages={pages} moreData={moreData}/>
     }
   </>
 }
@@ -27,12 +26,13 @@ const More: NextPage<IProps> = ({ isPc, bookData, pageNo, pages, position }) => 
 export const getServerSideProps: GetServerSideProps = async ({ req, query, locale }) => {
   const ua = req?.headers['user-agent'] || ''
   const { page = '1', position = '' } = query;
-  //  Object.keys()返回可枚举的，Object.getOwnPropertyNames()返回所有的。
-  if (!position || !Reflect.ownKeys(EnumPosition).includes(position.toString())) {
-    return { notFound: true }
-  }
+  const pathArr = position.split('_')
+  const id = pathArr[pathArr.length - 1] || '';
+  pathArr.pop();
+  const name = pathArr.join('');
   const response = await netMoreBook({
-    name: 'New Releases',
+    id,
+    name,
     pageNum: Number(page),
   }, locale as ELanguage)
 
@@ -43,14 +43,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query, local
     return { redirect: { destination: '/500', permanent: false } }
   }
   const { currentPage = 1, pages = 0, data = {} as IHomeResItem } = response;
-  const bookData = data?.items || [];
   // 返回的参数将会按照 key 值赋值到 HomePage 组件的同名入参中
   return {
     props: {
-      bookData,
+      moreData: data,
       pageNo: currentPage,
       pages,
-      position,
       isPc: ownOs(ua).isPc,
       ...(await serverSideTranslations(locale ?? ELanguage.English, ['common'])),
     }

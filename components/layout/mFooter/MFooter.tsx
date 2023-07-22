@@ -19,8 +19,6 @@ const MFooter: FC<IProps> = () => {
         width={24}
         height={24}
         src={'/images/layout/link.png'}
-        placeholder="blur"
-        blurDataURL={'/images/layout/link.png'}
         alt={'more'}
       />
     </Link>
@@ -31,8 +29,6 @@ const MFooter: FC<IProps> = () => {
         width={24}
         height={24}
         src={'/images/layout/link.png'}
-        placeholder="blur"
-        blurDataURL={'/images/layout/link.png'}
         alt={'more'}
       />
     </Link>

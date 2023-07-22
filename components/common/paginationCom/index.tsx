@@ -61,8 +61,6 @@ const PaginationCom: FC<IProps> = (
             width={14}
             height={14}
             src={'/images/layout/link.png'}
-            placeholder="blur"
-            blurDataURL={'/images/layout/link.png'}
             alt={'prev'}
           />
         </div> :
@@ -72,8 +70,6 @@ const PaginationCom: FC<IProps> = (
             width={14}
             height={14}
             src={'/images/layout/link.png'}
-            placeholder="blur"
-            blurDataURL={'/images/layout/link.png'}
             alt={'prev'}
           />
         </Link>
@@ -96,8 +92,6 @@ const PaginationCom: FC<IProps> = (
             width={14}
             height={14}
             src={'/images/layout/link.png'}
-            placeholder="blur"
-            blurDataURL={'/images/layout/link.png'}
             alt={'next'}
           />
         </div> :
@@ -107,8 +101,6 @@ const PaginationCom: FC<IProps> = (
             width={14}
             height={14}
             src={'/images/layout/link.png'}
-            placeholder="blur"
-            blurDataURL={'/images/layout/link.png'}
             alt={'next'}
           />
         </Link>
