@@ -3,29 +3,6 @@ export enum EHomeStyle {
   big = 'BIG_CARD_COMBINATION',
 }
 
-
-export enum EnumPosition {
-  banner = 'banner',
-  popular = 'Popular',
-  trending = 'Trending',
-  ranking = 'Ranking',
-  'new-releases' = 'New Releases',
-  romance = 'Romance',
-  completed = 'Completed',
-  'editors-picks' = "Editors' Picks",
-  customInset = "inset"
-}
-
-export const EPositionShowName = {
-  [EnumPosition.popular]: 'popular',
-  [EnumPosition.trending]: 'trending',
-  [EnumPosition.ranking]: 'ranking',
-  [EnumPosition['new-releases']]: 'new-releases',
-  [EnumPosition.romance]: 'romance',
-  [EnumPosition.completed]: 'completed',
-  [EnumPosition['editors-picks']]: 'editors-picks',
-}
-
 export interface IHomeResItem {
   id: number;
   name: string;
@@ -54,7 +31,7 @@ export interface IBookItem {
   lastUpdateTimeDisplay: string;
   replacedBookName: string;
   firstChapterId?: string;
-  columnName: EnumPosition;
+  columnName: string;
   typeTwoNames: string[];
   typeTwoName: string;
   typeTwoIds: string[];
@@ -62,13 +39,13 @@ export interface IBookItem {
 
 export enum ELanguage {
   English = 'en',
-  CN = 'cn', // 简体中文
+  ZH = 'zh', // 简体中文
   TC = 'tc', // 繁體中文
   Korean = 'ko', // 韩语
 }
 
 export const LanguageActions: { text: string; key: ELanguage }[] = [
-  { text: '简体中文', key: ELanguage.CN },
+  { text: '简体中文', key: ELanguage.ZH },
   { text: 'English', key: ELanguage.English },
   { text: '繁體中文', key: ELanguage.TC },
   { text: '한국인', key: ELanguage.Korean },

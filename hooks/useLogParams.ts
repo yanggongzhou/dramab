@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LanguageDefaultBookId } from "@/client.config";
 import { useRouter } from "next/router";
-import { ELanguage, EnumPosition } from "typings/home.interface";
+import { ELanguage } from "typings/home.interface";
 import { clipboardAsync, setClipboard, setLanguage } from "@/store/modules/hive.module";
 import { useAppDispatch, useAppSelector } from "@/store";
 import useHiveLog from "@/hooks/useHiveLog";
@@ -13,7 +13,6 @@ const pathData = {
   search: '/search', // 有随机参数可能匹配, 最好放置头部，优先判断
   more: '/more/[position]',
   browse: '/browse/[typeTwoId]/[typeTwoName]',
-  rankings: '/rankings',
   book: '/book_info/[bookId]/[typeTwoName]/[bookName]',
   chapter: '/book/[bookId]/[chapterId]',
   catalog: '/catalog/[bookId]',
@@ -79,8 +78,6 @@ const useLogParams = (pageProps: any): void => {
     } else if (router.pathname.includes(pathData.browse)) {
       // 浏览页曝光
       pageView('Browse_view', { class: pageProps.typeTwoName });
-    } else if (router.pathname.includes(pathData.rankings)) {
-      pageView('BookList_view', { Column_name: EnumPosition.ranking });
     } else if (router.pathname === pathData.book) {
       // 书籍详情页
       pageView('BookDetails_view', {

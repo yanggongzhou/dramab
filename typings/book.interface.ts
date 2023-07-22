@@ -1,4 +1,4 @@
-import { ELanguage, EnumPosition } from "./home.interface";
+import { ELanguage } from "./home.interface";
 import { ESearchType } from "./sitemap.interface";
 
 export interface INetBookReq {
@@ -29,7 +29,7 @@ export interface IBook {
   author: string;
   replacedBookName: string;
   firstChapterId?: string;
-  columnName: EnumPosition;
+  columnName: string;
   typeTwoNames: string[];
   typeTwoIds: number[];
   typeTwoName: string;
@@ -45,7 +45,7 @@ export interface INetBookRes extends IBook{
   column: {
     bookId: string;
     bookName: string;
-    columnName: EnumPosition;
+    columnName: string;
   };
   languages: ELanguage[]
 }

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import styles from '@/components/more/index.module.scss'
 import { useTranslation } from "next-i18next";
 import HomeTitle from "@/components/home/homeTitle/HomeTitle";
-import { EnumPosition, IBookItem, IHomeResItem } from "@/typings/home.interface";
+import { IHomeResItem } from "@/typings/home.interface";
 import Link from "next/link";
 import { MEmpty } from "@/components/common/empty";
 import MorePagination from "@/components/more/pagination/MorePagination";

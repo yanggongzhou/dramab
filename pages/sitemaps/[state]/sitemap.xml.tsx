@@ -2,7 +2,7 @@ import { SitemapBuilder, withXMLResponse, withXMLResponseLegacy } from 'next-sit
 import { GetServerSideProps } from 'next'
 import { ISitemapField } from "next-sitemap/dist/@types/interface";
 import { netAllBook, netAllChapter, netAllColumn, netBrowseType, netIncrementBook, netKeywords } from "@/server/home";
-import { ELanguage, EnumPosition, EPositionShowName } from "typings/home.interface";
+import { ELanguage, EPositionShowName } from "typings/home.interface";
 import dayjs from "dayjs";
 import { ESearchType } from "typings/sitemap.interface";
 

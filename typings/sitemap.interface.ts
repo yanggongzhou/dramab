@@ -1,4 +1,4 @@
-import { ELanguage, EnumPosition } from "./home.interface";
+import { ELanguage } from "./home.interface";
 
 // 0全量，1增量，默认0
 export enum ESearchType {
@@ -33,7 +33,7 @@ export interface INetAllChapterRes {
 }
 
 export interface INetAllColumnRes {
-  name: EnumPosition;
+  name: string;
   bookCount: number
 }
 

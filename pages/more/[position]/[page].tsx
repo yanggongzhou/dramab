@@ -1,7 +1,7 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { netMoreBook } from "@/server/home";
-import { ELanguage, EnumPosition, IBookItem, IHomeResItem } from "@/typings/home.interface";
+import { ELanguage, IHomeResItem } from "@/typings/home.interface";
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PcMore from "@/components/pcMore";
