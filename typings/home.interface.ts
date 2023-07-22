@@ -1,3 +1,9 @@
+export enum EHomeStyle {
+  SMALL_CARD_LIST = 0,
+  BIG_CARD_COMBINATION = 1,
+}
+
+
 export enum EnumPosition {
   banner = 'banner',
   popular = 'Popular',

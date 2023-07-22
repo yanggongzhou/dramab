@@ -14,5 +14,4 @@ export enum EDevice {
 
 export interface IAppStore {
   device: EDevice;
-  footerAdVisible: boolean;
 }

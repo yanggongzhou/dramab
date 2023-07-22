@@ -42,7 +42,7 @@ const PcHome: FC<IProps> = ({ homeData }) => {
           if (item?.items && item.items.length > 0) {
             return <div key={item.id}>
               <PcHomeTitle title={item.name}/>
-              <SecondList dataSource={(item.items || []).slice(0, 5)}/>
+              <SecondList dataSource={(item.items || []).slice(0, 5)} index={index <= 1}/>
             </div>
           }
           return null;

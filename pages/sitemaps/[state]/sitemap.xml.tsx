@@ -44,23 +44,23 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     return withXMLResponseLegacy(ctx, content)
   }
   // 栏目
-  if (state === 'columns') {
-    const response = await netAllColumn();
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    let fields: ISitemapField[] = [];
-    (response || []).forEach(val => {
-      if(val.name !== EnumPosition.banner) {
-        const pages = Array.from({ length: Math.ceil(val.bookCount / 10) }, (v, i) => {
-          const _loc = val.name === EnumPosition.ranking ? `${options.loc}/rankings/${i+1}` : `${options.loc}/more/${EPositionShowName[val.name]}/${i+1}`
-          return { ...options, loc: _loc }
-        })
-        fields = fields.concat(pages);
-      }
-    })
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/ xmlns:.*="(.*)"/g, '');
-    return withXMLResponseLegacy(ctx, content)
-  }
+  // if (state === 'columns') {
+  //   const response = await netAllColumn();
+  //   if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
+  //   if (response === 'BadRequest_404') return { notFound: true }
+  //   let fields: ISitemapField[] = [];
+  //   (response || []).forEach(val => {
+  //     if(val.name !== EnumPosition.banner) {
+  //       const pages = Array.from({ length: Math.ceil(val.bookCount / 10) }, (v, i) => {
+  //         const _loc = `${options.loc}/more/${EPositionShowName[val.name]}/${i+1}`
+  //         return { ...options, loc: _loc }
+  //       })
+  //       fields = fields.concat(pages);
+  //     }
+  //   })
+  //   const content = sitemapBuilder.buildSitemapXml(fields).replace(/ xmlns:.*="(.*)"/g, '');
+  //   return withXMLResponseLegacy(ctx, content)
+  // }
 
   // 浏览
   if (state === 'browse') {

@@ -1,9 +1,9 @@
 import { Swiper } from 'antd-mobile'
 import React, { FC } from 'react'
 import styles from './SwiperNormal.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
 import { IBookItem } from "typings/home.interface";
 import Link from "next/link";
+import ImageCover from "@/components/common/image/ImageCover";
 
 interface IProps {
   bannerList: IBookItem[];
@@ -14,10 +14,16 @@ const SwiperNormal: FC<IProps> = ({ bannerList }) => {
   const items = bannerList.map((item) => (
     <Swiper.Item key={item.bookId} className={styles.content}>
       <div className={styles.swiperItem}>
-        <Link className={styles.contentImgBox} href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>
-          <ImageCommon source={item.cover} w={686} h={344} className={styles.contentImg} alt={item.bookName}/>
-          <div className={styles.mark}/>
-        </Link>
+        <ImageCover
+          href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}
+          className={styles.contentImgBox}
+          src={item.cover}
+          width={218}
+          height={294}
+          alt={item.bookName}
+        />
+        <div className={styles.contentImgMark}/>
+
         <div className={styles.rightCard}>
           <div className={styles.rightCardTop}>
             <Link className={styles.bookName} href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>

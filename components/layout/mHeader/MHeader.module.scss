@@ -29,28 +29,3 @@
     height: 0.4rem;
   }
 }
-
-.homeTab {
-  height: 0.8rem;
-  background-color: #FFFFFF;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  .homeTabItem, .homeTabItemActive {
-    font-size: 0.32rem;
-    color: rgba(0, 0, 0, 0.7);
-    padding: 0 0.32rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    font-family: Roboto-Regular, Roboto;
-  }
-
-  .homeTabItemActive {
-    font-family: Roboto-Medium, Roboto;
-    color: $theme_color;
-    font-weight: 500;
-  }
-}

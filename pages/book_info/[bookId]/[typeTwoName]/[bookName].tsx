@@ -5,7 +5,6 @@ import { IBook } from "typings/book.interface";
 import PcBook from "@/components/pcBook";
 import MBook from "@/components/book";
 import { ownOs } from "@/utils/ownOs";
-// import CrumbsCom from "@/components/common/Crumbs";
 import { ELanguage } from "typings/home.interface";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -22,7 +21,6 @@ const Book: NextPage<IProps> = (
 ) => {
 
   return <>
-    {/*<CrumbsCom bookInfo={bookInfo} isPc={isPc}/>*/}
     { isPc ?
       <PcBook
         firstChapterId={firstChapterId}

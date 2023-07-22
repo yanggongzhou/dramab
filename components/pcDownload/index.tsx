@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import styles from '@/components/pcDownload/index.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
+import styles from '@/components/pcDownload/index.module.scss';
 import { useTranslation } from "next-i18next";
 import PcStore from "@/components/pcDownload/store/PcStore";
+import Image from "next/image";
 
 interface IProps {
   isApple: boolean;
@@ -25,7 +25,15 @@ const PcDownload: FC<IProps> = ({ isApple }) => {
     </div>
 
     <div className={styles.downloadMain}>
-      <ImageCommon source={'/images/download/pc-cover.png'} className={styles.downloadCover}/>
+      <Image
+        className={styles.downloadCover}
+        width={440}
+        height={440}
+        src={'/images/download/pc-cover.png'}
+        placeholder="blur"
+        blurDataURL={'/images/download/pc-cover.png'}
+        alt={''}
+      />
       <PcStore isApple={isApple} />
     </div>
   </div>

@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import styles from '@/components/common/paginationCom/index.module.scss'
 import Link from "next/link";
-import ImageCommon from "@/components/common/ImageCommon";
+import Image from "next/image";
 
 /** 参考文献https://www.jianshu.com/p/ec9aca4764cf*/
 
@@ -56,10 +56,26 @@ const PaginationCom: FC<IProps> = (
     <div className={styles.pageContent}>
       {currentPage === 1 ?
         <div className={styles.prevNoMore}>
-          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+          <Image
+            className={styles.prevNextIcon}
+            width={14}
+            height={14}
+            src={'/images/layout/link.png'}
+            placeholder="blur"
+            blurDataURL={'/images/layout/link.png'}
+            alt={'prev'}
+          />
         </div> :
         <Link scroll={isScroll} href={path + (currentPage - 1)} className={styles.prevBtn}>
-          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+          <Image
+            className={styles.prevNextIcon}
+            width={14}
+            height={14}
+            src={'/images/layout/link.png'}
+            placeholder="blur"
+            blurDataURL={'/images/layout/link.png'}
+            alt={'prev'}
+          />
         </Link>
       }
       {/*总页码小于等于showLength时，全部显示出来*/}
@@ -75,10 +91,26 @@ const PaginationCom: FC<IProps> = (
         <CreatePage/>
       }
       {currentPage === totalPage ? <div className={styles.nextNoMore}>
-          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+          <Image
+            className={styles.prevNextIcon}
+            width={14}
+            height={14}
+            src={'/images/layout/link.png'}
+            placeholder="blur"
+            blurDataURL={'/images/layout/link.png'}
+            alt={'next'}
+          />
         </div> :
         <Link scroll={isScroll} href={path + `${currentPage + 1}`} className={styles.nextBtn}>
-          <ImageCommon source={'/images/layout/link.png'} className={styles.prevNextIcon} />
+          <Image
+            className={styles.prevNextIcon}
+            width={14}
+            height={14}
+            src={'/images/layout/link.png'}
+            placeholder="blur"
+            blurDataURL={'/images/layout/link.png'}
+            alt={'next'}
+          />
         </Link>
       }
     </div>

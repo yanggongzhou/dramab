@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
 import styles from './index.module.scss'
 import Link from "next/link";
-import ImageCommon from "@/components/common/ImageCommon";
 import { useTranslation } from "next-i18next";
 import { Popup } from "antd-mobile";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 interface IProps {
   visible: boolean;
@@ -36,7 +36,16 @@ const MNav: FC<IProps> = ({ visible, cancel }) => {
     }}
   >
     <div className={styles.navHead}>
-      <ImageCommon source={'/images/layout/m-menu-close.png'} className={styles.navClose} onClick={() => cancel()}/>
+      <Image
+        onClick={() => cancel()}
+        className={styles.navClose}
+        width={48}
+        height={48}
+        src={'/images/layout/m-menu-close.png'}
+        placeholder="blur"
+        blurDataURL={'/images/layout/m-menu-close.png'}
+        alt={'close'}
+      />
     </div>
 
     <div className={styles.navMenu}>

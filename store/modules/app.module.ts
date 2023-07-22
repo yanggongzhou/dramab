@@ -6,15 +6,11 @@ export const appSlice = createSlice<IAppStore, SliceCaseReducers<IAppStore>>({
   name: 'app',
   initialState: (): IAppStore => ({
     device: EDevice.mobile,
-    footerAdVisible: false, // m底部横幅是否显示
   }),
   reducers: {
     setDevice: (state, action: PayloadAction<EDevice>) => {
       state.device = action.payload;
-    },
-    setFooterAdVisible: (state, action: PayloadAction<boolean>) => {
-      state.footerAdVisible = action.payload;
-    },
+    }
   }
 });
 

@@ -1,13 +1,12 @@
 import React, { FC } from 'react'
 import styles from '@/components/pcMore/index.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
-import { useTranslation } from "next-i18next";
 import PcHomeTitle from "@/components/pcHome/homeTitle/HomeTitle";
-import { EnumPosition, EPositionShowName, IBookItem } from "@/typings/home.interface";
+import { EnumPosition, IBookItem } from "@/typings/home.interface";
 import PaginationCom from "@/components/common/paginationCom";
 import Link from "next/link";
 import SecondList from "@/components/pcHome/secondList/SecondList";
 import { PcEmpty } from "@/components/common/empty";
+import Image from "next/image";
 
 interface IProps {
   bookData: IBookItem[];
@@ -17,14 +16,29 @@ interface IProps {
 }
 
 const PcMore: FC<IProps> = ({ bookData, position, pages, pageNo }) => {
-  const { t } = useTranslation();
 
   return <>
     <div className={styles.backHead}>
       <div className={styles.backBox}>
         <Link href={'/'} className={styles.backBoxLink}>
-          <ImageCommon source={'/images/home/pc-more.png'} className={styles.backIcon}/>
-          <ImageCommon source={'/images/home/pc-more-active.png'} className={styles.backIconActive}/>
+          <Image
+            className={styles.backIcon}
+            width={16}
+            height={16}
+            src={'/images/home/pc-more.png'}
+            placeholder="blur"
+            blurDataURL={'/images/home/pc-more.png'}
+            alt={''}
+          />
+          <Image
+            className={styles.backIconActive}
+            width={16}
+            height={16}
+            src={'/images/home/pc-more-active.png'}
+            placeholder="blur"
+            blurDataURL={'/images/home/pc-more-active.png'}
+            alt={''}
+          />
           <span>Back</span>
         </Link>
       </div>

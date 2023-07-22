@@ -1,11 +1,12 @@
 import React, { FC, useState } from 'react'
 import styles from "@/components/book/index.module.scss";
 import { IBook } from "@/typings/book.interface";
-import ImageCommon from "@/components/common/ImageCommon";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import useHiveLog from "@/hooks/useHiveLog";
 import BookCrumbs from "@/components/book/crumbs";
+import Image from "next/image";
+import { onImgError } from "@/components/common/image/ImageCover";
 
 interface IProps {
   bookInfo: IBook;
@@ -39,7 +40,17 @@ const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
     <BookCrumbs bookInfo={bookInfo}/>
 
     <div className={styles.detailBox}>
-      <ImageCommon w={180} h={240} source={cover} className={styles.bookCover} alt={bookName}/>
+      <Image
+        onError={onImgError}
+        className={styles.bookCover}
+        width={280}
+        height={378}
+        src={bookInfo.cover}
+        placeholder="blur"
+        blurDataURL={bookInfo.cover}
+        alt={bookInfo.bookName}
+      />
+
       <h1 className={styles.bookName}>{bookName}</h1>
 
       <div className={styles.tagBox}>
@@ -50,7 +61,15 @@ const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
 
       <div className={styles.footerBox}>
         <Link href={`/book/${bookInfo.replacedBookName}_${bookInfo.bookId}/Chapter-1_${firstChapterId}`} className={styles.footerBtn} onClick={toRead}>
-          <ImageCommon source={'/images/book/play-icon2.png'} className={styles.playIcon}/>
+          <Image
+            className={styles.playIcon}
+            width={48}
+            height={48}
+            src={'/images/book/play-icon2.png'}
+            placeholder="blur"
+            blurDataURL={'/images/book/play-icon2.png'}
+            alt={''}
+          />
           <span>Play Now</span>
         </Link>
       </div>

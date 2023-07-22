@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import styles from './SwiperArea.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
 import { IBookItem } from "typings/home.interface";
 import Link from "next/link";
+import ImageCover from "@/components/common/image/ImageCover";
 
 interface IProps {
   bannerList: IBookItem[];
@@ -14,9 +14,15 @@ const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
   return <div className={styles.swiperWrap}>
     <div className={styles.swiperBox}>
       <div className={styles.leftCard}>
-        <Link href={routerToBookInfo}>
-          <ImageCommon source={bannerList[0].cover} className={styles.leftCardImg} alt={bannerList[0].bookName}/>
-        </Link>
+        <ImageCover
+          scale
+          priority
+          href={routerToBookInfo}
+          className={styles.leftCardImg}
+          width={345}
+          height={460}
+          src={bannerList[0].cover}
+          alt={bannerList[0].bookName}/>
 
         <Link href={routerToBookInfo} className={styles.leftCardContent}>
           <div className={styles.leftCardContentTop}>
@@ -36,10 +42,15 @@ const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
       <div className={styles.rightCard}>
         { [ bannerList[1], bannerList[2] ].map(item => {
           return <div key={item.bookId} className={styles.rightCardItem}>
-            <Link href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>
-              <ImageCommon source={item.cover} className={styles.rightCardItemImg}/>
-            </Link>
-
+            <ImageCover
+              scale
+              priority
+              href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}
+              className={styles.rightCardItemImg}
+              width={165}
+              height={220}
+              src={item.cover}
+              alt={item.bookName}/>
             <div className={styles.rightCardContent}>
               <div className={styles.rightCardContentTop}>
                 <Link className={styles.bookName} href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>

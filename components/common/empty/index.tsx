@@ -1,13 +1,21 @@
 import React, { FC } from "react";
-import ImageCommon from "@/components/common/ImageCommon";
 import { useTranslation } from "next-i18next";
 import styles from '@/components/common/empty/index.module.scss'
+import Image from "next/image";
 
 export const PcEmpty: FC = () => {
   const { t } = useTranslation();
 
   return <div className={styles.emptyBox}>
-    <ImageCommon source={'/images/common/empty.png'} className={styles.emptyIcon} alt={'No Content'}/>
+    <Image
+      className={styles.emptyIcon}
+      width={320}
+      height={240}
+      src={'/images/common/empty.png'}
+      placeholder="blur"
+      blurDataURL={'/images/common/empty.png'}
+      alt={t('others.noBook')}
+    />
     <div className={styles.emptyIntro}>
       {t('others.noBook')}
     </div>
@@ -17,7 +25,15 @@ export const PcEmpty: FC = () => {
 export const MEmpty: FC = () => {
   const { t } = useTranslation();
   return <div className={styles.mEmptyBox}>
-    <ImageCommon source={'/images/common/empty.png'} className={styles.emptyIcon} alt={'No Content'}/>
+    <Image
+      className={styles.emptyIcon}
+      width={320}
+      height={240}
+      src={'/images/common/empty.png'}
+      placeholder="blur"
+      blurDataURL={'/images/common/empty.png'}
+      alt={t('others.noBook')}
+    />
     <div className={styles.emptyIntro}>
       {t('others.noBook')}
     </div>

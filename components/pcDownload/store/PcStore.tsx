@@ -1,6 +1,5 @@
 import React, { FC, useState } from "react";
 import styles from "@/components/pcDownload/store/PcStore.module.scss";
-import ImageCommon from "@/components/common/ImageCommon";
 import QRCode from "qrcode.react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { Toast } from "antd-mobile";
@@ -8,6 +7,7 @@ import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useAppSelector } from "@/store";
 import { ELanguage } from "@/typings/home.interface";
+import Image from "next/image";
 
 interface IProps {
   isApple: boolean;
@@ -34,15 +34,33 @@ const PcStore: FC<IProps> = ({ isApple }) => {
     <p className={styles.storeSub}>Download to unlock even more exciting content</p>
     <div className={styles.storeContent}>
       <div className={styles.tabsTitle}>
-        <div style={ activeApple ? { backgroundColor: '#00000080' } : {}} className={styles.tabsTitleItem} onClick={() => setActiveApple(true)}>
-          <ImageCommon source={'/images/download/ios.png'} className={styles.tabsTitleIcon}/>
+        <div style={activeApple ? { backgroundColor: '#00000080' } : {}} className={styles.tabsTitleItem}
+             onClick={() => setActiveApple(true)}>
+          <Image
+            className={styles.tabsTitleIcon}
+            width={40}
+            height={40}
+            src={'/images/download/ios.png'}
+            placeholder="blur"
+            blurDataURL={'/images/download/ios.png'}
+            alt={'ios'}
+          />
           <div className={styles.tabsTitleRight}>
             <p>IOS</p>
             <span>Download</span>
           </div>
         </div>
-        <div style={ activeApple ? {} : { backgroundColor: '#00000080' }} className={styles.tabsTitleItem} onClick={() => setActiveApple(false)}>
-          <ImageCommon source={'/images/download/pc-android.png'} className={styles.tabsTitleIcon}/>
+        <div style={activeApple ? {} : { backgroundColor: '#00000080' }} className={styles.tabsTitleItem}
+             onClick={() => setActiveApple(false)}>
+          <Image
+            className={styles.tabsTitleIcon}
+            width={40}
+            height={40}
+            src={'/images/download/pc-android.png'}
+            placeholder="blur"
+            blurDataURL={'/images/download/pc-android.png'}
+            alt={'android'}
+          />
           <div className={styles.tabsTitleRight}>
             <p>Android</p>
             <span>Download</span>

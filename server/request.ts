@@ -10,7 +10,7 @@ const Service = axios.create({
 Service.interceptors.request.use(
   (request) => {
     if (request.headers) {
-      Reflect.set(request.headers, 'pline', "WEBFIC")
+      Reflect.set(request.headers, 'pline', "WEBFIC") // DRAMABOX
     }
     return request
   },

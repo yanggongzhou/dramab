@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 import styles from '@/components/download/index.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
+import ImageLocal from "@/components/common/image/ImageLocal";
 import { useTranslation } from "next-i18next";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useAppSelector } from "@/store";
 import ClientConfig from "@/client.config";
 import Link from "next/link";
+import Image from "next/image";
 
 interface IProps {
   isApple: boolean;
@@ -28,13 +29,29 @@ const MDownload: FC<IProps> = ({ isApple }) => {
     <div className={styles.downloadHead}>
       DramaBox <br/> {t('aboutTitle')}
     </div>
-    <ImageCommon source={'/images/download/cover.png'} className={styles.downloadCover}/>
+    <Image
+      className={styles.downloadCover}
+      width={440}
+      height={440}
+      src={'/images/download/cover.png'}
+      placeholder="blur"
+      blurDataURL={'/images/download/cover.png'}
+      alt={ClientConfig.name}
+    />
     <Link href={shopLink}>
       <CopyToClipboard text={copyText} onCopy={() => {
         // HiveLog.trackDownload('turnPage_click', { book_ID: bookId, chapter_id: chapterId })
       }}>
         <div className={styles.downloadBtn}>
-          <ImageCommon source={isApple ? '/images/download/ios.png' : '/images/download/android.png'} className={styles.downloadBtnIcon}/>
+          <Image
+            className={styles.downloadBtnIcon}
+            width={48}
+            height={48}
+            src={isApple ? '/images/download/ios.png' : '/images/download/android.png'}
+            placeholder="blur"
+            blurDataURL={isApple ? '/images/download/ios.png' : '/images/download/android.png'}
+            alt={ClientConfig.name}
+          />
           <span>Download DramaBox</span>
         </div>
       </CopyToClipboard>

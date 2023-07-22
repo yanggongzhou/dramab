@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import styles from "@/components/layout/pcHeader/PcHeader.module.scss";
 import { Popover } from "antd-mobile";
 import { LanguageActions } from "@/typings/home.interface";
-import ImageCommon from "@/components/common/ImageCommon";
 import { Action } from "antd-mobile/2x/es/components/popover";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Language = () => {
   const router = useRouter();
@@ -39,7 +39,15 @@ const Language = () => {
     >
       <div className={visible ? styles.languageBoxActive : styles.languageBox}>
         <span className={styles.navItemTxt}>{language}</span>
-        <ImageCommon source={visible ? '/images/layout/arrow-up.png' : '/images/layout/arrow-down.png'} className={styles.navItemIcon}/>
+        <Image
+          className={styles.navItemIcon}
+          width={12}
+          height={12}
+          src={visible ? '/images/layout/arrow-up.png' : '/images/layout/arrow-down.png'}
+          placeholder="blur"
+          blurDataURL={visible ? '/images/layout/arrow-up.png' : '/images/layout/arrow-down.png'}
+          alt={''}
+        />
       </div>
     </Popover.Menu>
   </div>

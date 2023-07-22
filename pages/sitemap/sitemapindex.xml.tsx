@@ -1,8 +1,7 @@
-import { getServerSideSitemapIndex } from 'next-sitemap'
 import { GetServerSideProps } from 'next'
 import { netAllBook, netIncrementBook, netKeywords } from "@/server/home";
 import { ESearchType, INetAllBookRes } from "@/typings/sitemap.interface";
-import { getServerSideSitemapIndexLegacy } from "next-sitemap";
+import { getServerSideSitemapIndex, getServerSideSitemapIndexLegacy } from "next-sitemap";
 
 /*
 * 1. 站内页                   domain + /inside/sitemap.xml
@@ -57,7 +56,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   });
   const sitemaps: string[] = [
     `${process.env.WebDomain}/sitemaps/inside/sitemap.xml`,
-    `${process.env.WebDomain}/sitemaps/columns/sitemap.xml`,
+    // `${process.env.WebDomain}/sitemaps/columns/sitemap.xml`,
     `${process.env.WebDomain}/sitemaps/books/sitemap.xml`,
     `${process.env.WebDomain}/sitemaps/keywords/sitemap.xml`,
     `${process.env.WebDomain}/sitemaps/browse/sitemap.xml`,

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import styles from '@/styles/404.module.scss';
-import ImageCommon from "@/components/common/ImageCommon";
 import Link from "next/link";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { ELanguage } from "@/typings/home.interface";
 import { useTranslation } from "next-i18next";
 import { useAppSelector } from "@/store";
 import { EDevice } from "@/store/store.interfaces";
+import Image from "next/image";
 
 interface IProps {
 }
@@ -25,11 +25,27 @@ const Custom500: NextPage<IProps> = () => {
       <Link href="/" className={styles.pcEmptyIntro}>
         <p>{t('others.error')}</p>
       </Link>
-      <ImageCommon source={'/images/404/500.jpg'} className={styles.pcEmptyImg} alt={'500'}/>
+      <Image
+        className={styles.pcEmptyImg}
+        width={640}
+        height={590}
+        src={'/images/404/500.png'}
+        placeholder="blur"
+        blurDataURL={'/images/404/500.png'}
+        alt={'500'}
+      />
     </div> : null}
 
     {device === EDevice.mobile && isShow ? <div className={styles.ddWrap}>
-      <ImageCommon source={'/images/404/emptyBook.png'} className={styles.emptyImg}/>
+      <Image
+        className={styles.emptyImg}
+        width={180}
+        height={132}
+        src={'/images/404/emptyBook.png'}
+        placeholder="blur"
+        blurDataURL={'/images/404/emptyBook.png'}
+        alt={'500'}
+      />
       <Link href="/" className={styles.emptyIntro}>
         <p>{t('others.error')}</p>
       </Link>
@@ -42,7 +58,7 @@ const Custom500: NextPage<IProps> = () => {
 
 export default Custom500;
 
-export async function getStaticProps({ locale }) {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? ELanguage.English, ['common']))

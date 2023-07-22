@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import { Dropdown, DropdownRef } from "antd-mobile";
 import styles from "@/components/browse/detail/DropMenu.module.scss";
-import ImageCommon from "@/components/common/ImageCommon";
 import Link from "next/link";
 import { IBrowseTypes } from "typings/browse.interface";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 interface IProps {
   types: IBrowseTypes[];
@@ -44,14 +44,33 @@ const DropMenu: FC<IProps> = ({ types, typeTwoId, visible }) => {
     <Dropdown.Item
       forceRender
       key='sorter'
-      title={<ImageCommon className={styles.menuTitleIcon} source={'/images/browse/more.png'}/>}>
+      title={
+        <Image
+          className={styles.menuTitleIcon}
+          width={40}
+          height={40}
+          src={'/images/browse/more.png'}
+          placeholder="blur"
+          blurDataURL={'/images/browse/more.png'}
+          alt={'more'}
+        />
+      }>
       <div className={styles.menuBox}>
 
         <div className={styles.menuHead}>
           <span>Filter</span>
-          <ImageCommon className={styles.menuHeadIcon} source={'/images/browse/more.png'} onClick={() => {
-            dropdownRef.current?.close()
-          }}/>
+          <Image
+            onClick={() => {
+              dropdownRef.current?.close()
+            }}
+            className={styles.menuHeadIcon}
+            width={40}
+            height={40}
+            src={'/images/browse/more.png'}
+            placeholder="blur"
+            blurDataURL={'/images/browse/more.png'}
+            alt={'close'}
+          />
         </div>
 
         <div className={styles.menuContent}>

@@ -5,13 +5,13 @@ import { DocumentInitialProps } from "next/dist/shared/lib/utils";
 import { NextPage } from "next";
 
 interface IProp extends DocumentInitialProps {
-  isMobile: boolean;
+  isPc: boolean;
 }
 
-const MyDocument: NextPage<IProp> = ({ isMobile }) => {
+const MyDocument: NextPage<IProp> = ({ isPc }) => {
 
   return (
-    <Html lang='en' style={{ fontSize: isMobile ? '52px' : '90px' }}>
+    <Html lang='en' style={{ fontSize: isPc ? '90px' : '52px' }}>
       <Head />
       <body>
       <Main />
@@ -29,10 +29,10 @@ MyDocument.getInitialProps = async (ctx: DocumentContext) => {
     desc: "初次页面渲染"
   };
   console.info(JSON.stringify(logData));
-  const initialProps = await Document.getInitialProps(ctx)
-  const ua = ctx.req?.headers['user-agent'] || ''
-  const isMobile = ownOs(ua).isMobile;
-  return { ...initialProps, isMobile }
+  const initialProps = await Document.getInitialProps(ctx);
+  const ua = ctx.req?.headers['user-agent'] || '';
+  const { isPc } = ownOs(ua);
+  return { ...initialProps, isPc }
 }
 
 export default MyDocument

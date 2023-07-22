@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import styles from '@/components/layout/pcHeader/PcHeader.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
 import { useRouter } from "next/router";
+import Image from "next/image";
 import Link from "next/link";
 import ClientConfig from "@/client.config";
 import { useTranslation } from "next-i18next";
@@ -25,7 +25,15 @@ const PcHeader: FC<IProps> = () => {
       <div className={styles.navContent}>
         <div className={styles.navLeft}>
           <Link href={'/'} className={styles.logoTxtBox}>
-            <ImageCommon source={'/images/logo.png'} className={styles.logoTxt} alt={ClientConfig.name}/>
+            <Image
+              className={styles.logoTxt}
+              width={40}
+              height={40}
+              src={'/images/logo.png'}
+              placeholder="blur"
+              blurDataURL={'/images/logo.png'}
+              alt={ClientConfig.name}
+            />
             <span>DramaBox</span>
           </Link>
           <div className={styles.navBox}>

@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import styles from './HomeTitle.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
 import Link from "next/link";
-import { EnumPosition, EPositionShowName } from "typings/home.interface";
+import { EnumPosition } from "typings/home.interface";
 import { useTranslation } from "next-i18next";
+import Image from "next/image";
 
 interface IProps {
   title: EnumPosition;
@@ -22,12 +22,24 @@ const PcHomeTitle: FC<IProps> = ({ title, isMore = true}) => {
 
     {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
       {t('menu.SeeMore')}
-      <ImageCommon
-        source={'/images/home/pc-more.png'}
-        className={styles.moreIcon}/>
-      <ImageCommon
-        source={'/images/home/pc-more-active.png'}
-        className={styles.moreActiveIcon}/>
+      <Image
+        className={styles.moreIcon}
+        width={16}
+        height={16}
+        src={'/images/home/pc-more.png'}
+        placeholder="blur"
+        blurDataURL={'/images/home/pc-more.png'}
+        alt={''}
+      />
+      <Image
+        className={styles.moreActiveIcon}
+        width={16}
+        height={16}
+        src={'/images/home/pc-more-active.png'}
+        placeholder="blur"
+        blurDataURL={'/images/home/pc-more-active.png'}
+        alt={''}
+      />
     </Link> : null}
   </div>
 }

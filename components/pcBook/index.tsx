@@ -2,10 +2,10 @@ import React, { FC } from 'react'
 import styles from "@/components/pcBook/index.module.scss";
 import { IBook } from "typings/book.interface";
 import Link from "next/link";
-import ImageCommon from "@/components/common/ImageCommon";
-import { useTranslation } from "next-i18next";
 import useHiveLog from "@/hooks/useHiveLog";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { onImgError } from "@/components/common/image/ImageCover";
 
 interface IProps {
   bookInfo: IBook;
@@ -14,7 +14,6 @@ interface IProps {
 
 const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
 
-  const { t } = useTranslation()
   const HiveLog = useHiveLog();
   const {
     replacedBookName = 'null',
@@ -37,15 +36,40 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
         <div className={styles.backBoxLink} onClick={() => {
           router.back();
         }}>
-          <ImageCommon source={'/images/home/pc-more.png'} className={styles.backIcon}/>
-          <ImageCommon source={'/images/home/pc-more-active.png'} className={styles.backIconActive}/>
+          <Image
+            className={styles.backIcon}
+            width={16}
+            height={16}
+            src={'/images/home/pc-more.png'}
+            placeholder="blur"
+            blurDataURL={'/images/home/pc-more.png'}
+            alt={''}
+          />
+          <Image
+            className={styles.backIconActive}
+            width={16}
+            height={16}
+            src={'/images/home/pc-more-active.png'}
+            placeholder="blur"
+            blurDataURL={'/images/home/pc-more-active.png'}
+            alt={''}
+          />
           <span>Back</span>
         </div>
       </div>
     </div>
 
     <div className={styles.detailBox}>
-      <ImageCommon w={240} h={320} source={bookInfo.cover} className={styles.detailBookCover} alt={bookInfo.bookName}/>
+      <Image
+        onError={onImgError}
+        className={styles.detailBookCover}
+        width={450}
+        height={600}
+        src={bookInfo.cover}
+        placeholder="blur"
+        blurDataURL={bookInfo.cover}
+        alt={bookInfo.bookName}
+      />
 
       <div className={styles.detailBoxRight}>
         <div className={styles.detailBoxRightTop}>
@@ -68,7 +92,15 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
         </div>
 
         <Link href={`/book/${replacedBookName}_${bookInfo.bookId}/Chapter-1_${firstChapterId}`} className={styles.playBtn} onClick={() => toRead()}>
-          <ImageCommon source={'/images/book/play-icon.png'} className={styles.playIcon}/>
+          <Image
+            className={styles.playIcon}
+            width={16}
+            height={16}
+            src={'/images/book/play-icon.png'}
+            placeholder="blur"
+            blurDataURL={'/images/book/play-icon.png'}
+            alt={''}
+          />
           <span>Play Now</span>
         </Link>
       </div>

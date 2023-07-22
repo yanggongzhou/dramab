@@ -1,9 +1,9 @@
 import Link from "next/link";
 import styles from "@/components/book/Crumbs/index.module.scss";
-import ImageCommon from "@/components/common/ImageCommon";
 import React, { FC } from "react";
 import { useTranslation } from "next-i18next";
 import { IBook } from "@/typings/book.interface";
+import Image from "next/image";
 
 interface IProps {
   bookInfo: IBook;
@@ -22,11 +22,27 @@ const BookCrumbs: FC<IProps> = (
   return <div className={styles.crumbsWrap}>
     <Link href="/" className={styles.crumbsItem}>
       {t('nav.home')}
-      <ImageCommon source={'/images/layout/link.png'} className={styles.crumbsIcon}/>
+      <Image
+        className={styles.crumbsIcon}
+        width={48}
+        height={48}
+        src={'/images/layout/link.png'}
+        placeholder="blur"
+        blurDataURL={'/images/layout/link.png'}
+        alt={'>'}
+      />
     </Link>
     <Link className={styles.crumbsItem} href={`/browse/${typeTwoId}/${bookInfo.typeTwoName || 'all'}`}>
       {typeTwoName}
-      <ImageCommon source={'/images/layout/link.png'} className={styles.crumbsIcon}/>
+      <Image
+        className={styles.crumbsIcon}
+        width={48}
+        height={48}
+        src={'/images/layout/link.png'}
+        placeholder="blur"
+        blurDataURL={'/images/layout/link.png'}
+        alt={'>'}
+      />
     </Link>
     <div className={styles.crumbsItemTxt}>{bookInfo.bookName}</div>
   </div>

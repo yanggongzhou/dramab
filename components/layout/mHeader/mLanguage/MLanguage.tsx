@@ -2,9 +2,9 @@ import React from "react";
 import styles from "@/components/layout/mHeader/mLanguage/MLanguage.module.scss";
 import { Popover } from "antd-mobile";
 import { LanguageActions } from "@/typings/home.interface";
-import ImageCommon from "@/components/common/ImageCommon";
 import { Action } from "antd-mobile/2x/es/components/popover";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const MLanguage = () => {
   const router = useRouter();
@@ -32,7 +32,15 @@ const MLanguage = () => {
       }}
     >
       <div className={styles.rightBox}>
-        <ImageCommon className={styles.languageIcon} source={'/images/home/language.png'} />
+        <Image
+          className={styles.languageIcon}
+          width={32}
+          height={32}
+          src={'/images/home/language.png'}
+          placeholder="blur"
+          blurDataURL={'/images/home/language.png'}
+          alt={'language'}
+        />
         <span>{router.locale}</span>
       </div>
     </Popover.Menu>

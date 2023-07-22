@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { addListen, removeListen } from "@/utils/rem";
 import { ownOs } from "@/utils/ownOs";
 import PcHeader from "@/components/layout/pcHeader/PcHeader";
@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from "@/store";
 import { setDevice } from "@/store/modules/app.module";
 import { EDevice } from "@/store/store.interfaces";
 import MHeader from "@/components/layout/mHeader/MHeader";
+import styles from "@/components/layout/index.module.scss"
 
 interface IProps {
   children: React.ReactNode;
@@ -17,11 +18,13 @@ interface IProps {
 const DLayout: FC<IProps> = ({ children, pageProps }) => {
   const device = useAppSelector(state => state.app.device);
   const dispatch = useAppDispatch();
+  const [domVisible, setDomVisible] = useState(false);
 
   // 页面曝光 打点参数初始化
   useLogParams(pageProps);
 
   useEffect(() => {
+    setDomVisible(true)
     setRemScript();
     addListen(setRemScriptListen);
     return () => {
@@ -35,7 +38,7 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
     const { isPc } = ownOs(window.navigator.userAgent);
     dispatch(setDevice(isPc ? EDevice.pc : EDevice.mobile));
     if (isPc) {
-      /**pc端补偿google cls标准, 禁用以下*/ // todo
+      /**pc端补偿google cls标准, 禁用以下*/
       // if (clientWidth <= 1366){
       //   document.documentElement.style.fontSize = 100 * (1366 / 1800) + 'px';
       // } else {
@@ -57,11 +60,10 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
       document.documentElement.style.fontSize = 100 * (clientWidth / 750) + 'px';
     }
   }
-
-  if (device === EDevice.pc) {
+  if ((Reflect.has(pageProps, 'isPc') && Reflect.get(pageProps, 'isPc')) || (device === EDevice.pc && domVisible)) {
     return <>
       <PcHeader />
-      <main style={{ width: '14.4rem', margin: '0 auto', minHeight: 'calc(100vh - 2.6rem)' }}>
+      <main className={styles.pcWrap}>
         {children}
       </main>
       <PcFooter />
@@ -71,7 +73,7 @@ const DLayout: FC<IProps> = ({ children, pageProps }) => {
   return (
     <>
       <MHeader/>
-      <main style={{ backgroundColor: '#000000', minHeight: 'calc(100vh - 0.88rem)' }}>
+      <main className={styles.mWrap}>
         {children}
       </main>
     </>

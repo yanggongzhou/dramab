@@ -20,10 +20,11 @@
       overflow: hidden;
 
       .leftCardImg {
+        flex-shrink: 0;
         width: 3.45rem;
         height: 4.6rem;
-        flex-shrink: 0;
       }
+
 
       .leftCardContent {
         padding: 0.2rem 0.2rem 0.28rem;

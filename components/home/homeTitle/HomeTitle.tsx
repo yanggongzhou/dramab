@@ -1,9 +1,7 @@
 import React, { FC } from 'react'
 import styles from './HomeTitle.module.scss'
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
-import { EPositionShowName } from "@/typings/home.interface";
-import ImageCommon from "@/components/common/ImageCommon";
+import Image from "next/image";
 
 interface IProps {
   title: string;
@@ -11,12 +9,19 @@ interface IProps {
 }
 
 const HomeTitle: FC<IProps> = ({ title, isMore= true }) => {
-  const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.title}>
       <p>{title}</p>
       {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>
-        <ImageCommon source={'/images/layout/link.png'} className={styles.moreIcon}/>
+        <Image
+          className={styles.moreIcon}
+          width={32}
+          height={32}
+          src={'/images/layout/link.png'}
+          placeholder="blur"
+          blurDataURL={'/images/layout/link.png'}
+          alt={'more'}
+        />
       </Link> : null}
     </div>
     <p className={styles.titleSub}>What are you looking at？</p>

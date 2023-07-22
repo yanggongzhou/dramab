@@ -1,16 +1,15 @@
 import React, { FC } from 'react'
 import styles from './SecondList.module.scss'
-import ImageCommon from "@/components/common/ImageCommon";
 import { IBookItem } from "typings/home.interface";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
+import ImageCover from "@/components/common/image/ImageCover";
 
 interface IProps {
   dataSource: IBookItem[];
+  priority?: boolean;
 }
 
-const SecondList: FC<IProps> = ({ dataSource }) => {
-  const { t } = useTranslation()
+const SecondList: FC<IProps> = ({ dataSource, priority = false }) => {
 
   if (dataSource.length === 0) {
     return null
@@ -22,15 +21,21 @@ const SecondList: FC<IProps> = ({ dataSource }) => {
         bookId,
         typeTwoName = 'all',
         replacedBookName,
-        cover,
         bookName,
         viewCount,
       } = book;
       const routerToBookInfo = `/book_info/${bookId}/${typeTwoName}/${replacedBookName}`
       return <div key={bookId} className={styles.secondListBox}>
-        <Link href={routerToBookInfo}>
-          <ImageCommon w={192} h={258} className={styles.bookImage} source={cover} alt={bookName}/>
-        </Link>
+        <ImageCover
+          scale
+          priority={priority}
+          href={routerToBookInfo}
+          className={styles.bookImage}
+          width={272}
+          height={363}
+          src={book.cover}
+          alt={book.bookName}/>
+
         <Link className={styles.viewCount} href={routerToBookInfo}>
           {viewCount} Episodes
         </Link>
