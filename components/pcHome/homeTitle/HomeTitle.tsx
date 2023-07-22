@@ -1,23 +1,21 @@
 import React, { FC } from 'react'
-import styles from './HomeTitle.module.scss'
+import styles from '@/components/pcHome/homeTitle/HomeTitle.module.scss'
 import Link from "next/link";
-import { EnumPosition } from "typings/home.interface";
 import { useTranslation } from "next-i18next";
 import Image from "next/image";
 
 interface IProps {
-  title: EnumPosition;
+  title: string;
   isMore?: boolean; // 是否显示跳转链接
+  subName?: string;
 }
 
-const PcHomeTitle: FC<IProps> = ({ title, isMore = true}) => {
+const PcHomeTitle: FC<IProps> = ({ title, isMore = true, subName = '' }) => {
   const { t } = useTranslation()
   return <div className={styles.titleWrap}>
     <div className={styles.titleBox}>
-      <h2 className={styles.titleText}>{t(`menu.popular`)}</h2>
-      <div className={styles.titleSub}>
-        What are you looking at？
-      </div>
+      <h2 className={styles.titleText}>{title}</h2>
+      <div className={styles.titleSub}>{subName}</div>
     </div>
 
     {isMore ? <Link className={styles.moreBox} href={`/more/${title}`}>

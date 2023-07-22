@@ -33,7 +33,7 @@ const { webDomainObj, remoteUrlObj, baseUrlObj } = apiConfig
 /**
  * 环境,手动更换
  */
-const environment = 'staging'; // "test" | "staging" | "prod"
+const environment = 'test'; // "test" | "staging" | "prod"
 const buildId = 'dramabox-010000'; // 构建ID
 
 // 网站域名

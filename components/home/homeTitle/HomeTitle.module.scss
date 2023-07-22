@@ -1,5 +1,6 @@
 .titleWrap {
   padding-bottom: 0.32rem;
+  height: 1.15rem;
 
   .title {
     font-size: 0.34rem;
@@ -13,13 +14,14 @@
       margin-top: 0.02rem;
       font-size: 0.24rem;
       font-weight: 400;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255, 255, 255, 0.4);
       line-height: 0.33rem;
     }
   }
 
   .moreBox {
     padding-left: 0.2rem;
+
     .moreIcon {
       width: 0.32rem;
       height: 0.32rem;

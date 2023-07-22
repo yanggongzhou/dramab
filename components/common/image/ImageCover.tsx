@@ -43,7 +43,7 @@ const ImageCover: FC<IProps> = (props) => {
       className={styles.imageItem}
       onError={onImgError}
       placeholder="blur"
-      blurDataURL={imageProps.src}
+      blurDataURL={imageProps.src || '/images/defaultBook.png'}
       alt={imageProps?.alt}
       {...imageProps}
     />

@@ -1,7 +1,7 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { netMoreBook } from "@/server/home";
-import { ELanguage, EnumPosition, EPositionShowName, IBookItem, IPageColumnsItem } from "typings/home.interface";
+import { ELanguage, EnumPosition, EPositionShowName, IBookItem, IHomeResItem } from "typings/home.interface";
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import PcMore from "@/components/pcMore";
@@ -42,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query, local
   if (response === 'BadRequest_500') {
     return { redirect: { destination: '/500', permanent: false } }
   }
-  const { currentPage = 1, pages = 0, data = {} as IPageColumnsItem } = response;
+  const { currentPage = 1, pages = 0, data = {} as IHomeResItem } = response;
   const bookData = data?.items || [];
   // 返回的参数将会按照 key 值赋值到 HomePage 组件的同名入参中
   return {

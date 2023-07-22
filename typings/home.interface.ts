@@ -1,6 +1,6 @@
 export enum EHomeStyle {
-  SMALL_CARD_LIST = 0,
-  BIG_CARD_COMBINATION = 1,
+  small = 'SMALL_CARD_LIST',
+  big = 'BIG_CARD_COMBINATION',
 }
 
 
@@ -26,27 +26,20 @@ export const EPositionShowName = {
   [EnumPosition['editors-picks']]: 'editors-picks',
 }
 
-export interface IPageColumnsItem {
+export interface IHomeResItem {
   id: number;
-  name: EnumPosition;
+  name: string;
+  style: EHomeStyle;
   items: IBookItem[];
-  columns: IPageColumnsItem[]
   more: boolean;
-}
-
-export interface IBannerItem {
-  id: number;
-  bookId: string;
-  bookName: string;
-  bannerUrl: string;
-  viewCount: number;
-  viewCountDisplay: string;
-  replacedBookName: string;
-  typeTwoNames: string[];
-  typeTwoName: string;
+  subName: string;
 }
 
 export interface IBookItem {
+  name: string;
+  actionType: string;
+  action: string;
+  chapterCount: number;
   ratings: number;
   bookId: string;
   bookName: string;
@@ -62,7 +55,6 @@ export interface IBookItem {
   replacedBookName: string;
   firstChapterId?: string;
   columnName: EnumPosition;
-  index: number; // 自定义ranking参数
   typeTwoNames: string[];
   typeTwoName: string;
   typeTwoIds: string[];

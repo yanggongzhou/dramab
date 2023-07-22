@@ -1,5 +1,5 @@
 import Service from "@/server/request";
-import { ELanguage, IPageColumnsItem } from "typings/home.interface";
+import { ELanguage, IHomeResItem } from "typings/home.interface";
 import { INetMoreReq, INetMoreResult } from "@/typings/more.interface";
 import {
   INetBookReq,
@@ -23,7 +23,7 @@ import { INetSearchReq, INetSearchRes } from "typings/search.interface";
 import { INetBrowseReq, INetBrowseRes, INetBrowseTypeRes } from "typings/browse.interface";
 
 // 获取首页index
-export const netHomeData = (language?: ELanguage): Promise<IPageColumnsItem[] | 'BadRequest_404' | 'BadRequest_500'> => {
+export const netHomeData = (language?: ELanguage): Promise<IHomeResItem[] | 'BadRequest_404' | 'BadRequest_500'> => {
   return Service.post('/webfic/home/index', undefined, {
     headers: {
       language: language || ELanguage.English

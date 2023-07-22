@@ -5,11 +5,11 @@ import Link from "next/link";
 import ImageCover from "@/components/common/image/ImageCover";
 
 interface IProps {
-  bannerList: IBookItem[];
+  bigList: IBookItem[];
 }
 
-const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
-  const { bookId, typeTwoName = 'all', replacedBookName = 'null' } = bannerList?.[0]
+const SwiperArea: FC<IProps> = ({ bigList = [] }) => {
+  const { bookId, typeTwoName = 'all', replacedBookName = 'null', tags = [] } = bigList?.[0]
   const routerToBookInfo = `/book_info/${bookId}/${typeTwoName}/${replacedBookName}`
   return <div className={styles.swiperWrap}>
     <div className={styles.swiperBox}>
@@ -21,18 +21,18 @@ const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
           className={styles.leftCardImg}
           width={345}
           height={460}
-          src={bannerList[0].cover}
-          alt={bannerList[0].bookName}/>
+          src={bigList[0].cover}
+          alt={bigList[0].bookName}/>
 
         <Link href={routerToBookInfo} className={styles.leftCardContent}>
           <div className={styles.leftCardContentTop}>
-            <h2>{bannerList[0].bookName}</h2>
-            <p className={styles.viewCount}>{bannerList[0].viewCount} Episodes</p>
-            <p className={styles.intro}>{bannerList[0].introduction}</p>
+            <h2>{bigList[0].bookName}</h2>
+            <p className={styles.viewCount}>{bigList[0].viewCount} Episodes</p>
+            <p className={styles.intro}>{bigList[0].introduction}</p>
           </div>
 
           <div className={styles.leftCardContentBottom}>
-            { ['Film', 'Series', 'Dramas', 'Documentaries'].map(val => {
+            { tags.map(val => {
               return <div key={val} className={styles.leftTag}>{val}</div>
             })}
           </div>
@@ -40,7 +40,7 @@ const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
       </div>
 
       <div className={styles.rightCard}>
-        { [ bannerList[1], bannerList[2] ].map(item => {
+        { [ bigList[1], bigList[2] ].map(item => {
           return <div key={item.bookId} className={styles.rightCardItem}>
             <ImageCover
               scale
@@ -60,7 +60,7 @@ const SwiperArea: FC<IProps> = ({ bannerList = [] }) => {
                 <Link href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`} className={styles.intro}>{item.introduction}</Link>
               </div>
               <Link href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`} className={styles.rightCardContentBottom}>
-                { ['Film', 'Series'].map(val => {
+                { (item?.tags || []).map(val => {
                   return <div key={val} className={styles.rightTag}>{val}</div>
                 })}
               </Link>

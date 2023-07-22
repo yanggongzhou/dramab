@@ -5,10 +5,11 @@ import Image from "next/image";
 
 interface IProps {
   title: string;
+  subName?: string;
   isMore?: boolean;
 }
 
-const HomeTitle: FC<IProps> = ({ title, isMore= true }) => {
+const HomeTitle: FC<IProps> = ({ title, subName = '', isMore= true }) => {
   return <div className={styles.titleWrap}>
     <div className={styles.title}>
       <p>{title}</p>
@@ -24,7 +25,7 @@ const HomeTitle: FC<IProps> = ({ title, isMore= true }) => {
         />
       </Link> : null}
     </div>
-    <p className={styles.titleSub}>What are you looking at？</p>
+    <p className={styles.titleSub}>{subName}</p>
   </div>;
 }
 

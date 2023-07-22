@@ -1,4 +1,4 @@
-import { IPageColumnsItem } from "./home.interface";
+import { IHomeResItem } from "./home.interface";
 
 export interface INetMoreReq {
   name: string;
@@ -7,7 +7,7 @@ export interface INetMoreReq {
 }
 
 export interface INetMoreResult {
-  data: IPageColumnsItem;
+  data: IHomeResItem;
   currentPage: number;
   pages: number;
 }

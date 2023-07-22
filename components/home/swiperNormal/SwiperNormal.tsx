@@ -6,12 +6,12 @@ import Link from "next/link";
 import ImageCover from "@/components/common/image/ImageCover";
 
 interface IProps {
-  bannerList: IBookItem[];
+  bigList: IBookItem[];
 }
 
-const SwiperNormal: FC<IProps> = ({ bannerList }) => {
+const SwiperNormal: FC<IProps> = ({ bigList }) => {
 
-  const items = bannerList.map((item) => (
+  const items = bigList.map((item) => (
     <Swiper.Item key={item.bookId} className={styles.content}>
       <div className={styles.swiperItem}>
         <ImageCover
