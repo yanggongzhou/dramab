@@ -29,33 +29,6 @@
   }
 }
 
-.tableItems {
-  border-collapse: collapse;
-  border: 1px solid gray;
-  font-size: 0.12rem;
-  color: #333333;
-  text-align: left;
-  margin: 0.16rem 0;
-
-  th {
-    width: 50%;
-    padding: 0.15rem;
-    border: 1px solid gray;
-    vertical-align: top;
-    font-weight: 500;
-    white-space: pre-wrap;
-  }
-
-  td {
-    width: 50%;
-    padding: 0.15rem;
-    border: 1px solid gray;
-    vertical-align: top;
-    white-space: pre-wrap;
-  }
-}
-
-
 
 .mPrivacyWrap {
   padding: 0.32rem;
@@ -76,9 +49,6 @@
     font-weight: 400;
     color: rgba(255,255,255,0.4);
 
-    .tableItems {
-      color: rgba(255,255,255,0.4);
-    }
   }
 }
 

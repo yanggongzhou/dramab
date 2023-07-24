@@ -14,45 +14,15 @@ interface IProps {
 /** 小说阅读吧 */
 const AgreementPrivacy: NextPage<IProps> = ({ isPc }) => {
   const { t } = useTranslation('privacy')
-
-  const EnTable = () => {
-    return (<table className={styles.tableItems}>
-      <tbody>
-        <tr>
-          <th>{t('privacyTh1')}</th>
-          <th>{t('privacyTh2')}</th>
-        </tr>
-        <tr>
-          <td>{t('privacyTd1')}</td>
-          <td>{t('privacyTd2')}</td>
-        </tr>
-        <tr>
-          <td>{t('privacyTd3')}</td>
-          <td>{t('privacyTd4')}</td>
-        </tr>
-        <tr>
-          <td>{t('privacyTd5')}</td>
-          <td>{t('privacyTd6')}</td>
-        </tr>
-        <tr>
-          <td>{t('privacyTd7')}</td>
-          <td>{t('privacyTd8')}</td>
-        </tr>
-      </tbody>
-    </table>)
-  }
-
   return <>
     <Head>
-      <meta key="description" name="description" content={(t('privacyContent1') || '').slice(0, 500)}/>
+      <meta key="description" name="description" content={(t('privacyContent') || '').slice(0, 500)}/>
     </Head>
     { isPc ? <div className={styles.privacyWrap}>
       <div className={styles.privacyBox}>
         <div className={styles.privacyTitle}>{t('privacyTitle')}</div>
         <div className={styles.privacyContent}>
-          { t('privacyContent1') }
-          { t('privacyTh1') ? <EnTable/> : null }
-          { t('privacyContent2') }
+          { t('privacyContent') }
           {/*<a href="mailto:booksourceofficial@gmail.com" style={{color:"rgba(255, 126, 66, 1)"}}></a>*/}
         </div>
       </div>
@@ -60,9 +30,7 @@ const AgreementPrivacy: NextPage<IProps> = ({ isPc }) => {
       <div className={styles.mPrivacyWrap}>
         <div className={styles.mPrivacyTitle}>{t('privacyTitle')}</div>
         <div className={styles.mPrivacyIntro}>
-          { t('privacyContent1') }
-          { t('privacyTh1') ? <EnTable/> : null }
-          { t('privacyContent2') }
+          { t('privacyContent') }
         </div>
       </div>
     }

@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next'
-import { netAllBook, netIncrementBook, netKeywords } from "@/server/home";
+import { netAllBook, netIncrementBook } from "@/server/home";
 import { ESearchType, INetAllBookRes } from "@/typings/sitemap.interface";
 import { getServerSideSitemapIndex, getServerSideSitemapIndexLegacy } from "next-sitemap";
 
@@ -28,14 +28,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     if (incrementBookResponse !== 'BadRequest_500' && incrementBookResponse !== 'BadRequest_404') {
       incrementBookList = incrementBookResponse.data || [];
       incrementBookTotalPage = Number(incrementBookResponse.totalPage) || 0;
-    }
-    const keywordsResponse = await netKeywords({ pageNum: 1, pageSize: 10, searchType: ESearchType.ALL })
-    if (keywordsResponse !== 'BadRequest_500' && keywordsResponse !== 'BadRequest_404') {
-      keywordsTotal = Number(keywordsResponse.total) || 0;
-    }
-    const incrementKeywordsResponse = await netKeywords({ pageNum: 1, pageSize: 10, searchType: ESearchType.INCREASE })
-    if (incrementKeywordsResponse !== 'BadRequest_500' && incrementKeywordsResponse !== 'BadRequest_404') {
-      incrementKeywordsTotal = Number(incrementKeywordsResponse.total) || 0;
     }
   } catch (e) {
     console.error(`Sitemap Index api has error request - ${e}`)

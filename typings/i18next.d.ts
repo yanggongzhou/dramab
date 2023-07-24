@@ -8,15 +8,11 @@
 import 'i18next'
 
 import type common from '@/public/locales/en/common.json'
-import type business from '@/public/locales/en/business.json'
-import type aboutUs from '@/public/locales/en/aboutUs.json'
 import type terms from '@/public/locales/en/terms.json'
 import type privacy from '@/public/locales/en/privacy.json'
 
 interface I18nNamespaces {
   common: typeof common;
-  business: typeof business;
-  aboutUs: typeof aboutUs;
   terms: typeof terms;
   privacy: typeof privacy;
 }

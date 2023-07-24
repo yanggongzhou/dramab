@@ -3,7 +3,7 @@ module.exports = {
   // debug: process.env.NODE_ENV === 'development',
   i18n: {
     defaultLocale: 'en',
-    locales: ['cn', 'en', 'ko', 'tc'],
+    locales: ['zhHans', 'en', 'ko', 'zh'],
     localeDetection: false, // 是否自动区域设置检测
   },
   react: { useSuspense: false },

@@ -6,7 +6,6 @@ export interface INetBrowseReq {
   pageSize?: number;
 }
 
-
 export interface IBrowseTypes {
   id: number;
   name: string;

@@ -2,7 +2,8 @@ import React, { FC } from 'react'
 import styles from './SecondList.module.scss'
 import { IBookItem } from "typings/home.interface";
 import Link from "next/link";
-import ImageCover from "@/components/common/image/ImageCover";
+import { onImgError } from "@/components/common/image/ImageCover";
+import Image from "next/image";
 
 interface IProps {
   dataSource: IBookItem[];
@@ -26,15 +27,20 @@ const SecondList: FC<IProps> = ({ dataSource, priority = false }) => {
       } = book;
       const routerToBookInfo = `/book_info/${bookId}/${typeTwoName}/${replacedBookName}`
       return <div key={bookId} className={styles.secondListBox}>
-        <ImageCover
-          scale
-          priority={priority}
-          href={routerToBookInfo}
-          className={styles.bookImage}
-          width={272}
-          height={363}
-          src={book.cover}
-          alt={book.bookName}/>
+
+        <Link href={routerToBookInfo} className={styles.bookImage}>
+          <Image
+            priority={priority}
+            className={styles.imageItem}
+            onError={onImgError}
+            placeholder="blur"
+            blurDataURL={book.cover || '/images/defaultBook.png'}
+            width={272}
+            height={363}
+            src={book.cover}
+            alt={book.bookName}
+          />
+        </Link>
 
         <Link className={styles.viewCount} href={routerToBookInfo}>
           {viewCount} Episodes

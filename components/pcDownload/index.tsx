@@ -9,18 +9,16 @@ interface IProps {
 }
 
 const PcDownload: FC<IProps> = ({ isApple }) => {
-  const { t } = useTranslation('aboutUs');
+  const { t } = useTranslation();
 
   return <div className={styles.downloadWrap}>
     <div className={styles.downloadHeader}>
-      <h3 className={styles.downloadTitle}>DramaBox | {t('aboutTitle')}</h3>
+      <h3 className={styles.downloadTitle}>DramaBox | Make short dramas Fantastic</h3>
       <div className={styles.downloadContent}>
-        <p>{t('aboutContent1')}</p>
-        <p>{t('aboutContent2')}</p>
-        <p>{t('aboutContent3')}</p>
-        <p>{t('aboutContent4')}</p>
-        <p>{t('aboutContent5')}</p>
-        <p>{t('aboutContent6')}</p>
+        Free online website novels & books for fiction lovers.
+        Popular web novels with massive original English stories, types include urban, romance，fantasy，werewolf，classic and so on.
+        For more high-quality content and experience, you can download the Webfic official app and enjoy the fun of reading together.
+        Download it now and enjoy reading together.
       </div>
     </div>
 

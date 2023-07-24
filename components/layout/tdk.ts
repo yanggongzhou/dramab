@@ -1,6 +1,5 @@
 import ClientConfig from "@/client.config";
 import { ELanguage, IBookItem } from "@/typings/home.interface";
-import { INetChapterRes } from "@/typings/chapter.interface";
 
 const email = ClientConfig.email;
 
@@ -12,35 +11,6 @@ const commonTDK = {
       keywords: `${bookName}, ${bookName} Novel`,
       description: `${bookName} ${introduction.slice(0, 500)}`
     }
-  },
-  chapter: ({ bookInfo = {} as IBookItem, chapterInfo = {} as INetChapterRes, chapterContent = ''}) => {
-    const { bookName = '' } = bookInfo;
-    const { chapterIndex = 1, chapterName } = chapterInfo;
-    return {
-      title: `Chapter ${chapterIndex} ${bookName}-DramaBox`,
-      keywords: `${bookName} Chapter ${chapterIndex},${bookName} Chapter ${chapterIndex} Novel, ${chapterName}`,
-      description: `${bookName} Chapter ${chapterIndex} ${chapterName}, ${chapterContent.slice(0, 500)}` // 500字符
-    }
-  },
-  tag: ({ keyword = '', page = '1' }) => {
-    if (page === '1') {
-      return {
-        title: `${keyword}-DramaBox`,
-        keywords: `${keyword}`,
-        description: `DramaBox has found related content about ${keyword} for you.This includes books related to ${keyword},as well as ${keyword} related content information.`
-      }
-    }
-    return {
-      title: `${keyword}-${page}-DramaBox`,
-      keywords: `${keyword} ${page}`,
-      description: `DramaBox has found related content about ${keyword} for you.This includes books related to ${keyword},as well as ${keyword} related content information.`
-    }
-  },
-  keywords: ({ page = '1' }) => {
-    if (page === '1') {
-      return { title: 'DramaBox Novel-DramaBox', keywords: 'DramaBox Novel,DramaBox', description: 'DramaBox Novel' }
-    }
-    return { title: `DramaBox Novel-${page}-DramaBox`, keywords: `DramaBox Novel ${page},DramaBox`, description: `DramaBox Novel ${page}` }
   },
   error500: {
     title: '500-DramaBox',
@@ -70,16 +40,6 @@ export const TDK = {
         keywords: `${typeTwoName} novels stories series page ${page},DramaBox`,
         description: `${typeTwoName}novels stories series page ${page}`
       }
-    },
-    search: ({ searchValue = '' }) => ({
-      title: `${searchValue}-DramaBox`,
-      keywords: searchValue,
-      description: `DramaBox has found related content about ${searchValue} for you.This includes books related to ${searchValue},as well as ${searchValue} related content information.`
-    }),
-    rankings: {
-      title: 'Book Ranking-DramaBox',
-      keywords: 'Book Ranking,DramaBox',
-      description: 'Popular Books Ranking Watch Online'
     },
     more: ({ positionName = '', page = '1'}) => {
       if (page === '1') {

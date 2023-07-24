@@ -16,8 +16,8 @@ const PcHeader: FC<IProps> = () => {
   const { t } = useTranslation()
   const MenuData = [
     { id: 'index', label: t('nav.home'), link: '/' },
-    { id: 'Featured', label: "Featured", link: '/browse/0/all' },
-    { id: 'App', label: "App", link: '/download' },
+    { id: 'Featured', label: t('nav.featured'), link: '/browse/0/all' },
+    { id: 'App', label: t('nav.app'), link: '/download' },
   ]
 
   return <>

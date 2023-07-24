@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import SecondList from "@/components/pcHome/secondList/SecondList";
-import { IBookItem, IHomeResItem } from "typings/home.interface";
+import { IBookItem, IHomeResItem } from "@/typings/home.interface";
 import SwiperArea from "@/components/pcHome/swiperArea/SwiperArea";
 import PcHomeTitle from "@/components/pcHome/homeTitle/HomeTitle";
 import { PcEmpty } from "@/components/common/empty";

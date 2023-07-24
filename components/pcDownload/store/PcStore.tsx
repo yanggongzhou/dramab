@@ -14,7 +14,6 @@ interface IProps {
 }
 
 const PcStore: FC<IProps> = ({ isApple }) => {
-  const { t } = useTranslation('aboutUs');
   const { t: tCommon } = useTranslation('common');
   const [activeApple, setActiveApple] = useState(isApple);
 
@@ -67,7 +66,7 @@ const PcStore: FC<IProps> = ({ isApple }) => {
       <div className={styles.tabsContent}>
         <QRCode value={copyUrl} className={styles.qrCode}/>
 
-        <p className={styles.copyTxt}>{t('aboutTurnOn')}<br/> {t('aboutOrCopy')}</p>
+        <p className={styles.copyTxt}>Open the phone camera to scan directly<br/>Or copy the link and open it in the mobile browser</p>
         <CopyToClipboard text={copyUrl} onCopy={() => {
           Toast.show(tCommon('footer.copied'))
         }}>

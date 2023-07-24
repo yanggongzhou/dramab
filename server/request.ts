@@ -21,7 +21,7 @@ Service.interceptors.request.use(
 Service.interceptors.response.use(
   (response) => {
     // return response.data;
-    console.log('response.data====>', response.data)
+    // console.log('response.data====>', response.data)
     if (response.status === 200) {
       if (response.data.status === 0) {
         return response.data.data

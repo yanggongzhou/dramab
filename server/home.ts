@@ -4,16 +4,10 @@ import { INetMoreReq, INetMoreResult } from "@/typings/more.interface";
 import {
   INetBookReq,
   INetBookRes,
-  INetKeywordsReq,
-  INetKeywordsRes,
-  INetKeywordTagReq,
-  INetKeywordTagRes,
 } from "@/typings/book.interface";
 import {
   INetAllBookReq,
   INetAllBookRes,
-  INetAllChapterReq,
-  INetAllChapterRes,
   INetAllColumnRes,
   INetIncrementBookRes
 } from "@/typings/sitemap.interface";
@@ -57,24 +51,9 @@ export const netBook = async (params: INetBookReq, language?: ELanguage): Promis
   })
 }
 
-// 关键词列表
-export const netKeywords = async (params: INetKeywordsReq): Promise<INetKeywordsRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/webfic/keyword/list', { pageSize: 10, ...params })
-}
-
-// 关键词聚合页
-export const netKeywordTag = async (params: INetKeywordTagReq): Promise<INetKeywordTagRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/webfic/keyword/info', { pageSize: 10, ...params })
-}
-
 // 获取所有书籍id
 export const netAllBook = async (params: INetAllBookReq): Promise<INetAllBookRes[] | 'BadRequest_404' | 'BadRequest_500'> => {
   return await Service.get('/webfic/website/all', { params: { ...params } })
-}
-
-// 获取所有章节id
-export const netAllChapter = async (params: INetAllChapterReq): Promise<INetAllChapterRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.get(`/webfic/website/chapter/${params.bookId}`, { params: { searchType: params.searchType } })
 }
 
 // 获取所有栏目信息

@@ -1,15 +1,15 @@
 import React, { FC, useState } from 'react'
 import styles from "@/components/book/index.module.scss";
-import { IBook } from "@/typings/book.interface";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import useHiveLog from "@/hooks/useHiveLog";
 import BookCrumbs from "@/components/book/crumbs";
 import Image from "next/image";
 import { onImgError } from "@/components/common/image/ImageCover";
+import { IBookItem } from "@/typings/home.interface";
 
 interface IProps {
-  bookInfo: IBook;
+  bookInfo: IBookItem;
   firstChapterId: string;
 }
 

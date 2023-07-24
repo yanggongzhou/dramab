@@ -19,19 +19,6 @@ export interface INetAllBookRes {
   languages: ELanguage[];
 }
 
-export interface INetAllChapterReq {
-  bookId: string;
-  searchType: ESearchType;
-}
-
-export interface INetAllChapterRes {
-  bookId: string;
-  replacedBookName: string;
-  // typeOneName: string;
-  chapters: { id: string; utime: string; }[];
-  languages: ELanguage[];
-}
-
 export interface INetAllColumnRes {
   name: string;
   bookCount: number

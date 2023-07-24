@@ -1,14 +1,14 @@
 import React, { FC } from 'react'
 import styles from "@/components/pcBook/index.module.scss";
-import { IBook } from "typings/book.interface";
 import Link from "next/link";
 import useHiveLog from "@/hooks/useHiveLog";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { onImgError } from "@/components/common/image/ImageCover";
+import { IBookItem } from "@/typings/home.interface";
 
 interface IProps {
-  bookInfo: IBook;
+  bookInfo: IBookItem;
   firstChapterId: string;
 }
 

@@ -2,11 +2,11 @@ import Link from "next/link";
 import styles from "@/components/book/Crumbs/index.module.scss";
 import React, { FC } from "react";
 import { useTranslation } from "next-i18next";
-import { IBook } from "@/typings/book.interface";
 import Image from "next/image";
+import { IBookItem } from "@/typings/home.interface";
 
 interface IProps {
-  bookInfo: IBook;
+  bookInfo: IBookItem;
 }
 
 const BookCrumbs: FC<IProps> = (

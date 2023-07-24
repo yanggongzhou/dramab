@@ -39,14 +39,14 @@ export interface IBookItem {
 
 export enum ELanguage {
   English = 'en',
-  ZH = 'zh', // 简体中文
-  TC = 'tc', // 繁體中文
+  ZhHans = 'zhHans', // 简体中文
+  Zh = 'zh', // 繁體中文
   Korean = 'ko', // 韩语
 }
 
 export const LanguageActions: { text: string; key: ELanguage }[] = [
-  { text: '简体中文', key: ELanguage.ZH },
+  { text: '简体中文', key: ELanguage.ZhHans },
+  { text: '繁體中文', key: ELanguage.Zh },
   { text: 'English', key: ELanguage.English },
-  { text: '繁體中文', key: ELanguage.TC },
   { text: '한국인', key: ELanguage.Korean },
 ]

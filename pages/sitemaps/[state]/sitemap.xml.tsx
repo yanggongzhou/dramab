@@ -1,10 +1,10 @@
 import { SitemapBuilder, withXMLResponse, withXMLResponseLegacy } from 'next-sitemap'
 import { GetServerSideProps } from 'next'
 import { ISitemapField } from "next-sitemap/dist/@types/interface";
-import { netAllBook, netAllChapter, netBrowseType, netIncrementBook, netKeywords } from "@/server/home";
-import { ELanguage } from "typings/home.interface";
+import { netAllBook, netBrowseType, netIncrementBook } from "@/server/home";
 import dayjs from "dayjs";
-import { ESearchType } from "typings/sitemap.interface";
+import { ELanguage } from "@/typings/home.interface";
+import { ESearchType } from "@/typings/sitemap.interface";
 
 const sitemapBuilder = new SitemapBuilder()
 
@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const languageArr = Object.values(ELanguage);
   // 站内页
   if (state === 'inside') {
-    const insidePage = ['', '/download', '/privacy', '/terms']
+    const insidePage = ['', '/privacy', '/terms']
     const insideFields: ISitemapField[] = insidePage.map(val => ({
       ...options,
       loc: options.loc + val,
@@ -146,137 +146,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, 'xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     return withXMLResponseLegacy(ctx, content)
   }
-  // 追更书籍的章节 分页请求100
-  if (state.includes('incremental_chapter_')) {
-    const page = state.replace('incremental_chapter_', '') || 1;
-    const response = await netIncrementBook(Number(page), 100);
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    const { data = [] } = response;
-    // 所有追更书籍的章节请求
-    const chaptersReqArr = data.map(bookId => netAllChapter({ bookId, searchType: ESearchType.INCREASE }))
-    const res = await Promise.all(chaptersReqArr);
-    const fields = [] as ISitemapField[];
-    res.forEach((chaptersRes) => {
-      if (chaptersRes !== 'BadRequest_500' && chaptersRes !== 'BadRequest_404' && chaptersRes.chapters && chaptersRes.chapters.length > 0){
-        const { bookId, replacedBookName, chapters = [], languages = [] } = chaptersRes;
-        chapters.forEach((val, ind) => {
-          fields.push({
-            ...options,
-            changefreq: 'daily',
-            lastmod: val.utime,
-            loc: `${options.loc}/book/${replacedBookName}_${bookId}/Chapter-${ind + 1}_${val.id}`,
-            alternateRefs: languages.map(lan => {
-              let _loc = `/book/${replacedBookName}_${bookId}/Chapter-${ind + 1}_${val.id}`;
-              if (lan !== ELanguage.English) {
-                _loc = '/' + lan + _loc
-              }
-              return {
-                href: options.loc + _loc,
-                hreflang: lan,
-                hrefIsAbsolute: false
-              }
-            }),
-            trailingSlash: false
-          })
-        })
-      }
-    })
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, 'xmlns:xhtml="http://www.w3.org/1999/xhtml"');
-    return withXMLResponseLegacy(ctx, content)
-  }
-  // 关键词
-  if (state === 'keywords') {
-    const response = await netKeywords({ pageNum: 1, pageSize: 10, searchType: ESearchType.ALL })
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    const { data = [], total = 0 } = response;
-    const fields = Array.from({ length: Math.ceil(total / 300) }, (v, i) => {
-      return { ...options, loc: `${options.loc}/keywords/${i + 1}` }
-    })
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, '');
-    return withXMLResponseLegacy(ctx, content)
-  }
-  // 聚合页（新增）
-  if (state.includes('incremental_tag_page_')) {
-    const page = Number(state.replace('incremental_tag_page_', '')) || 0;
-    const response = await netKeywords({ pageNum: page, pageSize: 10000, searchType: ESearchType.INCREASE });
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    const { data = [] } = response;
-    const fields = data.map(value => {
-      return { ...options, lastmod: value.utime, changefreq: 'daily', loc: `${options.loc}/tag/${value.id}` }
-    }) as ISitemapField[];
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, '');
-    return withXMLResponseLegacy(ctx, content)
-  }
-  // 聚合页 （总）
-  if (state.includes('tag_page_')) {
-    const page = Number(state.replace('tag_page_', '')) || 0;
-    const response = await netKeywords({ pageNum: page, pageSize: 10000, searchType: ESearchType.ALL });
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    const { data = [] } = response;
-    const fields = data.map(value => {
-      return { ...options, loc: `${options.loc}/tag/${value.id}` }
-    });
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, '');
-    return withXMLResponseLegacy(ctx, content)
-  }
-  // 书籍id类
-  if (state.includes('book_id_')) {
-    const bookId = state.replace('book_id_', '');
-    const response = await netAllChapter({ bookId, searchType: ESearchType.ALL });
-    const newResponse = await netAllChapter({ bookId, searchType: ESearchType.INCREASE });
-    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-    if (response === 'BadRequest_404') return { notFound: true }
-    const newChapterData = (newResponse === 'BadRequest_404' || newResponse === 'BadRequest_500' || !newResponse.chapters) ? [] : newResponse.chapters;
-    const { chapters = [], replacedBookName, languages = [] } = response;
-    const catalogPages: ISitemapField[] = Array.from({ length: Math.ceil(chapters.length / 18) }, (v, i) => {
-      return {
-        ...options,
-        loc: `${options.loc}/catalog/${bookId}/${i + 1}`,
-        alternateRefs: languages.map(lan => {
-          let _loc = `/catalog/${bookId}/${i + 1}`;
-          if (lan !== ELanguage.English) {
-            _loc = '/' + lan + _loc
-          }
-          return {
-            href: options.loc + _loc,
-            hreflang: lan,
-            hrefIsAbsolute: false
-          }
-        }),
-        trailingSlash: false
-      }
-    });
 
-    const chapterPages: ISitemapField[] = chapters.map((val, index) => {
-      const newIndex = newChapterData.findIndex(newc => newc.id === val.id);
-      return {
-        ...options,
-        changefreq: newIndex > -1 ? 'daily' : 'weekly',
-        lastmod: newIndex > -1 ? val.utime : lastmod,
-        loc: `${options.loc}/book/${replacedBookName}_${bookId}/Chapter-${index + 1}_${val.id}`,
-        alternateRefs: languages.map(lan => {
-          let _loc = `/book/${replacedBookName}_${bookId}/Chapter-${index + 1}_${val.id}`;
-          if (lan !== ELanguage.English) {
-            _loc = '/' + lan + _loc
-          }
-          return {
-            href: options.loc + _loc,
-            hreflang: lan,
-            hrefIsAbsolute: false
-          }
-        }),
-        trailingSlash: false
-      }
-    })
-
-    const fields: ISitemapField[] = [...catalogPages, ...chapterPages];
-    const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, 'xmlns:xhtml="http://www.w3.org/1999/xhtml"');
-    return withXMLResponseLegacy(ctx, content)
-  }
   return { notFound: true }
 }
 

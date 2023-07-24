@@ -1,17 +1,16 @@
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
 import { netBook } from "@/server/home";
-import { IBook } from "typings/book.interface";
 import PcBook from "@/components/pcBook";
 import MBook from "@/components/book";
 import { ownOs } from "@/utils/ownOs";
-import { ELanguage } from "typings/home.interface";
+import { ELanguage, IBookItem } from "typings/home.interface";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface IProps {
   isPc: boolean;
   bookId: string;
-  bookInfo: IBook;
+  bookInfo: IBookItem;
   firstChapterId: string;
   languages: ELanguage[];
 }
