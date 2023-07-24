@@ -1,8 +1,8 @@
 import { SitemapBuilder, withXMLResponse, withXMLResponseLegacy } from 'next-sitemap'
 import { GetServerSideProps } from 'next'
 import { ISitemapField } from "next-sitemap/dist/@types/interface";
-import { netAllBook, netAllChapter, netAllColumn, netBrowseType, netIncrementBook, netKeywords } from "@/server/home";
-import { ELanguage, EPositionShowName } from "typings/home.interface";
+import { netAllBook, netAllChapter, netBrowseType, netIncrementBook, netKeywords } from "@/server/home";
+import { ELanguage } from "typings/home.interface";
 import dayjs from "dayjs";
 import { ESearchType } from "typings/sitemap.interface";
 
@@ -15,8 +15,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const languageArr = Object.values(ELanguage);
   // 站内页
   if (state === 'inside') {
-    const positionArr = Object.values(EPositionShowName);
-    const insidePage = ['', '/about_us', '/business', '/privacy', '/terms', '/rankings']
+    const insidePage = ['', '/download', '/privacy', '/terms']
     const insideFields: ISitemapField[] = insidePage.map(val => ({
       ...options,
       loc: options.loc + val,
@@ -28,18 +27,19 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       lastmod: dayjs().date(1).format('YYYY-MM-DD'),
       trailingSlash: false
     }));
-    const moreFields: ISitemapField[] = positionArr.map(pos => ({
-      ...options,
-      loc: `${options.loc}/more/${pos}`,
-      alternateRefs: languageArr.map(lan => {
-        const _loc = lan === ELanguage.English ? `/more/${pos}` : `/${lan}/more/${pos}`
-        return {href: options.loc + _loc,  hreflang: lan, hrefIsAbsolute: false }
-      }),
-      changefreq: 'monthly',
-      lastmod: dayjs().date(1).format('YYYY-MM-DD'),
-      trailingSlash: false
-    }));
-    const fields = [...insideFields, ...moreFields] as ISitemapField[];
+    // const positionArr = [] // todo Object.values(EPositionShowName);
+    // const moreFields: ISitemapField[] = positionArr.map(pos => ({
+    //   ...options,
+    //   loc: `${options.loc}/more/${pos}`,
+    //   alternateRefs: languageArr.map(lan => {
+    //     const _loc = lan === ELanguage.English ? `/more/${pos}` : `/${lan}/more/${pos}`
+    //     return {href: options.loc + _loc,  hreflang: lan, hrefIsAbsolute: false }
+    //   }),
+    //   changefreq: 'monthly',
+    //   lastmod: dayjs().date(1).format('YYYY-MM-DD'),
+    //   trailingSlash: false
+    // }));
+    const fields = [...insideFields] as ISitemapField[];
     const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, 'xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     return withXMLResponseLegacy(ctx, content)
   }

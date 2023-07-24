@@ -34,17 +34,16 @@ const ImageCover: FC<IProps> = (props) => {
   if (Reflect.has(imageProps, 'className')) {
     Reflect.deleteProperty(imageProps, 'className')
   }
-
   const { scale = false, href, className = '', onClick } = props;
 
   return <Link href={href} className={`${scale ? styles.imageScaleBox : styles.imageBox} ${className}`}
                onClick={() => onClick && onClick()}>
+    {/* eslint-disable-next-line jsx-a11y/alt-text */}
     <Image
       className={styles.imageItem}
       onError={onImgError}
       placeholder="blur"
-      blurDataURL={imageProps.src || '/images/defaultBook.png'}
-      alt={imageProps?.alt}
+      blurDataURL={imageProps.src as string || '/images/defaultBook.png'}
       {...imageProps}
     />
   </Link>

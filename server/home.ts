@@ -1,5 +1,5 @@
 import Service from "@/server/request";
-import { ELanguage, IHomeResItem } from "typings/home.interface";
+import { ELanguage, IHomeResItem } from "@/typings/home.interface";
 import { INetMoreReq, INetMoreResult } from "@/typings/more.interface";
 import {
   INetBookReq,
@@ -8,7 +8,7 @@ import {
   INetKeywordsRes,
   INetKeywordTagReq,
   INetKeywordTagRes,
-} from "typings/book.interface";
+} from "@/typings/book.interface";
 import {
   INetAllBookReq,
   INetAllBookRes,
@@ -16,11 +16,8 @@ import {
   INetAllChapterRes,
   INetAllColumnRes,
   INetIncrementBookRes
-} from "typings/sitemap.interface";
-import { INetChapterReq, INetChapterRes } from "typings/chapter.interface";
-import { INetListChapterReq, INetListChapterRes } from "typings/catalog.interface";
-import { INetSearchReq, INetSearchRes } from "typings/search.interface";
-import { INetBrowseReq, INetBrowseRes, INetBrowseTypeRes } from "typings/browse.interface";
+} from "@/typings/sitemap.interface";
+import { INetBrowseReq, INetBrowseRes, INetBrowseTypeRes } from "@/typings/browse.interface";
 
 // 获取首页index
 export const netHomeData = (language?: ELanguage): Promise<IHomeResItem[] | 'BadRequest_404' | 'BadRequest_500'> => {
@@ -33,14 +30,6 @@ export const netHomeData = (language?: ELanguage): Promise<IHomeResItem[] | 'Bad
 // 浏览
 export const netBrowse = async (params: INetBrowseReq, language?: ELanguage): Promise<INetBrowseRes | 'BadRequest_404' | 'BadRequest_500'> => {
   return await Service.post('/webfic/home/browse', { pageSize: 60, ...params }, {
-    headers: {
-      language: language || ELanguage.English
-    }
-  })
-}
-// 搜索接口
-export const netSearch = async (params: INetSearchReq, language?: ELanguage): Promise<INetSearchRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/webfic/book/search', { pageNo: 1, pageSize: 30, ...params }, {
     headers: {
       language: language || ELanguage.English
     }
@@ -66,39 +55,6 @@ export const netBook = async (params: INetBookReq, language?: ELanguage): Promis
       language: language || ELanguage.English
     }
   })
-}
-
-// 获取章节详情
-export const netChapter = async (params: INetChapterReq, language?: ELanguage): Promise<INetChapterRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/webfic/chapter/detail', {
-    ...params,
-    language
-  }, {
-    headers: {
-      language: language || ELanguage.English
-    }
-  })
-}
-
-// 获取章节列表
-export const netListChapter = async (params: INetListChapterReq, language?: ELanguage): Promise<INetListChapterRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/webfic/chapter/list',
-    { pageNum: 1, pageSize: 10, ...params }, {
-      headers: {
-        language: language || ELanguage.English
-      }
-    })
-}
-
-// 获取章节列表
-export const netClientListChapter = async (params: INetListChapterReq, language?: ELanguage): Promise<INetListChapterRes | 'BadRequest_404' | 'BadRequest_500'> => {
-  return await Service.post('/client/webfic/chapter/list',
-    { pageNum: 1, pageSize: 10, ...params }, {
-      baseURL: '',
-      headers: {
-        language: language || ELanguage.English
-      }
-    })
 }
 
 // 关键词列表

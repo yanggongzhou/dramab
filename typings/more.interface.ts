@@ -1,6 +1,7 @@
 import { IHomeResItem } from "./home.interface";
 
 export interface INetMoreReq {
+  id: string;
   name: string;
   pageNum?: number;
   pageSize?: number;

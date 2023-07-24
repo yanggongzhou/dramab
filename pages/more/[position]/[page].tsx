@@ -26,7 +26,7 @@ const More: NextPage<IProps> = ({ isPc, moreData, pageNo, pages }) => {
 export const getServerSideProps: GetServerSideProps = async ({ req, query, locale }) => {
   const ua = req?.headers['user-agent'] || ''
   const { page = '1', position = '' } = query;
-  const pathArr = position.split('_')
+  const pathArr = (position as string).split('_')
   const id = pathArr[pathArr.length - 1] || '';
   pathArr.pop();
   const name = pathArr.join('');

@@ -22,36 +22,33 @@ const Custom404: NextPage<IProps> = () => {
   return <>
 
     {device === EDevice.pc ? <div className={styles.pc404Wrap}>
-      <Link href="/" className={styles.pcEmptyIntro}>
-        <p>{t('others.error')}</p>
-      </Link>
       <Image
         className={styles.pcEmptyImg}
-        width={640}
-        height={590}
+        width={320}
+        height={240}
         src={'/images/404/404.png'}
         placeholder="blur"
         blurDataURL={'/images/404/404.png'}
         alt={'404'}
       />
+      <Link href="/" className={styles.pcIntro}>
+        <p>{t('others.error')}</p>
+      </Link>
     </div> : null}
 
-    {device === EDevice.mobile && isShow ? <div className={styles.ddWrap}>
+    {device === EDevice.mobile && isShow ? <div className={styles.m404Wrap}>
       <Image
         className={styles.emptyImg}
-        width={180}
-        height={132}
-        src={'/images/404/emptyBook.png'}
+        width={320}
+        height={240}
+        src={'/images/404/404.png'}
         placeholder="blur"
-        blurDataURL={'/images/404/emptyBook.png'}
+        blurDataURL={'/images/404/404.png'}
         alt={'404'}
       />
 
-      <Link href="/" className={styles.emptyIntro}>
+      <Link href="/" className={styles.mIntro}>
         <p>{t('others.error')}</p>
-      </Link>
-      <Link href={'/'} className={styles.emptyBtn}>
-        {t('others.goHome')}
       </Link>
     </div> : null}
   </>
@@ -63,7 +60,7 @@ export default Custom404;
 export const getStaticProps: GetStaticProps = async ({ locale }) =>{
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common']))
+      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common', 'aboutUs', 'privacy', 'terms']))
     },
   };
 }

@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import styles from '@/components/download/index.module.scss'
-import ImageLocal from "@/components/common/image/ImageLocal";
 import { useTranslation } from "next-i18next";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useAppSelector } from "@/store";

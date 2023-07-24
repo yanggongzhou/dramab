@@ -4,8 +4,7 @@ const ClientConfig = {
   name: "Drama Box",
   companyName: "STORYMATRIX TECHNOLOGY SINGAPORE PTE.LTD.",
   productName: "db",
-  // todo googleCode
-  googleCode: "G-LE31ZV673D",
+  googleCode: "G-BXDJ8KNG7N",
   email: "dramaboxapp@gmail.com",
   ios: {
     deeplink: "https://app.dramaboxdb.com/ios/open?c=",

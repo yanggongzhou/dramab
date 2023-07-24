@@ -7,16 +7,8 @@ const apiConfig = {
    */
   webDomainObj: {
     test: 'https://webfic-ssr.hw.dzods.cn',
-    staging: 'https://yfbwww2.webfic.com',
-    prod: 'https://www.novelread.com'
-  },
-  /**
-   * ip ipua服务api
-   */
-  remoteUrlObj: {
-    test: 'https://wfapi.hw.dzuds.cn/webfic',
-    staging: 'http://wfapi.hw.dzuds.cn/novelread',
-    prod: 'https://api.novelread.com/novelread'
+    staging: 'https://yfbwww.dramabox.com',
+    prod: 'https://www.dramaboxdb.com'
   },
   /**
    * 网站服务api
@@ -28,7 +20,7 @@ const apiConfig = {
     prod: 'https://www.webfic.com'
   },
 }
-const { webDomainObj, remoteUrlObj, baseUrlObj } = apiConfig
+const { webDomainObj, baseUrlObj } = apiConfig
 
 /**
  * 环境,手动更换
@@ -38,8 +30,6 @@ const buildId = 'dramabox-010000'; // 构建ID
 
 // 网站域名
 const WebDomain = webDomainObj[environment]
-// ip ipua服务api
-const RemoteUrl = remoteUrlObj[environment]
 // 网站服务api
 const BaseUrl = baseUrlObj[environment]
 
@@ -63,13 +53,6 @@ const nextConfig = {
       'reshot.hw.dzods.cn',
       "res.webfic.com"
     ],
-  },
-  // proxy 代理
-  async rewrites() {
-    return [
-      { source: '/client/:path*', destination: `${BaseUrl}/:path*` },
-      { source: '/ap001/:path*', destination: `${RemoteUrl}/ap001/:path*` },
-    ]
   },
   // 环境配置
   env: {

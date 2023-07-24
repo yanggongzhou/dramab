@@ -138,6 +138,12 @@
         color: $theme_color;
       }
     }
+    .adm-popover-menu-item:active:not(.adm-popover-menu-item-disabled) {
+      background-color: transparent;
+      &:after {
+        display: none;
+      }
+    }
   }
 
   .languageBox, .languageBoxActive {
