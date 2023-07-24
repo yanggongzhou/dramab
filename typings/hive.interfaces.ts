@@ -19,7 +19,6 @@ export interface IClipboard {
   url: string;
   ua: string;
   h5fingerPrint: string;
-  fingerPrintPversion: 1;
 }
 
 // 打点参数

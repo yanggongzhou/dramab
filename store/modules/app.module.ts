@@ -14,6 +14,6 @@ export const appSlice = createSlice<IAppStore, SliceCaseReducers<IAppStore>>({
   }
 });
 
-export const { setDevice, setFooterAdVisible } = appSlice.actions;
+export const { setDevice } = appSlice.actions;
 
 export const appReducer = appSlice.reducer;

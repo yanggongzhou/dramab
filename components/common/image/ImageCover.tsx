@@ -17,12 +17,12 @@ interface IProps extends ImageProps {
 
 export const onImgError = (e: any) => {
   console.log('imgError:')
-  // e.target.style.visibility = 'hidden';
+  e.target.style.visibility = 'hidden';
   e.target.src = '/images/defaultBook.png';
   e.target.srcset = '/images/defaultBook.png';
-  // e.target.onload = function (){
-  //   e.target.style.visibility = 'visible';
-  // }
+  e.target.onload = function (){
+    e.target.style.visibility = 'visible';
+  }
 }
 
 const ImageCover: FC<IProps> = (props) => {

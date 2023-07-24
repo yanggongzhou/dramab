@@ -11,23 +11,29 @@ export const netHiveLog = (logData: ILogParams) => {
 }
 
 // IPUA
-export function netIPUA(copyText: string, clipboard: IClipboard) {
-  const { ua, h5uid, h5fingerPrint, url, bid, fingerPrintPversion } = clipboard;
+export async function netIpUa(clipboard: IClipboard) {
   const params = {
-    fbUrl: url,
-    ua,
-    h5uid,
-    bid,
-    h5fingerPrint,
-    fingerPrintPversion,
-    clipboard: copyText,
+    clipboard: JSON.stringify(clipboard),
+    ua: clipboard.ua,
+    h5Uid: clipboard.h5uid,
   }
-  fetch(ClientConfig.netUrl.ipua, {
-    method: "post",
-    body: JSON.stringify(params),
-    headers: new Headers({
-      'Content-Type': "application/json" // x-www-form-urlencoded"
-    }),
-    keepalive: true
-  }).catch(error => console.warn('Error IP UA:', error))
+  return new Promise((resolve) => {
+    fetch(ClientConfig.netUrl.ipua, {
+      method: "post",
+      body: JSON.stringify(params),
+      headers: new Headers({
+        'Content-Type': "application/json"
+      }),
+      keepalive: true
+    }).then(response => {
+      response.json().then((res) => {
+        resolve(res.ip ? res.ip : '0.0.0.0');
+      }).catch((error) => {
+        resolve('0.0.0.0')
+      })
+    }).catch((error) => {
+      resolve('0.0.0.0')
+    })
+  })
+
 }

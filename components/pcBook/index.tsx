@@ -63,7 +63,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
         height={600}
         src={bookInfo.cover}
         placeholder="blur"
-        blurDataURL={bookInfo.cover}
+        blurDataURL={bookInfo.cover || '/images/defaultBook.png'}
         alt={bookInfo.bookName}
       />
 

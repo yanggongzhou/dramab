@@ -1,8 +1,8 @@
 import { randomString } from './other'
 import ClientConfig from '@/client.config';
 import { isIos, ownOs } from "@/utils/ownOs";
-import { ELanguage } from "typings/home.interface";
-import { AnyObject, IClipboard, ILogParams } from "typings/hive.interfaces";
+import { ELanguage } from "@/typings/home.interface";
+import { AnyObject, IClipboard, ILogParams } from "@/typings/hive.interfaces";
 
 export const getUserLandId = () => {
   const userlandId = window.localStorage.getItem('USER_LANDPID');
@@ -30,7 +30,7 @@ export const getLogParams = ({ event, clipboard, language, data = {} }: IGetLogP
   const date = new Date();
   const log_id = randomString();
   return {
-    bline: "nr",
+    bline: "db",
     app_version: "1.0.0",
     imei: "",
     oaid: "",

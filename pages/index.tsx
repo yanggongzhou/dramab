@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }): P
   const ua = req?.headers['user-agent'] || ''
   const homeData = await netHomeData(locale as ELanguage);
 
-  if (homeData === 'BadRequest_404') {
+  if (homeData === 'BadRequest_404' || !homeData) {
     return { notFound: true }
   }
   if (homeData === 'BadRequest_500') {

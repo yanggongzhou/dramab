@@ -6,7 +6,7 @@ import { clipboardAsync, setClipboard, setLanguage } from "@/store/modules/hive.
 import { useAppDispatch, useAppSelector } from "@/store";
 import useHiveLog from "@/hooks/useHiveLog";
 import { ownOs } from "@/utils/ownOs";
-import { netIPUA } from "@/server/clientLog";
+import { netIpUa } from "@/server/clientLog";
 
 const pathData = {
   index: '/',
@@ -14,17 +14,11 @@ const pathData = {
   more: '/more/[position]',
   browse: '/browse/[typeTwoId]/[typeTwoName]',
   book: '/book_info/[bookId]/[typeTwoName]/[bookName]',
-  chapter: '/book/[bookId]/[chapterId]',
-  catalog: '/catalog/[bookId]',
-  about: '/about_us',
-  download: '/download_apps',
-  business: '/business',
+  download: '/download',
   error404: '/404',
   error500: '/500',
   agreementPrivacy: '/privacy',
   agreementUser: '/terms',
-  tag: '/tag/[keywordId]',
-  keywords: '/keywords'
 }
 
 const useLogParams = (pageProps: any): void => {
@@ -33,7 +27,6 @@ const useLogParams = (pageProps: any): void => {
   const [isReady, setIsReady] = useState(false); // 参数是否准备好了
   const { appLaunch, pageView } = useHiveLog();
   const clipboard = useAppSelector(state => state.hive.clipboard);
-  const copyText = useAppSelector(state => state.hive.copyText);
 
   useEffect(() => {
     const { ip, h5fingerPrint, bid } = clipboard;
@@ -46,7 +39,7 @@ const useLogParams = (pageProps: any): void => {
     if (isReady) {
       appLaunch();
       if (!ownOs(window.navigator.userAgent).isPc) {
-        netIPUA(copyText, clipboard);
+        netIpUa(clipboard);
         // 移动端底部banner曝光
         pageView('Banner_view')
       }
@@ -70,9 +63,6 @@ const useLogParams = (pageProps: any): void => {
   const pageViewLog = () => {
     if (router.pathname === pathData.index) {
       pageView('HomePage_view');
-    } else if (router.pathname.includes(pathData.search)) {
-      // 有查询随机参数，会影响判断
-      return;
     } else if (router.pathname.includes(pathData.more)) {
       // pageView('BookList_view', { Column_name: EnumPosition[pageProps.position] });
     } else if (router.pathname.includes(pathData.browse)) {
@@ -84,38 +74,16 @@ const useLogParams = (pageProps: any): void => {
         book_ID: pageProps?.bookInfo?.bookId,
         book_name: pageProps?.bookInfo?.bookName,
       });
-    } else if (router.pathname === pathData.chapter) {
-      // 章节详情页
-      pageView('BookReader_view', {
-        book_ID: pageProps?.bookInfo?.bookId,
-        chapter_id: pageProps?.chapterInfo?.id,
-        book_name: pageProps?.bookInfo?.bookName,
-        chapter_name: pageProps?.chapterInfo?.chapterName,
-        chapter_number: pageProps?.chapterInfo?.index + 1,
-        Pay_or_not: pageProps?.chapterInfo?.unlock ? "no" : "yes",
-      });
     } else if (router.pathname === pathData.download) {
       // 下载页
       pageView('turnPage_view');
-    } else if (router.pathname.includes(pathData.tag)) {
-      // 聚合页曝光
-      pageView('Aggregate_page_exposure', { key_word: pageProps?.keyword });
-    } else if (router.pathname.includes(pathData.keywords)) {
-      // 关键词列表页曝光
-      pageView('ListPage_view');
     }
   }
 
-  const getIds = (): { bid: string; cid: string | 0 } => {
+  const getIds = (): { bid: string; cid: string | number } => {
     let clipboardBookId, clipboardChapterId;
     const localeBookId = LanguageDefaultBookId?.[(router.locale ?? ELanguage.English) as ELanguage] || LanguageDefaultBookId[ELanguage.English]
-    if (router.pathname === pathData.chapter){
-      clipboardBookId = pageProps?.bookInfo?.bookId;
-      clipboardChapterId = pageProps?.chapterInfo?.unlock ? pageProps?.chapterInfo?.id : pageProps?.chapterInfo?.lastChapterId
-    } else if (router.pathname === pathData.download) {
-      clipboardChapterId = pageProps?.chapterId;
-      clipboardBookId = pageProps?.bookId;
-    } else if (router.pathname === pathData.book) {
+    if (router.pathname === pathData.book) {
       clipboardBookId = pageProps?.bookInfo?.bookId;
     } else {
       clipboardBookId = localeBookId

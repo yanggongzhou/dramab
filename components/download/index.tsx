@@ -6,13 +6,14 @@ import { useAppSelector } from "@/store";
 import ClientConfig from "@/client.config";
 import Link from "next/link";
 import Image from "next/image";
+import { netIpUa } from "@/server/clientLog";
 
 interface IProps {
   isApple: boolean;
 }
 
 const MDownload: FC<IProps> = ({ isApple }) => {
-
+  const clipboard = useAppSelector(state => state.hive.clipboard)
   const copyText = useAppSelector(state => state.hive.copyText);
   const shopLink =  useAppSelector(state => {
     if (isApple) {
@@ -38,6 +39,7 @@ const MDownload: FC<IProps> = ({ isApple }) => {
     />
     <Link href={shopLink}>
       <CopyToClipboard text={copyText} onCopy={() => {
+        netIpUa(clipboard)
         // HiveLog.trackDownload('turnPage_click', { book_ID: bookId, chapter_id: chapterId })
       }}>
         <div className={styles.downloadBtn}>

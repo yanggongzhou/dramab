@@ -92,3 +92,30 @@ input[type=search]::-webkit-search-decoration {
 .adm-dropdown-popup-mask {
   background: rgba(0, 0, 0, 0.2) !important;
 }
+
+//img.error {
+//  display: inline-block;
+//  transform: scale(1);
+//  content: "";
+//  color: transparent;
+//}
+//img.error::before {
+//  content: " ";
+//  position: absolute;
+//  left: 0; top: 0;
+//  width: 100%; height: 100%;
+//  background: url('/images/defaultBook.png') no-repeat center / 100% 100%;
+//}
+//img.error::after {
+//  content: attr(alt);
+//  position: absolute;
+//  left: 0; bottom: 0;
+//  width: 100%; line-height: 2;
+//  background-color: rgba(0,0,0,.5);
+//  color: white;
+//  font-size: 12px;
+//  text-align: center;
+//  white-space: nowrap;
+//  overflow: hidden;
+//  text-overflow: ellipsis;
+//}
