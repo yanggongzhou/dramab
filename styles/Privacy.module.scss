@@ -1,30 +1,25 @@
 .privacyWrap {
-  background-color: #f5f7f9;
-  font-family: Ubuntu-Regular, Ubuntu;
+  padding: 0.4rem 0;
 
   .privacyBox {
-    width: 8.54rem;
-    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 0.04rem;
+    padding: 0.64rem;
 
     .privacyTitle {
-      font-size: 0.32rem;
-      font-weight: 700;
-      color: #57677f;
-      padding: 0.2rem 0;
-      font-family: Ubuntu-Bold, Ubuntu;
+      margin-bottom: 0.4rem;
+      font-size: 0.24rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 0.32rem;
     }
 
     .privacyContent {
-      background-color: #fff;
-      border: 0.01rem solid rgba(0, 0, 0, .05);
-      border-radius: 0.02rem;
-      width: 100%;
-      padding: 0.4rem 0.5rem;
-      font-size: 0.18rem;
-      color: #3a4a5a;
-      line-height: 0.3rem;
+      font-size: 0.14rem;
+      line-height: 0.2rem;
       white-space: pre-wrap;
-      font-weight: 700;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.4);
     }
   }
 }
@@ -36,7 +31,7 @@
   .mPrivacyTitle {
     font-size: 0.38rem;
     font-weight: 500;
-    color: rgba(255,255,255,0.9);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 0.53rem;
     margin-bottom: 0.24rem;
     text-align: center;
@@ -47,7 +42,7 @@
     line-height: 0.44rem;
     white-space: pre-wrap;
     font-weight: 400;
-    color: rgba(255,255,255,0.4);
+    color: rgba(255, 255, 255, 0.4);
 
   }
 }

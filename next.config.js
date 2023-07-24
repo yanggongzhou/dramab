@@ -50,8 +50,10 @@ const nextConfig = {
   swcMinify: true,
   images: { // 远程图片资源域名
     domains: [
-      'reshot.hw.dzods.cn',
-      "res.webfic.com"
+      "reshot.hw.dzods.cn",
+      "res.webfic.com",
+      "res.novelread.com",
+      "res.dramabox.com"
     ],
   },
   // 环境配置

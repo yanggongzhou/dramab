@@ -18,19 +18,19 @@ const AgreementPrivacy: NextPage<IProps> = ({ isPc }) => {
     <Head>
       <meta key="description" name="description" content={(t('privacyContent') || '').slice(0, 500)}/>
     </Head>
-    { isPc ? <div className={styles.privacyWrap}>
-      <div className={styles.privacyBox}>
-        <div className={styles.privacyTitle}>{t('privacyTitle')}</div>
-        <div className={styles.privacyContent}>
-          { t('privacyContent') }
-          {/*<a href="mailto:booksourceofficial@gmail.com" style={{color:"rgba(255, 126, 66, 1)"}}></a>*/}
+    {isPc ? <div className={styles.privacyWrap}>
+        <div className={styles.privacyBox}>
+          <div className={styles.privacyTitle}>{t('privacyTitle')}</div>
+          <div className={styles.privacyContent}>
+            {t('privacyContent')}
+            {/*<a href="mailto:booksourceofficial@gmail.com" style={{color:"rgba(255, 126, 66, 1)"}}></a>*/}
+          </div>
         </div>
-      </div>
-    </div> :
+      </div> :
       <div className={styles.mPrivacyWrap}>
         <div className={styles.mPrivacyTitle}>{t('privacyTitle')}</div>
         <div className={styles.mPrivacyIntro}>
-          { t('privacyContent') }
+          {t('privacyContent')}
         </div>
       </div>
     }
@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   return {
     props: {
       isPc: ownOs(ua).isPc,
-      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common','privacy'])),
+      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common', 'privacy'])),
     }
   }
 }

@@ -38,7 +38,6 @@ export const hiveSlice = createSlice({
         url: process.env.WebDomain ?? '',
         ua: '',
         h5fingerPrint: "",
-        fingerPrintPversion: 1,
       },
       copyText: '',
       language: ELanguage.English
