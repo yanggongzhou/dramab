@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import styles from './SecondList.module.scss'
-import { IBookItem } from "typings/home.interface";
+import styles from '@/components/pcHome/secondList/SecondList.module.scss'
+import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";
 import { onImgError } from "@/components/common/image/ImageCover";
 import Image from "next/image";

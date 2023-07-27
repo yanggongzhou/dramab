@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from './index.module.scss'
+import styles from '@/components/layout/mHeader/mNav/index.module.scss'
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
 import { Popup } from "antd-mobile";

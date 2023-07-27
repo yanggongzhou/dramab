@@ -4,7 +4,7 @@ import ClientConfig from "@/client.config";
 import { isIos } from "@/utils/ownOs";
 import { getUserLandId } from "@/utils/logParams";
 import { InitFingerprint } from "@/utils/fingerprint";
-import { ELanguage } from "typings/home.interface";
+import { ELanguage } from "@/typings/home.interface";
 import { SliceCaseReducers } from "@reduxjs/toolkit/src/createSlice";
 import { IClipboard } from "@/typings/hive.interfaces";
 import { netIpUa } from "@/server/clientLog";

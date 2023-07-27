@@ -1,4 +1,4 @@
-import { ELanguage } from "./home.interface";
+import { ELanguage } from "@/typings/home.interface";
 
 // 0全量，1增量，默认0
 export enum ESearchType {

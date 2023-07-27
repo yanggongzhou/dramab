@@ -1,7 +1,7 @@
-import { SitemapBuilder, withXMLResponse, withXMLResponseLegacy } from 'next-sitemap'
+import { SitemapBuilder, withXMLResponseLegacy } from 'next-sitemap'
 import { GetServerSideProps } from 'next'
 import { ISitemapField } from "next-sitemap/dist/@types/interface";
-import { netAllBook, netBrowseType, netIncrementBook } from "@/server/home";
+import { netAllBook, netAllColumn, netBrowseType } from "@/server/home";
 import dayjs from "dayjs";
 import { ELanguage } from "@/typings/home.interface";
 import { ESearchType } from "@/typings/sitemap.interface";
@@ -27,40 +27,26 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       lastmod: dayjs().date(1).format('YYYY-MM-DD'),
       trailingSlash: false
     }));
-    // const positionArr = [] // todo Object.values(EPositionShowName);
-    // const moreFields: ISitemapField[] = positionArr.map(pos => ({
-    //   ...options,
-    //   loc: `${options.loc}/more/${pos}`,
-    //   alternateRefs: languageArr.map(lan => {
-    //     const _loc = lan === ELanguage.English ? `/more/${pos}` : `/${lan}/more/${pos}`
-    //     return {href: options.loc + _loc,  hreflang: lan, hrefIsAbsolute: false }
-    //   }),
-    //   changefreq: 'monthly',
-    //   lastmod: dayjs().date(1).format('YYYY-MM-DD'),
-    //   trailingSlash: false
-    // }));
     const fields = [...insideFields] as ISitemapField[];
     const content = sitemapBuilder.buildSitemapXml(fields).replace(/xmlns:.*="(.*)"/g, 'xmlns:xhtml="http://www.w3.org/1999/xhtml"');
     return withXMLResponseLegacy(ctx, content)
   }
   // 栏目
-  // if (state === 'columns') {
-  //   const response = await netAllColumn();
-  //   if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
-  //   if (response === 'BadRequest_404') return { notFound: true }
-  //   let fields: ISitemapField[] = [];
-  //   (response || []).forEach(val => {
-  //     if(val.name !== EnumPosition.banner) {
-  //       const pages = Array.from({ length: Math.ceil(val.bookCount / 10) }, (v, i) => {
-  //         const _loc = `${options.loc}/more/${EPositionShowName[val.name]}/${i+1}`
-  //         return { ...options, loc: _loc }
-  //       })
-  //       fields = fields.concat(pages);
-  //     }
-  //   })
-  //   const content = sitemapBuilder.buildSitemapXml(fields).replace(/ xmlns:.*="(.*)"/g, '');
-  //   return withXMLResponseLegacy(ctx, content)
-  // }
+  if (state === 'columns') {
+    const response = await netAllColumn();
+    if (response === 'BadRequest_500') return { redirect: { destination: '/500', permanent: false } }
+    if (response === 'BadRequest_404') return { notFound: true }
+    let fields: ISitemapField[] = [];
+    (response || []).forEach(val => {
+        const pages = Array.from({ length: Math.ceil(val.bookCount / 30) }, (v, i) => {
+          const _loc = `${options.loc}/more/${val.name}/${i+1}`
+          return { ...options, loc: _loc }
+        })
+        fields = fields.concat(pages);
+    })
+    const content = sitemapBuilder.buildSitemapXml(fields).replace(/ xmlns:.*="(.*)"/g, '');
+    return withXMLResponseLegacy(ctx, content)
+  }
 
   // 浏览
   if (state === 'browse') {

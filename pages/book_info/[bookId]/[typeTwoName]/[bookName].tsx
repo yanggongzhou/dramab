@@ -3,8 +3,8 @@ import { GetServerSideProps, NextPage } from "next";
 import { netBook } from "@/server/home";
 import PcBook from "@/components/pcBook";
 import MBook from "@/components/book";
-import { ownOs } from "@/utils/ownOs";
-import { ELanguage, IBookItem } from "typings/home.interface";
+import { isIos, ownOs } from "@/utils/ownOs";
+import { ELanguage, IBookItem } from "@/typings/home.interface";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface IProps {
@@ -12,11 +12,12 @@ interface IProps {
   bookId: string;
   bookInfo: IBookItem;
   firstChapterId: string;
-  languages: ELanguage[];
+  isApple: boolean;
+  languages: ELanguage[]; // tdk需要， 勿删
 }
 
 const Book: NextPage<IProps> = (
-  { isPc, bookInfo, firstChapterId }
+  { isPc, bookInfo, firstChapterId, isApple }
 ) => {
 
   return <>
@@ -26,7 +27,7 @@ const Book: NextPage<IProps> = (
         bookInfo={bookInfo}
       /> :
       <MBook
-        firstChapterId={firstChapterId}
+        isApple={isApple}
         bookInfo={bookInfo}
       />
     }
@@ -55,6 +56,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query, local
       firstChapterId: chapter?.id || '',
       bookInfo: book,
       isPc: ownOs(ua).isPc,
+      isApple: isIos(ua),
       languages,
       ...(await serverSideTranslations(locale ?? ELanguage.English, ['common'])),
     },

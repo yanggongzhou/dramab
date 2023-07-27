@@ -26,7 +26,7 @@ const PcHome: FC<IProps> = ({ bigList, smallData }) => {
           return null;
         })
       }
-      {smallData.length === 0 ? <PcEmpty/> : null}
+      {bigList.length === 0 && smallData.length === 0 ? <PcEmpty/> : null}
     </>
   )
 }

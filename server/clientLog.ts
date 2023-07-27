@@ -1,6 +1,5 @@
 import ClientConfig from '@/client.config'
-import { ipReg } from "@/utils/other";
-import { IClipboard, ILogParams } from "typings/hive.interfaces";
+import { IClipboard, ILogParams } from "@/typings/hive.interfaces";
 
 // 大数据打点
 export const netHiveLog = (logData: ILogParams) => {

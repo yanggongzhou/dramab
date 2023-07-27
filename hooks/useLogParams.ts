@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { LanguageDefaultBookId } from "@/client.config";
 import { useRouter } from "next/router";
-import { ELanguage } from "typings/home.interface";
+import { ELanguage } from "@/typings/home.interface";
 import { clipboardAsync, setClipboard, setLanguage } from "@/store/modules/hive.module";
 import { useAppDispatch, useAppSelector } from "@/store";
 import useHiveLog from "@/hooks/useHiveLog";

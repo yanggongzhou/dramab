@@ -21,12 +21,12 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
   } = bookInfo;
   const toRead = () => {
     // 书籍详情点击进入阅读
-    HiveLog.track('BookDetails_ClickRead', {
-      book_ID: bookInfo.bookId,
-      book_name: bookInfo.bookName,
-    })
+    // HiveLog.track('BookDetails_ClickRead', {
+    //   book_ID: bookInfo.bookId,
+    //   book_name: bookInfo.bookName,
+    // })
   }
-  const routerToBook = `/book_info/${bookInfo.bookId}/${typeTwoName}/${replacedBookName}`;
+  const routerToBook = `/download?${bookInfo.bookId}`;
 
   const router = useRouter();
 
@@ -87,7 +87,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
           </div>
         </div>
 
-        <Link href={`/book/${replacedBookName}_${bookInfo.bookId}/Chapter-1_${firstChapterId}`} className={styles.playBtn} onClick={() => toRead()}>
+        <Link href={`/download?${bookInfo.bookId}`} className={styles.playBtn} onClick={() => toRead()}>
           <Image
             className={styles.playIcon}
             width={16}

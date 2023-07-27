@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from "next";
 import { isIos, ownOs } from "@/utils/ownOs";
 import PcDownload from "@/components/pcDownload";
 import MDownload from "@/components/download";
-import { ELanguage } from "typings/home.interface";
+import { ELanguage } from "@/typings/home.interface";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { SSRConfig } from "next-i18next";
 

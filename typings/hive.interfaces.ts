@@ -1,4 +1,4 @@
-import { ELanguage } from "./home.interface";
+import { ELanguage } from "@/typings/home.interface";
 
 export interface AnyObject<T = any> { [key: string]: T }
 // action

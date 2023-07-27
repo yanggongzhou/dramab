@@ -1,4 +1,4 @@
-import { randomString } from './other'
+import { randomString } from '@/utils/other'
 import ClientConfig from '@/client.config';
 import { isIos, ownOs } from "@/utils/ownOs";
 import { ELanguage } from "@/typings/home.interface";

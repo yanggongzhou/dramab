@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
-import styles from './SwiperArea.module.scss'
-import { IBookItem } from "typings/home.interface";
+import styles from '@/components/pcHome/swiperArea/SwiperArea.module.scss'
+import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";
 import ImageCover from "@/components/common/image/ImageCover";
 

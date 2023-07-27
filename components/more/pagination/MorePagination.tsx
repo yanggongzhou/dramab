@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import styles from './MorePagination.module.css'
+import styles from '@/components/more/pagination/MorePagination.module.css'
 import Link from "next/link";
 import { Toast } from "antd-mobile";
 import { useTranslation } from "next-i18next";

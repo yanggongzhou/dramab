@@ -1,4 +1,4 @@
-import { IHomeResItem } from "./home.interface";
+import { IHomeResItem } from "@/typings/home.interface";
 
 export interface INetMoreReq {
   id: string;

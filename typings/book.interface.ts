@@ -1,4 +1,4 @@
-import { ELanguage, IBookItem } from "./home.interface";
+import { ELanguage, IBookItem } from "@/typings/home.interface";
 
 export interface INetBookReq {
   bookId: string;

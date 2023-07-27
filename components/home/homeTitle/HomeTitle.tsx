@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import styles from './HomeTitle.module.scss'
+import styles from '@/components/home/homeTitle/HomeTitle.module.scss'
 import Link from "next/link";
 import Image from "next/image";
 

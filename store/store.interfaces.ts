@@ -1,5 +1,5 @@
-import { ELanguage } from "typings/home.interface";
-import { IClipboard } from "typings/hive.interfaces";
+import { ELanguage } from "@/typings/home.interface";
+import { IClipboard } from "@/typings/hive.interfaces";
 
 export interface IHiveStore {
   clipboard: IClipboard;

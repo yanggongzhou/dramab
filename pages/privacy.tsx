@@ -3,7 +3,7 @@ import { GetServerSideProps, NextPage } from "next";
 import styles from 'styles/Privacy.module.scss'
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { ELanguage } from "typings/home.interface";
+import { ELanguage } from "@/typings/home.interface";
 import { useTranslation } from "next-i18next"
 import Head from "next/head";
 

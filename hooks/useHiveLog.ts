@@ -2,7 +2,7 @@ import { getLogParams } from "@/utils/logParams";
 import { useAppSelector } from "@/store";
 import { netHiveLog } from "@/server/clientLog";
 import ClientConfig from "@/client.config";
-import { AnyObject, ELogParamsAction } from "typings/hive.interfaces";
+import { AnyObject, ELogParamsAction } from "@/typings/hive.interfaces";
 
 interface IHiveLog {
   track: (event: string, data?: AnyObject) => void;

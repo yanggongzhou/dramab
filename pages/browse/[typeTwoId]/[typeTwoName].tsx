@@ -2,12 +2,12 @@ import type { NextPage } from 'next'
 import { GetServerSideProps } from "next";
 import React from "react";
 import { netBrowse } from "@/server/home";
-import { ELanguage, IBookItem } from "typings/home.interface";
+import { ELanguage, IBookItem } from "@/typings/home.interface";
 import { ownOs } from "@/utils/ownOs";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import MBrowse from "@/components/browse";
 import PcBrowse from "@/components/pcBrowse";
-import { IBrowseTypes } from "typings/browse.interface";
+import { IBrowseTypes } from "@/typings/browse.interface";
 import useHiveLog from "@/hooks/useHiveLog";
 
 interface IProps {

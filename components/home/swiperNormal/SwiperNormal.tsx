@@ -1,7 +1,7 @@
 import { Swiper } from 'antd-mobile'
 import React, { FC } from 'react'
-import styles from './SwiperNormal.module.scss'
-import { IBookItem } from "typings/home.interface";
+import styles from '@/components/home/swiperNormal/SwiperNormal.module.scss'
+import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";
 import ImageCover from "@/components/common/image/ImageCover";
 

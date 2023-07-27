@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import styles from "@/components/browse/index.module.scss";
-import { IBookItem } from "typings/home.interface";
+import { IBookItem } from "@/typings/home.interface";
 import { useTranslation } from "next-i18next";
 import { Tabs } from "antd-mobile";
 import Link from "next/link";

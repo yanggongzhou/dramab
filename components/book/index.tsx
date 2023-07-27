@@ -2,20 +2,30 @@ import React, { FC, useState } from 'react'
 import styles from "@/components/book/index.module.scss";
 import Link from "next/link";
 import { useTranslation } from "next-i18next";
-import useHiveLog from "@/hooks/useHiveLog";
 import BookCrumbs from "@/components/book/crumbs";
 import Image from "next/image";
 import { onImgError } from "@/components/common/image/ImageCover";
 import { IBookItem } from "@/typings/home.interface";
+import { netIpUa } from "@/server/clientLog";
+import { useAppSelector } from "@/store";
+import ClientConfig from "@/client.config";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 interface IProps {
   bookInfo: IBookItem;
-  firstChapterId: string;
+  isApple: boolean;
 }
 
-const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
+const MBook: FC<IProps> = ({ bookInfo, isApple}) => {
   const { t } = useTranslation();
-  const HiveLog = useHiveLog();
+  const clipboard = useAppSelector(state => state.hive.clipboard)
+  const copyText = useAppSelector(state => state.hive.copyText);
+  const shopLink =  useAppSelector(state => {
+    if (isApple) {
+      return ClientConfig.ios.deeplink + state.hive.copyText;
+    }
+    return ClientConfig.android.link;
+  });
   const {
     cover,
     bookName,
@@ -27,13 +37,6 @@ const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
   const [isShowMore, setIsShowMore] = useState(false);
   const onMore = () => {
     setIsShowMore(true)
-  }
-  const toRead = () => {
-    // 书籍详情点击进入阅读
-    HiveLog.track('BookDetails_ClickRead', {
-      book_ID: bookInfo.bookId,
-      book_name: bookInfo.bookName,
-    })
   }
 
   return <>
@@ -60,15 +63,20 @@ const MBook: FC<IProps> = ({ bookInfo, firstChapterId}) => {
       </div>
 
       <div className={styles.footerBox}>
-        <Link href={`/book/${bookInfo.replacedBookName}_${bookInfo.bookId}/Chapter-1_${firstChapterId}`} className={styles.footerBtn} onClick={toRead}>
-          <Image
-            className={styles.playIcon}
-            width={48}
-            height={48}
-            src={'/images/book/play-icon2.png'}
-            alt={''}
-          />
-          <span>Play Now</span>
+        <Link href={shopLink}>
+          <CopyToClipboard text={copyText} onCopy={() => {
+            netIpUa(clipboard)
+            // HiveLog.trackDownload('turnPage_click', { book_ID: bookId, chapter_id: chapterId })
+          }}>
+            <Image
+              className={styles.playIcon}
+              width={48}
+              height={48}
+              src={'/images/book/play-icon2.png'}
+              alt={''}
+            />
+            <span>Play Now</span>
+          </CopyToClipboard>
         </Link>
       </div>
 
