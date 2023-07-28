@@ -2,6 +2,11 @@
   height: 4.12rem;
   background-color: #1C1C1E;
   padding: 0 0.32rem 0.48rem;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 
   .agreementItem {
     border-bottom: 1px solid rgba(255,255,255,0.08);

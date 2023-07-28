@@ -26,7 +26,7 @@ const PcBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types }) => 
     <div className={styles.browseHeader}>
       <div className={styles.tabsBox}>
         {types.map((item) => {
-          const typeName = item.id === 0 ? t('others.all') : item.name;
+          const typeName = item.id === 0 ? t('browse.all') : item.name;
           if (item.id === typeTwoId) {
             return <div key={item.id} className={styles.tabItemActive}>{typeName}</div>
           }

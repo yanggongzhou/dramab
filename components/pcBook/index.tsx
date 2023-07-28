@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { onImgError } from "@/components/common/image/ImageCover";
 import { IBookItem } from "@/typings/home.interface";
+import { useTranslation } from "next-i18next";
 
 interface IProps {
   bookInfo: IBookItem;
@@ -13,7 +14,7 @@ interface IProps {
 }
 
 const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
-
+  const { t } = useTranslation()
   const HiveLog = useHiveLog();
   const {
     replacedBookName = 'null',
@@ -50,7 +51,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             src={'/images/home/pc-more-active.png'}
             alt={''}
           />
-          <span>Back</span>
+          <span>{t("home.back")}</span>
         </div>
       </div>
     </div>
@@ -81,7 +82,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
           </Link>
 
           <div className={styles.tagsContent}>
-            { ['Film', 'Series', 'Dramas', 'Documentaries'].map(val => {
+            { (bookInfo?.tags || []).map(val => {
               return <Link key={val} href={routerToBook} className={styles.tagItem}>{val}</Link>
             })}
           </div>
@@ -95,7 +96,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             src={'/images/book/play-icon.png'}
             alt={''}
           />
-          <span>Play Now</span>
+          <span>{t("home.play")}</span>
         </Link>
       </div>
     </div>

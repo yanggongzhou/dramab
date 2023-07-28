@@ -43,7 +43,7 @@ const MBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types }) => {
         activeKey={String(typeTwoId)}
       >
         {types.map((item) => {
-          const typeName = item.id === 0 ? t('others.all') : item.name;
+          const typeName = item.id === 0 ? t('browse.all') : item.name;
           return <Tabs.Tab title={<Link href={`/browse/${item.id}/${item.replaceName || encodeURIComponent(item.name) || 'all'}`}>
               {typeName}
             </Link>}

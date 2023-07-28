@@ -52,8 +52,6 @@
 
   .prevNoMore, .nextNoMore {
     cursor: not-allowed;
-    &:hover {
-      background-color: rgba(255,255,255,0.16);
-    }
+    background-color: rgba(255,255,255,0.08) !important;
   }
 }

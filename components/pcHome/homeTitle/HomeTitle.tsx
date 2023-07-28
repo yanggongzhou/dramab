@@ -20,7 +20,7 @@ const PcHomeTitle: FC<IProps> = ({ title, subName = '', href }) => {
     </div>
 
     {href ? <Link className={styles.moreBox} href={href}>
-      more
+      {t("home.more")}
       <Image
         className={styles.moreIcon}
         width={16}

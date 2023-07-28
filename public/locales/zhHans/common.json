@@ -1,67 +1,38 @@
 {
-  "nav": {
-    "home": "Home",
-    "featured": "Featured",
-    "app": "App"
+  "home": {
+    "home": "首页",
+    "browse": "分类",
+    "app": "App",
+    "more": "更多",
+    "privacyPolicy": "隐私政策",
+    "termsOfUse": "用户协议",
+    "allRightsReserved": "版权所有",
+    "play": "播放",
+    "back": "返回",
+    "emptyDesc": "No Content"
   },
-  "banner": {
-    "PrivacyPolicy": "Privacy Policy",
-    "TermsOfUse": "Terms of Use",
-    "AllRightsReserved": "All rights reserved"
+  "browse": {
+    "all": "全部"
   },
   "bookInfo": {
-    "PreviousPage": "Previous page",
-    "NextPage": "Next page",
-    "OnGoing": "Ongoing",
-    "Completed": "Completed",
-    "Read": "read",
-    "Return": "Return",
-    "Points": "Points",
-    "Chapters": "Chapters",
-    "Views": "Views",
-    "Words": "words",
-    "Favorites": "favorites",
-    "Updated1": "Updated up to Chapter ",
-    "Updated2": "",
-    "ReadNow": "Read Now",
-    "Introduction": "Introduction",
-    "Directory": "Catalogue",
-    "More": "more",
-    "Like": "You may like"
+    "more": "更多",
+    "introduction": "简介",
+    "previousPage": "上一页",
+    "nextPage": "下一页",
+    "lastChapterTip": "当前已在最后一页",
+    "firstChapterTip": "当前已在第一页"
   },
-  "reading": {
-    "Directory": "Directory",
-    "NightMode": "Night Mode",
-    "DayMode": "Day Mode",
-    "Setting": "Setting",
-    "Chapter": "Chapter",
-    "FontSize": "Font Size",
-    "Background": "Background",
-    "Minimize": "Minimize",
-    "Default": "Default",
-    "Maximize": "Maximize",
-    "PreviousChapter": "Previous Chapter",
-    "NextChapter": "Next Chapter",
-    "ClickCopy": "Click to copy link",
-    "LockedChapters": "Locked chapters",
-    "DownloadNow": "Download Now",
-    "Download": "Download the NovelRead App to unlock even more exciting content",
-    "TurnOn": "Turn on the phone camera to scan directly, or copy the link and open it in your mobile browser",
-    "lastChapterTip": "Already the last chapter",
-    "firstChapterTip": "Already the first chapter"
+  "appPage": {
+    "title": "DramaBox - 追剧，电视，精彩故事",
+    "content": "在通勤、午餐时间或长时间工作学习后想放鬆吗？那就来试试我们的APP吧！\n\n\n\n热播爽剧追不停\n，随时随地嗨翻天！从独立电影到屡获殊荣的电视剧，我们为您提供多样的选择和持续更新的作品，总有精彩的内容吸引你！",
+    "download": "下载",
+    "clickCopy": "点击复制链接",
+    "copied": "已复制，请在手机浏览器中打开链接下载应用程序",
+    "copyGuide": "请使用手机扫描二维码下载。或复制链接，用手机浏览器打开后下载。",
+    "slogan": "进入短剧世界"
   },
-  "footer": {
-    "Contact": "Dear user,Thank you for your interest in NovelRead. We want to hear your voice.If you are looking for business opportunities, please send us email to booksourceofficial@gmail.com If you are interested in any work opportunities here with us NovelRead Team, please contact us with:booksourceofficial@gmail.com If you have other questions or concerns, please send us email to booksourceofficial@gmail.com Thank you again.Best regards,NovelRead",
-    "download": "Click and copy the link to download the App",
-    "copied": "Copied, open the link in the mobile browser to download the App"
-  },
+
   "others": {
-    "Sorry": "Sorry, we are not available in your country or region.",
-    "Copyright": "Due to copyright reasons, this book cannot be read on the website. Please download our App to read.",
-    "by": "By",
-    "noBook": "Sorry, no books are not available ~",
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage.",
-    "goHome": "Go to home page",
-    "all": "All"
+    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
   }
 }

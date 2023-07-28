@@ -44,7 +44,7 @@ const HeadNormal: FC<any> = ({ pageProps = {} }) => {
     //   const positionName = t(`menu.${pageProps.position}`) || ''
     //   return TDK[_locale].more({ ...router.query, positionName })
     // } else if (router.pathname.includes('/browse/[typeTwoId]/[typeTwoName]')) {
-    //   const  _typeTwoName = pageProps.typeTwoName === 'all' ? t(`others.all`) : pageProps.typeTwoName;
+    //   const  _typeTwoName = pageProps.typeTwoName === 'all' ? t(`browse.all`) : pageProps.typeTwoName;
     //   return TDK[_locale].browse({ ...router.query, typeTwoName: _typeTwoName })
     // } else {
     //   for(const item in pathnameData) {

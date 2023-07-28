@@ -13,12 +13,9 @@ const PcDownload: FC<IProps> = ({ isApple }) => {
 
   return <div className={styles.downloadWrap}>
     <div className={styles.downloadHeader}>
-      <h3 className={styles.downloadTitle}>DramaBox | Make short dramas Fantastic</h3>
+      <h3 className={styles.downloadTitle}>{t('appPage.title')}</h3>
       <div className={styles.downloadContent}>
-        Free online website novels & books for fiction lovers.
-        Popular web novels with massive original English stories, types include urban, romance，fantasy，werewolf，classic and so on.
-        For more high-quality content and experience, you can download the Webfic official app and enjoy the fun of reading together.
-        Download it now and enjoy reading together.
+        {t("appPage.content")}
       </div>
     </div>
 

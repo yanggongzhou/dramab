@@ -1,6 +1,8 @@
 .detailBox {
   padding: 0.48rem 0.32rem;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   .bookCover {
     width: 2.8rem;

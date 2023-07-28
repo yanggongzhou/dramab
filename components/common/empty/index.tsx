@@ -14,10 +14,10 @@ export const PcEmpty: FC = () => {
       src={'/images/common/empty.png'}
       placeholder="blur"
       blurDataURL={'/images/common/empty.png'}
-      alt={t('others.noBook')}
+      alt={t('home.emptyDesc')}
     />
     <div className={styles.emptyIntro}>
-      {t('others.noBook')}
+      {t('home.emptyDesc')}
     </div>
   </div>
 }
@@ -32,10 +32,10 @@ export const MEmpty: FC = () => {
       src={'/images/common/empty.png'}
       placeholder="blur"
       blurDataURL={'/images/common/empty.png'}
-      alt={t('others.noBook')}
+      alt={t('home.emptyDesc')}
     />
     <div className={styles.emptyIntro}>
-      {t('others.noBook')}
+      {t('home.emptyDesc')}
     </div>
   </div>
 }

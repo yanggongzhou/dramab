@@ -14,7 +14,7 @@ interface IProps {
 }
 
 const PcStore: FC<IProps> = ({ isApple }) => {
-  const { t: tCommon } = useTranslation('common');
+  const { t } = useTranslation('common');
   const [activeApple, setActiveApple] = useState(isApple);
 
   const router = useRouter();
@@ -30,7 +30,7 @@ const PcStore: FC<IProps> = ({ isApple }) => {
 
   return <div className={styles.storeBox}>
     <h3 className={styles.storeTitle}>DramaBox App</h3>
-    <p className={styles.storeSub}>Download to unlock even more exciting content</p>
+    <p className={styles.storeSub}>{t('appPage.slogan')}</p>
     <div className={styles.storeContent}>
       <div className={styles.tabsTitle}>
         <div style={activeApple ? { backgroundColor: '#00000080' } : {}} className={styles.tabsTitleItem}
@@ -44,7 +44,7 @@ const PcStore: FC<IProps> = ({ isApple }) => {
           />
           <div className={styles.tabsTitleRight}>
             <p>IOS</p>
-            <span>Download</span>
+            <span>{t("appPage.download")}</span>
           </div>
         </div>
         <div style={activeApple ? {} : { backgroundColor: '#00000080' }} className={styles.tabsTitleItem}
@@ -58,19 +58,18 @@ const PcStore: FC<IProps> = ({ isApple }) => {
           />
           <div className={styles.tabsTitleRight}>
             <p>Android</p>
-            <span>Download</span>
+            <span>{t("appPage.download")}</span>
           </div>
         </div>
       </div>
 
       <div className={styles.tabsContent}>
         <QRCode value={copyUrl} className={styles.qrCode}/>
-
-        <p className={styles.copyTxt}>Open the phone camera to scan directly<br/>Or copy the link and open it in the mobile browser</p>
+        <p className={styles.copyTxt}>{t('appPage.copyGuide')}</p>
         <CopyToClipboard text={copyUrl} onCopy={() => {
-          Toast.show(tCommon('footer.copied'))
+          Toast.show(t('appPage.copied'))
         }}>
-          <p className={styles.clickToCopy}>{tCommon('reading.ClickCopy')}</p>
+          <p className={styles.clickToCopy}>{t('appPage.clickCopy')}</p>
         </CopyToClipboard>
       </div>
 

@@ -14,7 +14,7 @@ const PcFooter: FC<IProps> = () => {
     <div className={styles.footerContent}>
 
       <div className={styles.footerText}>
-        <p className={styles.fText}>© {ClientConfig.name}, {t('banner.AllRightsReserved')}</p>
+        <p className={styles.fText}>© {ClientConfig.name}, {t('home.allRightsReserved')}</p>
         <Link className={styles.fmail} href={`mailto:${ClientConfig.email}`}>
           Email:{ ClientConfig.email }
         </Link>
@@ -23,10 +23,10 @@ const PcFooter: FC<IProps> = () => {
 
       <div className={styles.footerLink}>
         <Link href={'/terms'} className={styles.otherBtn}>
-          {t('banner.TermsOfUse')}
+          {t('home.termsOfUse')}
         </Link>
         <Link href={'/privacy'} className={styles.otherBtn}>
-          {t('banner.PrivacyPolicy')}
+          {t('home.privacyPolicy')}
         </Link>
       </div>
     </div>

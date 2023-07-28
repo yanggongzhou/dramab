@@ -13,6 +13,7 @@ interface IProps {
 }
 
 const MDownload: FC<IProps> = ({ isApple }) => {
+  const { t } = useTranslation();
   const clipboard = useAppSelector(state => state.hive.clipboard)
   const copyText = useAppSelector(state => state.hive.copyText);
   const shopLink =  useAppSelector(state => {
@@ -26,7 +27,7 @@ const MDownload: FC<IProps> = ({ isApple }) => {
 
   return <div className={styles.downloadWrap}>
     <div className={styles.downloadHead}>
-      DramaBox <br/> Make short dramas Fantastic
+      {t('appPage.title')}
     </div>
     <Image
       className={styles.downloadCover}
@@ -50,15 +51,12 @@ const MDownload: FC<IProps> = ({ isApple }) => {
             src={isApple ? '/images/download/ios.png' : '/images/download/android.png'}
             alt={ClientConfig.name}
           />
-          <span>Download DramaBox</span>
+          <span>{t("appPage.download")}</span>
         </div>
       </CopyToClipboard>
     </Link>
     <div className={styles.downloadContent}>
-      Free online website novels & books for fiction lovers.
-      Popular web novels with massive original English stories, types include urban, romance，fantasy，werewolf，classic and so on.
-      For more high-quality content and experience, you can download the Webfic official app and enjoy the fun of reading together.
-      Download it now and enjoy reading together.
+      {t("appPage.content")}
     </div>
   </div>
 }

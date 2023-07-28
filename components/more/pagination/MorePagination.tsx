@@ -18,24 +18,24 @@ const MorePagination: FC<IProps> = ({ prevPath, totalPage, page, query = '' }) =
 
   return <div className={styles.paginationWrap} style={query ? { padding: '0.24rem 0' } : {}}>
     {prevPage && prevPage > 0 ? <Link href={prevPath + prevPage + query} replace scroll className={styles.linkItem}>
-        {t('bookInfo.PreviousPage')}
+        {t('bookInfo.previousPage')}
       </Link> :
       <div
         onClick={() => {
-          Toast.show(t('reading.firstChapterTip'))
+          Toast.show(t('bookInfo.firstChapterTip'))
         }}
         className={styles.pageItem}
-      >{t('bookInfo.PreviousPage')}</div>}
+      >{t('bookInfo.previousPage')}</div>}
     <div className={styles.linkItem}>{page}/{totalPage}</div>
     {Number(page) < totalPage ? <Link href={prevPath + nextPage + query} replace scroll className={styles.linkItem}>
-        {t('bookInfo.NextPage')}
+        {t('bookInfo.nextPage')}
       </Link> :
       <div
         onClick={() => {
-          Toast.show(t('reading.lastChapterTip'))
+          Toast.show(t('bookInfo.lastChapterTip'))
         }}
         className={styles.pageItem}>
-        {t('bookInfo.NextPage')}
+        {t('bookInfo.nextPage')}
       </div>}
   </div>
 }

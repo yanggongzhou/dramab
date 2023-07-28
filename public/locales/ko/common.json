@@ -1,67 +1,38 @@
 {
-  "nav": {
-    "home": "Home",
-    "featured": "Featured",
-    "app": "App"
+  "home": {
+    "home": "홈",
+    "browse": "분류",
+    "app": "App",
+    "more": "추가",
+    "privacyPolicy": "개인정보 정책",
+    "termsOfUse": "이용약관",
+    "allRightsReserved": "판권 소유",
+    "play": "놀다",
+    "back": "뒤로가기",
+    "emptyDesc": "No Content"
   },
-  "banner": {
-    "PrivacyPolicy": "Privacy Policy",
-    "TermsOfUse": "Terms of Use",
-    "AllRightsReserved": "All rights reserved"
+  "browse": {
+    "all": "전부의"
   },
   "bookInfo": {
-    "PreviousPage": "Previous page",
-    "NextPage": "Next page",
-    "OnGoing": "Ongoing",
-    "Completed": "Completed",
-    "Read": "read",
-    "Return": "Return",
-    "Points": "Points",
-    "Chapters": "Chapters",
-    "Views": "Views",
-    "Words": "words",
-    "Favorites": "favorites",
-    "Updated1": "Updated up to Chapter ",
-    "Updated2": "",
-    "ReadNow": "Read Now",
-    "Introduction": "Introduction",
-    "Directory": "Catalogue",
-    "More": "more",
-    "Like": "You may like"
+    "more": "추가",
+    "introduction": "소개",
+    "previousPage": "이전 페이지",
+    "nextPage": "다음 페이지",
+    "lastChapterTip": "이미 마지막 장입니다",
+    "firstChapterTip": "이미 첫 번째 장입니다"
   },
-  "reading": {
-    "Directory": "Directory",
-    "NightMode": "Night Mode",
-    "DayMode": "Day Mode",
-    "Setting": "Setting",
-    "Chapter": "Chapter",
-    "FontSize": "Font Size",
-    "Background": "Background",
-    "Minimize": "Minimize",
-    "Default": "Default",
-    "Maximize": "Maximize",
-    "PreviousChapter": "Previous Chapter",
-    "NextChapter": "Next Chapter",
-    "ClickCopy": "Click to copy link",
-    "LockedChapters": "Locked chapters",
-    "DownloadNow": "Download Now",
-    "Download": "Download the NovelRead App to unlock even more exciting content",
-    "TurnOn": "Turn on the phone camera to scan directly, or copy the link and open it in your mobile browser",
-    "lastChapterTip": "Already the last chapter",
-    "firstChapterTip": "Already the first chapter"
+  "appPage": {
+    "title": "DramaBox - 환상적인 이야기와 단편",
+    "content": "출퇴근 시간이나 점심 시간에 시청하거나 긴 하루를 보낸 후 긴장을 풀고 싶은 콘텐츠를 찾고 계신가요? 더 이상 우리의 Dramabox를 보지 마십시오!\n\n저희 앱을 사용하면 최고의 크리에이터들이 제공하는 엄선된 고품질 콘텐츠에 액세스할 수 있습니다. 인디 영화에서 수상 경력에 빛나는 TV 시리즈에 이르기까지 모두를 위한 무언가가 있습니",
+    "download": "다운로드",
+    "clickCopy": "카메라로 스캔하거나 링크를 복사하여 모바일 브라우저에서 여세요.",
+    "copied": "복사되었습니다. 모바일 브라우저에서 링크를 열어 앱을 다운로드하세요.",
+    "copyGuide": "핸드폰으로 QR코드를 스캔하여 다운로드하세요.또는 링크를 복사해 모바일 브라우저로 열어 다운로드한다.",
+    "slogan": "연극에 깊이 들어가다"
   },
-  "footer": {
-    "Contact": "Dear user,Thank you for your interest in NovelRead. We want to hear your voice.If you are looking for business opportunities, please send us email to booksourceofficial@gmail.com If you are interested in any work opportunities here with us NovelRead Team, please contact us with:booksourceofficial@gmail.com If you have other questions or concerns, please send us email to booksourceofficial@gmail.com Thank you again.Best regards,NovelRead",
-    "download": "Click and copy the link to download the App",
-    "copied": "Copied, open the link in the mobile browser to download the App"
-  },
+
   "others": {
-    "Sorry": "Sorry, we are not available in your country or region.",
-    "Copyright": "Due to copyright reasons, this book cannot be read on the website. Please download our App to read.",
-    "by": "By",
-    "noBook": "Sorry, no books are not available ~",
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage.",
-    "goHome": "Go to home page",
-    "all": "All"
+    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
   }
 }

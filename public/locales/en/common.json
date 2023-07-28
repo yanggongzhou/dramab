@@ -1,67 +1,38 @@
 {
-  "nav": {
+  "home": {
     "home": "Home",
-    "featured": "Featured",
-    "app": "App"
+    "browse": "Browse",
+    "app": "App",
+    "more": "More",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of Use",
+    "allRightsReserved": "All Rights Reserved",
+    "play": "Play",
+    "back": "Back",
+    "emptyDesc": "No Content"
   },
-  "banner": {
-    "PrivacyPolicy": "Privacy Policy",
-    "TermsOfUse": "Terms of Use",
-    "AllRightsReserved": "All rights reserved"
+  "browse": {
+    "all": "All"
   },
   "bookInfo": {
-    "PreviousPage": "Previous page",
-    "NextPage": "Next page",
-    "OnGoing": "Ongoing",
-    "Completed": "Completed",
-    "Read": "read",
-    "Return": "Return",
-    "Points": "Points",
-    "Chapters": "Chapters",
-    "Views": "Views",
-    "Words": "words",
-    "Favorites": "favorites",
-    "Updated1": "Updated up to Chapter ",
-    "Updated2": "",
-    "ReadNow": "Read Now",
-    "Introduction": "Introduction",
-    "Directory": "Catalogue",
-    "More": "more",
-    "Like": "You may like"
-  },
-  "reading": {
-    "Directory": "Directory",
-    "NightMode": "Night Mode",
-    "DayMode": "Day Mode",
-    "Setting": "Setting",
-    "Chapter": "Chapter",
-    "FontSize": "Font Size",
-    "Background": "Background",
-    "Minimize": "Minimize",
-    "Default": "Default",
-    "Maximize": "Maximize",
-    "PreviousChapter": "Previous Chapter",
-    "NextChapter": "Next Chapter",
-    "ClickCopy": "Click to copy link",
-    "LockedChapters": "Locked chapters",
-    "DownloadNow": "Download Now",
-    "Download": "Download the NovelRead App to unlock even more exciting content",
-    "TurnOn": "Turn on the phone camera to scan directly, or copy the link and open it in your mobile browser",
+    "more": "more",
+    "introduction": "Introduction",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
     "lastChapterTip": "Already the last chapter",
     "firstChapterTip": "Already the first chapter"
   },
-  "footer": {
-    "Contact": "Dear user,Thank you for your interest in NovelRead. We want to hear your voice.If you are looking for business opportunities, please send us email to booksourceofficial@gmail.com If you are interested in any work opportunities here with us NovelRead Team, please contact us with:booksourceofficial@gmail.com If you have other questions or concerns, please send us email to booksourceofficial@gmail.com Thank you again.Best regards,NovelRead",
-    "download": "Click and copy the link to download the App",
-    "copied": "Copied, open the link in the mobile browser to download the App"
+  "appPage": {
+    "title": "DramaBox - movies and drama",
+    "content": "Looking for something to watch during your daily commute, lunch break, or just to unwind after a long day? Look no further than our Dramabox!\nWith our app, you can access a huge selection of high-quality content from some of the best creators out there. From indie films to award-winning TV series, we've got something for everyone. And with new content added regularly, you'll always have something fresh to watch.",
+    "download": "Download",
+    "clickCopy": "Click to copy link",
+    "copied": "Copied, open the link in the mobile browser to download the App",
+    "copyGuide": "Scan the QR code to download, or open the link in phone browser.",
+    "slogan": "Dive into drama"
   },
+
   "others": {
-    "Sorry": "Sorry, we are not available in your country or region.",
-    "Copyright": "Due to copyright reasons, this book cannot be read on the website. Please download our App to read.",
-    "by": "By",
-    "noBook": "Sorry, no books are not available ~",
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage.",
-    "goHome": "Go to home page",
-    "all": "All"
+    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
   }
 }

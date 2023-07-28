@@ -13,7 +13,7 @@ const MFooter: FC<IProps> = () => {
 
   return <div className={styles.footerBox}>
     <Link href={'/privacy'} className={styles.agreementItem}>
-      <span>{t('banner.PrivacyPolicy')}</span>
+      <span>{t('home.privacyPolicy')}</span>
       <Image
         className={styles.agreementIcon}
         width={24}
@@ -23,7 +23,7 @@ const MFooter: FC<IProps> = () => {
       />
     </Link>
     <Link href={'/terms'} className={styles.agreementItem}>
-      <span>{t('banner.TermsOfUse')}</span>
+      <span>{t('home.termsOfUse')}</span>
       <Image
         className={styles.agreementIcon}
         width={24}
@@ -47,7 +47,7 @@ const MFooter: FC<IProps> = () => {
         Email:{ ClientConfig.email }
       </Link>
       <p className={styles.fText}>{ClientConfig.companyName}</p>
-      <p className={styles.fText}>© {ClientConfig.name}, {t('banner.AllRightsReserved')}</p>
+      <p className={styles.fText}>© {ClientConfig.name}, {t('home.allRightsReserved')}</p>
     </div>
   </div>
 }

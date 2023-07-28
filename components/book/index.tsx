@@ -16,11 +16,11 @@ interface IProps {
   isApple: boolean;
 }
 
-const MBook: FC<IProps> = ({ bookInfo, isApple}) => {
+const MBook: FC<IProps> = ({ bookInfo, isApple }) => {
   const { t } = useTranslation();
   const clipboard = useAppSelector(state => state.hive.clipboard)
   const copyText = useAppSelector(state => state.hive.copyText);
-  const shopLink =  useAppSelector(state => {
+  const shopLink = useAppSelector(state => {
     if (isApple) {
       return ClientConfig.ios.deeplink + state.hive.copyText;
     }
@@ -57,17 +57,17 @@ const MBook: FC<IProps> = ({ bookInfo, isApple}) => {
       <h1 className={styles.bookName}>{bookName}</h1>
 
       <div className={styles.tagBox}>
-        { ['Film', 'Series', 'Dramas', 'Documentaries'].map(val => {
+        {(bookInfo?.tags || []).map(val => {
           return <div key={val} className={styles.tagItem}>{val}</div>
         })}
       </div>
 
       <div className={styles.footerBox}>
-        <Link href={shopLink}>
-          <CopyToClipboard text={copyText} onCopy={() => {
-            netIpUa(clipboard)
-            // HiveLog.trackDownload('turnPage_click', { book_ID: bookId, chapter_id: chapterId })
-          }}>
+        <CopyToClipboard text={copyText} onCopy={() => {
+          netIpUa(clipboard)
+          // HiveLog.trackDownload('turnPage_click', { book_ID: bookId, chapter_id: chapterId })
+        }}>
+          <Link className={styles.footerBtn} href={shopLink}>
             <Image
               className={styles.playIcon}
               width={48}
@@ -75,15 +75,15 @@ const MBook: FC<IProps> = ({ bookInfo, isApple}) => {
               src={'/images/book/play-icon2.png'}
               alt={''}
             />
-            <span>Play Now</span>
-          </CopyToClipboard>
-        </Link>
+            <span>{t("home.play")}</span>
+          </Link>
+        </CopyToClipboard>
       </div>
 
       {introduction ? <div className={styles.introBox}>
-        <p className={styles.introTitle}>{t('bookInfo.Introduction')}</p>
+        <p className={styles.introTitle}>{t('bookInfo.introduction')}</p>
         <p className={isShowMore ? styles.introTextMore : styles.introText}>{introduction}</p>
-        {!isShowMore ? <div className={styles.introMore} onClick={() => onMore()}>{t('bookInfo.More')}</div> : null}
+        {!isShowMore ? <div className={styles.introMore} onClick={() => onMore()}>{t('bookInfo.more')}</div> : null}
       </div> : null}
 
     </div>

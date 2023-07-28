@@ -15,7 +15,7 @@ interface IProps {
 const MHome: FC<IProps> = ({ bigList, smallData }) => {
 
   return (
-    <>
+    <div className={styles.homeWrap}>
       {bigList.length > 0 ? <SwiperNormal bigList={bigList}/> : null}
 
       {smallData.map((item) => {
@@ -28,7 +28,7 @@ const MHome: FC<IProps> = ({ bigList, smallData }) => {
       {bigList.length === 0 && smallData.length === 0 ? <MEmpty/> : null}
 
       <MFooter/>
-    </>
+    </div>
   )
 }
 

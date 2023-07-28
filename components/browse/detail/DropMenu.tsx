@@ -71,7 +71,7 @@ const DropMenu: FC<IProps> = ({ types, typeTwoId, visible }) => {
 
         <div className={styles.menuContent}>
           {types.map((item) => {
-            const typeName = item.id === 0 ? t('others.all') : item.name;
+            const typeName = item.id === 0 ? t('browse.all') : item.name;
             if (typeTwoId === item.id) {
               return <div key={item.id} ref={activeRef} className={styles.menuActiveItem}
                           onClick={() => dropdownRef.current?.close()}>{typeName}</div>
