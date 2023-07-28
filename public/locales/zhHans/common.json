@@ -9,7 +9,9 @@
     "allRightsReserved": "版权所有",
     "play": "播放",
     "back": "返回",
-    "emptyDesc": "No Content"
+    "email": "邮箱",
+    "emptyDesc": "没找到内容",
+    "episodes": "% 集"
   },
   "browse": {
     "all": "全部"
@@ -24,15 +26,15 @@
   },
   "appPage": {
     "title": "DramaBox - 追剧，电视，精彩故事",
-    "content": "在通勤、午餐时间或长时间工作学习后想放鬆吗？那就来试试我们的APP吧！\n\n\n\n热播爽剧追不停\n，随时随地嗨翻天！从独立电影到屡获殊荣的电视剧，我们为您提供多样的选择和持续更新的作品，总有精彩的内容吸引你！",
+    "content": "在通勤、午餐时间或长时间工作学习后想放鬆吗？\n那就来试试我们的APP吧！\n\n热播爽剧追不停，随时随地嗨翻天！\n从独立电影到屡获殊荣的电视剧，我们为您提供多样的选择和持续更新的作品，总有精彩的内容吸引你！",
     "download": "下载",
     "clickCopy": "点击复制链接",
     "copied": "已复制，请在手机浏览器中打开链接下载应用程序",
-    "copyGuide": "请使用手机扫描二维码下载。或复制链接，用手机浏览器打开后下载。",
+    "copyGuide": "请使用手机扫描二维码下载。\n或复制链接，用手机浏览器打开后下载。",
     "slogan": "进入短剧世界"
   },
 
   "others": {
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
+    "error": "404  抱歉，页面出现错误。"
   }
 }

@@ -10,22 +10,14 @@ import { useTranslation } from "next-i18next";
 const { googleCode } = ClientConfig;
 
 export const pathnameData = {
-  search: '/search', // 有随机参数可能匹配, 最好放置头部，优先判断
   browse: '/browse/[typeTwoId]/[typeTwoName]',
   more: '/more/[position]',
-  rankings: '/rankings',
   book: '/book_info/[bookId]/[typeTwoName]/[bookName]',
-  chapter: '/book/[bookId]/[chapterId]',
-  catalog: '/catalog/[bookId]',
-  about: '/about',
   download: '/download',
-  business: '/business',
   error404: '/404',
   error500: '/500',
   agreementPrivacy: '/privacy',
   agreementUser: '/terms',
-  tag: '/tag/[keywordId]',
-  keywords: '/keywords'
 }
 
 const HeadNormal: FC<any> = ({ pageProps = {} }) => {
@@ -70,9 +62,7 @@ const HeadNormal: FC<any> = ({ pageProps = {} }) => {
 
   // 拓展多语言字段
   const AlternateLink = () => {
-    if (router.pathname.includes(pathnameData.tag) || router.pathname.includes(pathnameData.keywords)) {
-      return null;
-    } else if (router.pathname.includes(pathnameData.book) || router.pathname.includes(pathnameData.chapter) || router.pathname.includes(pathnameData.catalog)) {
+    if (router.pathname.includes(pathnameData.book)) {
       return <>
         {pageProps.languages && pageProps.languages.length > 0 && pageProps.languages.map((lanUrl: ELanguage) => {
           return <link key={lanUrl} rel="alternate" hrefLang={lanUrl} href={getUrl(lanUrl)}/>

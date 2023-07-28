@@ -9,7 +9,9 @@
     "allRightsReserved": "판권 소유",
     "play": "놀다",
     "back": "뒤로가기",
-    "emptyDesc": "No Content"
+    "email": "이메일",
+    "emptyDesc": "컨텐츠를 찾을 수 없음",
+    "episodes": "%회"
   },
   "browse": {
     "all": "전부의"
@@ -33,6 +35,6 @@
   },
 
   "others": {
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
+    "error": "아이고, 404를 못 찾겠어..."
   }
 }

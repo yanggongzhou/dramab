@@ -16,7 +16,7 @@ const PcFooter: FC<IProps> = () => {
       <div className={styles.footerText}>
         <p className={styles.fText}>© {ClientConfig.name}, {t('home.allRightsReserved')}</p>
         <Link className={styles.fmail} href={`mailto:${ClientConfig.email}`}>
-          Email:{ ClientConfig.email }
+          {t("home.email")}:{ ClientConfig.email }
         </Link>
         <p className={styles.fText}>{ClientConfig.companyName}</p>
       </div>

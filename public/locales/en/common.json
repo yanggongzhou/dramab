@@ -9,7 +9,9 @@
     "allRightsReserved": "All Rights Reserved",
     "play": "Play",
     "back": "Back",
-    "emptyDesc": "No Content"
+    "email": "Email",
+    "emptyDesc": "It's empty!",
+    "episodes": "Episodes"
   },
   "browse": {
     "all": "All"
@@ -28,11 +30,11 @@
     "download": "Download",
     "clickCopy": "Click to copy link",
     "copied": "Copied, open the link in the mobile browser to download the App",
-    "copyGuide": "Scan the QR code to download, or open the link in phone browser.",
+    "copyGuide": "Scan the QR code to download, \nor open the link in phone browser.",
     "slogan": "Dive into drama"
   },
 
   "others": {
-    "error": "Sorry, there were no results found for your search. \n Try searching for it on the homepage."
+    "error": "Oooops, 404 not found..."
   }
 }

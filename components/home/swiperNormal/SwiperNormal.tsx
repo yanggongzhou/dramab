@@ -4,13 +4,14 @@ import styles from '@/components/home/swiperNormal/SwiperNormal.module.scss'
 import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";
 import ImageCover from "@/components/common/image/ImageCover";
+import { useTranslation } from "next-i18next";
 
 interface IProps {
   bigList: IBookItem[];
 }
 
 const SwiperNormal: FC<IProps> = ({ bigList }) => {
-
+  const { t } = useTranslation()
   const items = bigList.map((item) => (
     <Swiper.Item key={item.bookId} className={styles.content}>
       <div className={styles.swiperItem}>
@@ -29,7 +30,7 @@ const SwiperNormal: FC<IProps> = ({ bigList }) => {
             <Link className={styles.bookName} href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>
               {item.bookName}
             </Link>
-            <p className={styles.viewCount}>{item.viewCount} Episodes</p>
+            <p className={styles.viewCount}>{item.viewCount} {t('home.episodes')}</p>
             <p className={styles.intro}>{item.introduction}</p>
           </div>
           <div className={styles.rightCardBottom}>

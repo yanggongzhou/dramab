@@ -74,7 +74,7 @@ const PcBook: FC<IProps> = ({ bookInfo, firstChapterId }) => {
             <h1 className={styles.bookName}>{bookInfo.bookName}</h1>
           </Link>
           <Link href={routerToBook} className={styles.viewCount}>
-            {bookInfo.viewCountDisplay} Episodes
+            {`${bookInfo.viewCountDisplay} ${t("home.episodes")}`}
           </Link>
 
           <Link href={routerToBook} className={styles.intro}>

@@ -4,6 +4,7 @@ import { IBookItem } from "@/typings/home.interface";
 import Link from "next/link";
 import { onImgError } from "@/components/common/image/ImageCover";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 
 interface IProps {
   dataSource: IBookItem[];
@@ -11,6 +12,7 @@ interface IProps {
 }
 
 const SecondList: FC<IProps> = ({ dataSource, priority = false }) => {
+  const { t } = useTranslation()
 
   if (dataSource.length === 0) {
     return null
@@ -43,7 +45,7 @@ const SecondList: FC<IProps> = ({ dataSource, priority = false }) => {
         </Link>
 
         <Link className={styles.viewCount} href={routerToBookInfo}>
-          {viewCount} Episodes
+          {`${viewCount} ${t("home.episodes")}`}
         </Link>
 
         <Link href={routerToBookInfo} className={styles.bookName}>
