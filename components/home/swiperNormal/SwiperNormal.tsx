@@ -30,7 +30,7 @@ const SwiperNormal: FC<IProps> = ({ bigList }) => {
             <Link className={styles.bookName} href={`/book_info/${item.bookId}/${item.typeTwoName || 'all'}/${item.replacedBookName}`}>
               {item.bookName}
             </Link>
-            <p className={styles.viewCount}>{item.viewCount} {t('home.episodes')}</p>
+            <p className={styles.viewCountDisplay}>{item.viewCountDisplay || '0'} {t('home.episodes')}</p>
             <p className={styles.intro}>{item.introduction}</p>
           </div>
           <div className={styles.rightCardBottom}>
