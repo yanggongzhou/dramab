@@ -16,6 +16,7 @@
       overflow: hidden;
       position: relative;
       display: block;
+      z-index: 9;
 
       .imageItem {
         width: 100%;
@@ -26,12 +27,12 @@
 
     .viewCountDisplay {
       position: absolute;
+      z-index: 10;
       width: 100%;
       height: 0.34rem;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
       top: 3.29rem;
       left: 0;
-      z-index: 1;
       text-align: right;
       padding-right: 0.08rem;
       font-size: 0.13rem;
@@ -41,7 +42,7 @@
     }
 
     .bookName {
-      margin-top: 0.08rem;
+      //margin-top: 0.08rem;
       font-weight: 500;
       color: rgba(255, 255, 255, 0.9);
       font-size: 0.16rem;
@@ -52,11 +53,23 @@
       -webkit-line-clamp: 2;
       word-wrap: break-word;
       line-height: 0.22rem;
+      position: absolute;
+      top: 3.71rem;
+      left: 0;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 0.3s;
+      transition-delay: 0.3s;
     }
 
     .bookNameBox {
-      display: none;
+      display: block;
+      position: relative;
+      top: -1.5rem;
+      z-index: 3;
+      opacity: 0;
       transition: all 0.3s;
+      transition-delay: 0.2s;
       padding: 0.12rem;
       background: rgba(255, 255, 255, 0.12);
       border-radius: 0 0 0.04rem 0.04rem;
@@ -94,11 +107,13 @@
 
     &:hover {
       .bookName {
-        display: none;
+        //display: none;
+        opacity: 0;
       }
 
       .bookNameBox {
-        display: block;
+        top: 0;
+        opacity: 1;
       }
 
       .bookImage {

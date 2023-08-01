@@ -9,7 +9,6 @@ Allow: /
 
 # Disallow
 Disallow: /*?*
-Disallow: /download?*
 
 # Sitemaps
 Sitemap: ${process.env.WebDomain}/sitemap/sitemapindex.xml`)

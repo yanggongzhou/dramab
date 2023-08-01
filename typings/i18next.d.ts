@@ -8,13 +8,9 @@
 import 'i18next'
 
 import type common from '@/public/locales/en/common.json'
-import type terms from '@/public/locales/en/terms.json'
-import type privacy from '@/public/locales/en/privacy.json'
 
 interface I18nNamespaces {
   common: typeof common;
-  terms: typeof terms;
-  privacy: typeof privacy;
 }
 
 declare module 'i18next' {

@@ -13,24 +13,24 @@ interface IProps {
 
 /** 小说阅读吧 */
 const AgreementPrivacy: NextPage<IProps> = ({ isPc }) => {
-  const { t } = useTranslation('privacy')
+  const { t } = useTranslation()
   return <>
     <Head>
-      <meta key="description" name="description" content={(t('privacyContent') || '').slice(0, 500)}/>
+      <meta key="description" name="description" content={(t('privacy.privacyContent') || '').slice(0, 500)}/>
     </Head>
     {isPc ? <div className={styles.privacyWrap}>
         <div className={styles.privacyBox}>
-          <div className={styles.privacyTitle}>{t('privacyTitle')}</div>
+          <div className={styles.privacyTitle}>{t('privacy.privacyTitle')}</div>
           <div className={styles.privacyContent}>
-            {t('privacyContent')}
+            {t('privacy.privacyContent')}
             {/*<a href="mailto:booksourceofficial@gmail.com" style={{color:"rgba(255, 126, 66, 1)"}}></a>*/}
           </div>
         </div>
       </div> :
       <div className={styles.mPrivacyWrap}>
-        <div className={styles.mPrivacyTitle}>{t('privacyTitle')}</div>
+        <div className={styles.mPrivacyTitle}>{t('privacy.privacyTitle')}</div>
         <div className={styles.mPrivacyIntro}>
-          {t('privacyContent')}
+          {t('privacy.privacyContent')}
         </div>
       </div>
     }
@@ -43,7 +43,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, locale }) =>
   return {
     props: {
       isPc: ownOs(ua).isPc,
-      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common', 'privacy'])),
+      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common'])),
     }
   }
 }

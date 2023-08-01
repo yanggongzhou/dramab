@@ -1,27 +1,23 @@
 /** @type {import('next').NextConfig} */
 const { i18n } = require('./next-i18next.config')
 const path = require("path");
-const apiConfig = {
-  /**
-   * 网站域名
-   */
-  webDomainObj: {
-    test: 'https://webfic-ssr.hw.dzods.cn',
-    staging: 'https://yfbwww.dramabox.com',
-    prod: 'https://www.dramaboxdb.com'
-  },
-  /**
-   * 网站服务api
-   */
-  baseUrlObj: {
-    // test: 'http://192.168.0.253:8080',
-    test: 'http://192.168.1.70:8080',
-    staging: 'https://yfbwww.webfic.com',
-    prod: 'https://www.webfic.com'
-  },
+/**
+ * 网站域名
+ */
+const webDomainObj = {
+  test: 'https://webfic-ssr.hw.dzods.cn',
+  staging: 'https://yfbwww.dramabox.com',
+  prod: 'https://www.dramaboxdb.com'
 }
-const { webDomainObj, baseUrlObj } = apiConfig
-
+/**
+ * 网站服务api
+ */
+const baseUrlObj = {
+  // test: 'http://192.168.0.253:8080',
+  test: 'http://192.168.1.70:8080',
+  staging: 'https://yfbwww.webfic.com',
+  prod: 'https://www.webfic.com'
+}
 /**
  * 环境,手动更换
  */

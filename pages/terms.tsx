@@ -12,25 +12,25 @@ interface IProps {
 }
 /** 小说阅读吧 */
 const AgreementUser: NextPage<IProps> = ({ isPc }) => {
-  const { t } = useTranslation('terms')
+  const { t } = useTranslation()
   return <>
     <Head>
-      <meta key="description" name="description" content={(t('termsContent') || '').slice(0, 500)}/>
+      <meta key="description" name="description" content={(t('terms.termsContent') || '').slice(0, 500)}/>
     </Head>
     { isPc ?
       <div className={styles.termsWrap}>
         <div className={styles.termsBox}>
-          <div className={styles.termsTitle}>{t('termsTitle')}</div>
+          <div className={styles.termsTitle}>{t('terms.termsTitle')}</div>
           <div className={styles.termsContent}>
-            {t('termsContent')}
+            {t('terms.termsContent')}
           </div>
         </div>
       </div>
       :
       <div className={styles.mTermsWrap}>
-        <div className={styles.mTermsTitle}>{t('termsTitle')}</div>
+        <div className={styles.mTermsTitle}>{t('terms.termsTitle')}</div>
         <div className={styles.mTermsInfo}>
-          {t('termsContent')}
+          {t('terms.termsContent')}
         </div>
       </div>}
   </>
@@ -42,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, query, local
   return {
     props: {
       isPc: ownOs(ua).isPc,
-      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common','terms'])),
+      ...(await serverSideTranslations(locale ?? ELanguage.English, ['common'])),
     }
   }
 }
