@@ -11,7 +11,7 @@
   z-index: 99;
   height: 0.88rem;
   width: 100%;
-  background-color: #000000;
+  //background: linear-gradient(180deg, #000000 0%, rgba(0,0,0,0.6) 100%);
   backdrop-filter: blur(10px);
   padding: 0 0.32rem;
   display: flex;
@@ -24,7 +24,10 @@
   }
 
   .logoBox {
-    margin-left: 0.6rem;
+    position: absolute;
+    left: calc(50% - 0.9rem);
+    z-index: 1;
+    top: 0.24rem;
     width: 1.81rem;
     height: 0.4rem;
   }

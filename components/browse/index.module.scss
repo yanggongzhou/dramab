@@ -64,6 +64,15 @@
             color: $theme_color;
           }
         }
+
+        .adm-tabs-header-mask-right {
+          //background: linear-gradient(to left, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+          background: linear-gradient(270deg, #000000 0%, rgba(0,0,0,0) 100%);
+        }
+        .adm-tabs-header-mask-left {
+          //background: linear-gradient(to left, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0));
+          background: linear-gradient(90deg, #000000 0%, rgba(0,0,0,0) 100%);
+        }
       }
     }
   }

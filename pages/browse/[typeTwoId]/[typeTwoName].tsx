@@ -22,11 +22,7 @@ interface IProps {
 
 const Browse: NextPage<IProps> = (
   { isPc, types, bookList, pageNo, pages, typeTwoId}) => {
-  const HiveLog = useHiveLog();
-  // 浏览页点击 用户点击进入书籍详情时候
-  const bookClick = () => {
-    // HiveLog.track('Browse_click')
-  }
+
   return <>
     {isPc ?
       <PcBrowse
@@ -42,7 +38,6 @@ const Browse: NextPage<IProps> = (
         bookList={bookList}
         pages={pages}
         typeTwoId={typeTwoId}
-        bookClick={bookClick}
       />}
   </>
 }

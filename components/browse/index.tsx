@@ -17,7 +17,6 @@ interface IProps {
   pageNo: number;
   pages: number;
   typeTwoId: number;
-  bookClick: () => void;
 }
 
 const MBrowse: FC<IProps> = ({ bookList, pageNo, pages, typeTwoId, types }) => {

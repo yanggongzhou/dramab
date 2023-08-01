@@ -22,9 +22,6 @@ export const clipboardAsync = createAsyncThunk(
       h5fingerPrint,
       ua,
       url: window.location.href,
-      bid: '',
-      cid: 0,
-      shareCode: 0,
     }
     const ip = await netIpUa(clipboard)
     return {
@@ -61,8 +58,11 @@ export const hiveSlice = createSlice<IHiveStore, SliceCaseReducers<IHiveStore>>(
   },
   reducers: {
     setClipboard: (state, action: PayloadAction<{ bid?: string; cid?: string | number;}>) => {
-      const clipboardObj = Object.assign(state.clipboard, action.payload);
-      state.copyText = getCopyText(clipboardObj)
+      state.clipboard.bid = action.payload.bid
+      if (!!action.payload.cid) {
+        state.clipboard.cid = action.payload.cid
+      }
+      state.copyText = getCopyText(state.clipboard)
     },
     setLanguage: (state, action: PayloadAction<ELanguage>) => {
       state.language = action.payload;
@@ -72,8 +72,9 @@ export const hiveSlice = createSlice<IHiveStore, SliceCaseReducers<IHiveStore>>(
   extraReducers: (builder) => {
     builder
       .addCase(clipboardAsync.fulfilled, (state, action) => {
-        const clipboardObj = Object.assign(state.clipboard, action.payload);
-        state.copyText = getCopyText(clipboardObj)
+        // const clipboardObj = Object.assign(state.clipboard, action.payload);
+        state.clipboard = { ...state.clipboard, ...action.payload };
+        state.copyText = getCopyText(state.clipboard)
       })
     ;
   }
